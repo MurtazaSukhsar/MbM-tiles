@@ -1,0 +1,12 @@
+{
+  "name": "aqiq-mbm-tiles-catalog",
+  "version": "1.0.0",
+  "description": "AQIQ (MBM) TILES - Inventory Management & PDF Catalog Studio",
+  "scripts": {
+    "dev": "npx -y serve . -p 3000",
+    "start": "npx -y serve . -p 3000"
+  },
+  "keywords": ["tiles", "inventory", "catalog", "pdf", "stock-management"],
+  "author": "Antigravity",
+  "license": "MIT"
+}

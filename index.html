@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQIQ (MBM) TILES - Inventory & Catalog Studio</title>
+  <meta name="description" content="Professional inventory tracking and exact PDF catalog studio for AQIQ (MBM) TILES.">
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Core Libraries: jsPDF, html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- Cloud backend: Supabase (product/catalog data) + Cloudinary (photo storage) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Top Navigation Header -->
+    <header class="app-header no-print">
+      <div class="header-container">
+        <!-- Brand & Workspace -->
+        <div class="brand-wrapper">
+          <img id="headerLogoImg" class="brand-logo" src="" alt="AQIQ (MBM) TILES">
+          <div class="brand-info">
+            <h1 class="brand-name">AQIQ (MBM) TILES</h1>
+            <div class="brand-tag">
+              <span>Catalog &amp; Inventory Studio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="header-btn-suite">
+          <button id="btnAddNewTile" class="btn btn-primary" title="Add a new tile to catalog">
+            <svg class="svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Add Tile</span>
+          </button>
+          <button id="btnDownloadPdf" class="btn btn-secondary" title="Export exact replica PDF catalog">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+            <span>Export PDF</span>
+          </button>
+          <button id="btnPdfPreviewOpen" class="btn btn-secondary" title="Preview the catalog exactly as the PDF will look">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <span>Preview PDF</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="studio-main no-print">
+      <!-- Tile Grid Cards (the only view now - table & PDF preview tabs removed) -->
+      <section id="viewGrid" class="view-content-section">
+        <div id="tilesGridContainer" class="tiles-grid-view">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- PRINT ROOT -->
+    <div id="printRoot"></div>
+  </div>
+
+  <!-- ========================================================================
+       MODALS
+       ======================================================================== -->
+
+  <!-- Product Add / Edit Modal -->
+  <div id="productModal" class="modal-layer">
+    <div class="modal-surface">
+      <div class="modal-top-header">
+        <h3 id="modalProductTitle" class="modal-head-title">Product Details</h3>
+        <button id="btnModalClose" class="modal-close-icon-btn" title="Close">
+          <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-scroll-body">
+        <input type="hidden" id="editProductId">
+
+        <!-- Title & Stock -->
+        <div class="form-grid-2">
+          <div class="form-field-group">
+            <label class="field-label" for="editName">Product / Item Name *</label>
+            <input type="text" id="editName" class="field-text-input" placeholder="e.g. QueBec Light (Glossy)" required>
+          </div>
+          <div class="form-field-group">
+            <label class="field-label" for="editStock">Inventory Stock (Boxes) *</label>
+            <input type="number" id="editStock" class="field-text-input" min="0" step="1" placeholder="e.g. 726" required>
+          </div>
+        </div>
+
+        <!-- Size & Category -->
+        <div class="form-grid-2">
+          <div class="form-field-group">
+            <label class="field-label" for="editSize">Size / Tag Specification *</label>
+            <input type="text" id="editSize" class="field-text-input" placeholder="e.g. 600×1200 or 600×600 Tag" list="sizePresets" required>
+            <datalist id="sizePresets">
+              <option value="600×1200">
+              <option value="600×1200 (Glossy)">
+              <option value="600×1200 (Matt)">
+              <option value="600×1200 (Carving) sonex">
+              <option value="600×1200 (Diamond) sonex">
+              <option value="600×1200 (glossy) (full body)">
+              <option value="600×1200 (MATT)( full body)">
+              <option value="600×600 Tag">
+              <option value="600×600 (mat)waterproof (new)">
+              <option value="600×600 fullbody blueart">
+              <option value="600×300 (cladding)">
+              <option value="600×300 Clading">
+              <option value="800×1600">
+            </datalist>
+          </div>
+          <div class="form-field-group">
+            <label class="field-label" for="editCategory">Category Description</label>
+            <input type="text" id="editCategory" class="field-text-input" placeholder="e.g. 600×1200 Standard">
+          </div>
+        </div>
+
+        <!-- Multi-Images Manager -->
+        <div class="form-field-group">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <label class="field-label">Tile Photos (Multiple Images Supported)</label>
+            <span style="font-size:0.72rem; color:var(--text-dim)">First photo is Primary PDF Cover</span>
+          </div>
+
+          <!-- Dropzone -->
+          <div id="imageDropzone" class="upload-dropzone-box">
+            <svg class="svg-icon lg" style="color:var(--text-dim)" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <div style="font-size:0.82rem; font-weight:600; color:#fff;">Click or drag tile images here</div>
+            <div style="font-size:0.72rem; color:var(--text-dim);">PNG, JPG, WEBP · Clipboard paste (Ctrl+V) enabled</div>
+            <input type="file" id="imageFileInput" multiple accept="image/*" style="display:none;">
+          </div>
+
+          <!-- Draft Images -->
+          <div id="draftImagesGrid" class="draft-images-container"></div>
+        </div>
+
+      </div>
+      <div class="modal-bottom-footer">
+        <button id="btnDeleteProduct" class="btn btn-danger" style="margin-right:auto; display:none;">Delete Product</button>
+        <button id="btnModalCancel" class="btn btn-secondary">Cancel</button>
+        <button id="btnSaveProduct" class="btn btn-primary">Save Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Image Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-overlay">
+    <button id="btnLightboxClose" class="modal-close-icon-btn" style="position:absolute; top:18px; right:18px; color:#fff;" title="Close">
+      <svg class="svg-icon lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="lightbox-content-box">
+      <img id="lightboxImg" src="" alt="Tile Preview">
+    </div>
+    <div id="lightboxCaption" style="margin-top:10px; font-family:var(--font-heading); font-size:1rem; color:#fff; font-weight:600;"></div>
+    <div id="lightboxThumbs" style="display:flex; gap:6px; margin-top:8px;"></div>
+  </div>
+
+  <!-- Backup & Data Modal -->
+  <div id="backupModal" class="modal-layer">
+    <div class="modal-surface" style="max-width:480px;">
+      <div class="modal-top-header">
+        <h3 class="modal-head-title">Catalog Data Tools</h3>
+        <button id="btnBackupClose" class="modal-close-icon-btn">
+          <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-scroll-body">
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <!-- Backup JSON -->
+          <div style="background:var(--bg-input); padding:0.85rem; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+            <div style="font-weight:600; color:#fff; margin-bottom:0.2rem; font-size:0.85rem;">Export JSON Backup</div>
+            <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.65rem;">Save product images, sizes, stock levels, and ordering to a local file.</div>
+            <button id="btnExportJson" class="btn btn-secondary btn-sm">Download Backup</button>
+          </div>
+
+          <!-- Restore JSON -->
+          <div style="background:var(--bg-input); padding:0.85rem; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+            <div style="font-weight:600; color:#fff; margin-bottom:0.2rem; font-size:0.85rem;">Restore from JSON Backup</div>
+            <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.65rem;">Load a previous catalog file to restore full inventory state.</div>
+            <input type="file" id="importJsonInput" accept=".json" style="display:none;">
+            <button id="btnTriggerImportJson" class="btn btn-secondary btn-sm">Select Backup File</button>
+          </div>
+
+          <!-- Export CSV -->
+          <div style="background:var(--bg-input); padding:0.85rem; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+            <div style="font-weight:600; color:#fff; margin-bottom:0.2rem; font-size:0.85rem;">Export Stock Spreadsheet (CSV)</div>
+            <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.65rem;">Download inventory spreadsheet compatible with Excel and Google Sheets.</div>
+            <button id="btnExportCsv" class="btn btn-secondary btn-sm">Download CSV</button>
+          </div>
+
+          <!-- Reset Default -->
+          <div style="background:rgba(244,63,94,0.06); padding:0.85rem; border-radius:var(--radius-sm); border:1px solid rgba(244,63,94,0.2);">
+            <div style="font-weight:600; color:#fb7185; margin-bottom:0.2rem; font-size:0.85rem;">Reset to Default 111 Products</div>
+            <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.65rem;">Restores original tiles extracted from reference PDF.</div>
+            <button id="btnResetCatalog" class="btn btn-danger btn-sm">Reset Catalog</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-bottom-footer">
+        <button id="btnBackupDone" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reorder Tools Modal -->
+  <div id="reorderModal" class="modal-layer">
+    <div class="modal-surface" style="max-width:440px;">
+      <div class="modal-top-header">
+        <h3 class="modal-head-title">Catalog Arrangement</h3>
+        <button id="btnReorderClose" class="modal-close-icon-btn">
+          <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-scroll-body">
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          <div style="font-size:0.8rem; color:var(--text-dim); margin-bottom:0.35rem;">
+            Rearrange tiles by dragging in the Grid View, or apply standard sorting presets:
+          </div>
+          <button id="btnSortByCategory" class="btn btn-secondary" style="justify-content:flex-start;">
+            <span>Group by Category Theme (PDF Order)</span>
+          </button>
+          <button id="btnSortByName" class="btn btn-secondary" style="justify-content:flex-start;">
+            <span>Sort Alphabetically (A to Z)</span>
+          </button>
+          <button id="btnSortByStockDesc" class="btn btn-secondary" style="justify-content:flex-start;">
+            <span>Sort by Highest Stock Level</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-bottom-footer">
+        <button id="btnReorderDone" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Preview Modal -->
+  <div id="pdfPreviewModal" class="modal-layer">
+    <div class="modal-surface" style="max-width:900px;">
+      <div class="modal-top-header">
+        <h3 class="modal-head-title">Catalog PDF Preview</h3>
+        <button id="btnPdfPreviewClose" class="modal-close-icon-btn" title="Close">
+          <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-scroll-body">
+        <div class="pdf-viewer-shell">
+          <!-- Toolbar -->
+          <div class="pdf-viewer-controls">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span style="font-weight:700; color:#fff; font-size:0.85rem;">Catalog Sheets:</span>
+              <span id="pdfPageCountBadge" style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim);">Loading...</span>
+            </div>
+          </div>
+
+          <div class="mobile-scroll-hint">
+            <svg class="svg-icon sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <span>Swipe sideways to see the full page</span>
+          </div>
+
+          <!-- Live Multi-Page PDF Stack -->
+          <div id="pdfPagesFeed" class="pdf-pages-stack">
+            <!-- Rendered PDF sheets -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-bottom-footer">
+        <button id="btnPdfPreviewDownload" class="btn btn-primary">Download PDF</button>
+        <button id="btnPdfPreviewDone" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Shelf -->
+  <div id="toastContainer" class="toast-shelf"></div>
+
+  <!-- Scripts -->
+  <script src="catalog-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
