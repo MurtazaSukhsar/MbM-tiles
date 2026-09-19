@@ -39,6 +39,8 @@
     arrowLeft: `<svg class="svg-icon sm" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>`,
     arrowRight: `<svg class="svg-icon sm" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>`,
     search: `<svg class="svg-icon sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
+    share: `<svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>`,
+    whatsapp: `<svg class="svg-icon sm" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.15c-.24.68-1.39 1.26-1.92 1.34-.5.07-1.14.1-3.32-.8-2.79-1.15-4.57-3.99-4.71-4.18-.14-.18-1.13-1.51-1.13-2.88 0-1.37.72-2.05.98-2.33.26-.28.56-.35.75-.35.19 0 .38 0 .54.01.18.01.42-.07.65.49.24.58.82 2 .89 2.15.07.15.12.33.02.53-.1.2-.15.33-.3.51-.15.18-.31.4-.44.54-.15.15-.3.31-.13.61.17.29.77 1.27 1.65 2.05 1.13 1.01 2.09 1.32 2.38 1.47.3.15.47.12.65-.08.18-.21.75-.88.95-1.18.2-.3.41-.25.68-.15.28.1 1.78.84 2.09.99.3.15.51.22.58.35.08.12.08.7-.16 1.38z"/></svg>`,
     loader: `<svg class="svg-icon sm" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>`
   };
 
@@ -411,6 +413,7 @@
             <input type="number" class="card-seq-input" min="1" max="${catalog.products.length}" step="1" inputmode="numeric" value="${globalIndex}">
           </div>
           <div class="card-top-tools">
+            <button class="card-tool-btn btn-share-tile" title="Share Tile Product">${ICONS.share}</button>
             <button class="card-tool-btn btn-edit-tile" title="Edit Product Info">${ICONS.edit}</button>
           </div>
         </div>
@@ -428,6 +431,9 @@
           </div>
 
           <div class="card-action-footer">
+            <button class="btn btn-sm btn-secondary btn-share-tile" style="font-size:0.75rem; color:#fff; gap:0.35rem;">
+              ${ICONS.share} <span>Share</span>
+            </button>
             <button class="btn btn-sm btn-secondary btn-delete-tile" style="font-size:0.72rem; color:var(--accent-rose); margin-left:auto;">
               ${ICONS.trash} <span>Delete</span>
             </button>
@@ -439,6 +445,12 @@
       card.querySelector('.card-preview-stage').onclick = () => openLightbox(p);
       card.querySelector('.btn-edit-tile').onclick = () => openProductEditor(p.id);
       card.querySelector('.btn-delete-tile').onclick = () => deleteProduct(p.id);
+      card.querySelectorAll('.btn-share-tile').forEach(b => {
+        b.onclick = (e) => {
+          e.stopPropagation();
+          openShareModal(p.id);
+        };
+      });
 
       const seqInput = card.querySelector('.card-seq-input');
       seqInput.addEventListener('click', (e) => e.stopPropagation());
@@ -514,12 +526,14 @@
           </div>
         </td>
         <td style="text-align:right;">
+          <button class="card-tool-btn btn-share-tile" title="Share Tile">${ICONS.share}</button>
           <button class="card-tool-btn btn-edit-tile" title="Edit">${ICONS.edit}</button>
           <button class="card-tool-btn btn-delete-tile" style="color:var(--accent-rose);" title="Delete">${ICONS.trash}</button>
         </td>
       `;
 
       tr.querySelector('.tbl-tile-preview').onclick = () => openLightbox(p);
+      tr.querySelector('.btn-share-tile').onclick = () => openShareModal(p.id);
       tr.querySelector('.btn-edit-tile').onclick = () => openProductEditor(p.id);
       tr.querySelector('.btn-delete-tile').onclick = () => deleteProduct(p.id);
 
@@ -1011,7 +1025,12 @@
   /* --------------------------------------------------------------------------
      Lightbox Photo Viewer
      -------------------------------------------------------------------------- */
+  let activeLightboxProduct = null;
+  let activeLightboxImgIndex = 0;
+
   function openLightbox(product) {
+    activeLightboxProduct = product;
+    activeLightboxImgIndex = 0;
     const modal = document.getElementById('lightboxModal');
     const mainImg = document.getElementById('lightboxImg');
     const caption = document.getElementById('lightboxCaption');
@@ -1036,6 +1055,7 @@
       t.style.border = idx === 0 ? '2px solid var(--accent-amber-light)' : '2px solid transparent';
 
       t.onclick = () => {
+        activeLightboxImgIndex = idx;
         mainImg.src = im.dataUrl;
         [...thumbs.children].forEach(c => c.style.border = '2px solid transparent');
         t.style.border = '2px solid var(--accent-amber-light)';
@@ -1049,7 +1069,440 @@
 
   function closeLightbox() {
     document.getElementById('lightboxModal').classList.remove('open');
+    activeLightboxProduct = null;
   }
+
+  /* --------------------------------------------------------------------------
+     Product Sharing System
+     -------------------------------------------------------------------------- */
+  let activeShareProduct = null;
+  let activeSharePhotoIndex = 0;
+
+  function sanitizeFilename(name) {
+    return (name || 'tile').replace(/[^a-zA-Z0-9_-]/g, '_');
+  }
+
+  function loadImageAsync(src) {
+    return new Promise((resolve) => {
+      if (!src) return resolve(null);
+      const img = new Image();
+      if (!src.startsWith('data:')) {
+        img.crossOrigin = 'anonymous';
+      }
+      img.onload = () => resolve(img);
+      img.onerror = () => {
+        if (img.crossOrigin) {
+          const fallbackImg = new Image();
+          fallbackImg.onload = () => resolve(fallbackImg);
+          fallbackImg.onerror = () => resolve(null);
+          fallbackImg.src = src;
+        } else {
+          resolve(null);
+        }
+      };
+      img.src = src;
+    });
+  }
+
+  async function generateShareCardBlob(product, photoIndex = 0) {
+    const canvas = document.createElement('canvas');
+    const W = 800;
+    const H = 960;
+    canvas.width = W;
+    canvas.height = H;
+    const ctx = canvas.getContext('2d');
+
+    // 1. Background
+    ctx.fillStyle = '#090c14';
+    ctx.fillRect(0, 0, W, H);
+
+    // Subtle header gradient
+    const grad = ctx.createLinearGradient(0, 0, W, 100);
+    grad.addColorStop(0, '#0f131f');
+    grad.addColorStop(1, '#182035');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, 90);
+
+    // Accent line
+    ctx.fillStyle = '#3b4998';
+    ctx.fillRect(0, 88, W, 2);
+
+    // 2. Brand Header
+    const logoSrc = catalog.logoIcon || '';
+    let textLeft = 30;
+    if (logoSrc) {
+      const logoImg = await loadImageAsync(logoSrc);
+      if (logoImg) {
+        ctx.fillStyle = '#ffffff';
+        if (ctx.roundRect) {
+          ctx.beginPath();
+          ctx.roundRect(24, 18, 120, 54, 6);
+          ctx.fill();
+        } else {
+          ctx.fillRect(24, 18, 120, 54);
+        }
+        ctx.drawImage(logoImg, 28, 22, 112, 46);
+        textLeft = 160;
+      }
+    }
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText('AQIQ (MBM) TILES', textLeft, 44);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '500 14px "Inter", sans-serif';
+    ctx.fillText('Tile Catalog & Inventory', textLeft, 68);
+
+    // Category / Size Pill top right
+    const pillText = product.size || '600×1200';
+    ctx.font = 'bold 14px "JetBrains Mono", monospace';
+    const pillW = ctx.measureText(pillText).width + 24;
+    ctx.fillStyle = '#20293f';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(W - 24 - pillW, 26, pillW, 36, 18);
+      ctx.fill();
+    } else {
+      ctx.fillRect(W - 24 - pillW, 26, pillW, 36);
+    }
+    ctx.strokeStyle = '#3b4968';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.fillStyle = '#7dc3fc';
+    ctx.fillText(pillText, W - 24 - pillW + 12, 50);
+
+    // 3. Tile Photo Box
+    const stageX = 24;
+    const stageY = 110;
+    const stageW = W - 48;
+    const stageH = 590;
+
+    ctx.fillStyle = '#ffffff';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(stageX, stageY, stageW, stageH, 12);
+      ctx.fill();
+    } else {
+      ctx.fillRect(stageX, stageY, stageW, stageH);
+    }
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    const currentImgUrl = (product.images && product.images[photoIndex])
+      ? product.images[photoIndex].dataUrl
+      : (product.images && product.images[0] ? product.images[0].dataUrl : '');
+
+    if (currentImgUrl) {
+      const tileImg = await loadImageAsync(currentImgUrl);
+      if (tileImg) {
+        const padding = 24;
+        const maxImgW = stageW - padding * 2;
+        const maxImgH = stageH - padding * 2;
+        let drawW = tileImg.naturalWidth || tileImg.width;
+        let drawH = tileImg.naturalHeight || tileImg.height;
+
+        const scale = Math.min(maxImgW / drawW, maxImgH / drawH);
+        drawW *= scale;
+        drawH *= scale;
+
+        const imgX = stageX + (stageW - drawW) / 2;
+        const imgY = stageY + (stageH - drawH) / 2;
+        ctx.drawImage(tileImg, imgX, imgY, drawW, drawH);
+      }
+    } else {
+      ctx.fillStyle = '#64748b';
+      ctx.font = '16px "Inter", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('No Image Available', W / 2, stageY + stageH / 2);
+      ctx.textAlign = 'left';
+    }
+
+    // 4. Product Details Deck
+    const deckY = 720;
+    ctx.fillStyle = '#131826';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(stageX, deckY, stageW, 160, 12);
+      ctx.fill();
+    } else {
+      ctx.fillRect(stageX, deckY, stageW, 160);
+    }
+    ctx.strokeStyle = '#26314c';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Product Title
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText(product.name || 'Untitled Tile', stageX + 20, deckY + 40);
+
+    // Meta row badges
+    const metaY = deckY + 70;
+    
+    // Size badge
+    ctx.fillStyle = '#0c0f18';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(stageX + 20, metaY, 210, 48, 8);
+      ctx.fill();
+    } else {
+      ctx.fillRect(stageX + 20, metaY, 210, 48);
+    }
+    ctx.fillStyle = '#64748b';
+    ctx.font = '11px "Inter", sans-serif';
+    ctx.fillText('SIZE SPECIFICATION', stageX + 32, metaY + 18);
+    ctx.fillStyle = '#f1f5f9';
+    ctx.font = 'bold 15px "JetBrains Mono", monospace';
+    ctx.fillText(product.size || '-', stageX + 32, metaY + 38);
+
+    // Stock badge
+    ctx.fillStyle = '#0c0f18';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(stageX + 250, metaY, 220, 48, 8);
+      ctx.fill();
+    } else {
+      ctx.fillRect(stageX + 250, metaY, 220, 48);
+    }
+    ctx.fillStyle = '#64748b';
+    ctx.font = '11px "Inter", sans-serif';
+    ctx.fillText('AVAILABLE STOCK', stageX + 262, metaY + 18);
+    const isOut = (product.stock || 0) <= 0;
+    const isLow = (product.stock || 0) < 20 && !isOut;
+    ctx.fillStyle = isOut ? '#f43f5e' : isLow ? '#f59e0b' : '#10b981';
+    ctx.font = 'bold 15px "JetBrains Mono", monospace';
+    ctx.fillText(`${product.stock || 0} Boxes`, stageX + 262, metaY + 38);
+
+    // Category / Series badge
+    const catName = product.category || `${(product.theme || 'Standard')} Series`;
+    ctx.fillStyle = '#0c0f18';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(stageX + 490, metaY, stageW - 510, 48, 8);
+      ctx.fill();
+    } else {
+      ctx.fillRect(stageX + 490, metaY, stageW - 510, 48);
+    }
+    ctx.fillStyle = '#64748b';
+    ctx.font = '11px "Inter", sans-serif';
+    ctx.fillText('CATEGORY / THEME', stageX + 502, metaY + 18);
+    ctx.fillStyle = '#f1f5f9';
+    ctx.font = 'bold 14px "Inter", sans-serif';
+    ctx.fillText(catName.length > 22 ? catName.substring(0, 20) + '...' : catName, stageX + 502, metaY + 38);
+
+    // 5. Footer Branding
+    ctx.fillStyle = '#475569';
+    ctx.font = '500 12px "Inter", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('AQIQ (MBM) TILES · Professional Inventory Management', W / 2, H - 25);
+    ctx.textAlign = 'left';
+
+    return new Promise((resolve) => {
+      canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.94);
+    });
+  }
+
+  function openShareModal(productId, photoIndex = 0) {
+    const p = catalog.products.find(x => x.id === productId);
+    if (!p) return;
+
+    activeShareProduct = p;
+    activeSharePhotoIndex = photoIndex;
+
+    const modal = document.getElementById('shareModal');
+    const titleEl = document.getElementById('shareModalTitle');
+    const cardLogo = document.getElementById('shareCardLogo');
+    const cardCategoryPill = document.getElementById('shareCardCategoryPill');
+    const cardImg = document.getElementById('shareCardImg');
+    const cardName = document.getElementById('shareCardName');
+    const cardSize = document.getElementById('shareCardSize');
+    const cardStock = document.getElementById('shareCardStock');
+    const photoSelectorRow = document.getElementById('sharePhotoSelectorRow');
+    const photoThumbs = document.getElementById('sharePhotoThumbs');
+
+    titleEl.textContent = `Share: ${p.name}`;
+    cardName.textContent = p.name;
+    cardSize.textContent = p.size;
+    cardStock.textContent = `${p.stock} Boxes`;
+    cardCategoryPill.textContent = p.size || p.category || 'Standard';
+
+    if (catalog.logoIcon) {
+      cardLogo.src = catalog.logoIcon;
+      cardLogo.style.display = 'block';
+    } else {
+      cardLogo.style.display = 'none';
+    }
+
+    const images = p.images || [];
+    const currentImg = images[photoIndex] ? images[photoIndex].dataUrl : (images[0] ? images[0].dataUrl : '');
+    cardImg.src = currentImg;
+
+    if (images.length > 1) {
+      photoSelectorRow.style.display = 'block';
+      photoThumbs.innerHTML = '';
+      images.forEach((img, idx) => {
+        const thumb = document.createElement('img');
+        thumb.className = 'share-photo-thumb' + (idx === photoIndex ? ' active' : '');
+        thumb.src = img.dataUrl;
+        thumb.onclick = () => {
+          activeSharePhotoIndex = idx;
+          cardImg.src = img.dataUrl;
+          photoThumbs.querySelectorAll('.share-photo-thumb').forEach((t, i) => {
+            t.classList.toggle('active', i === idx);
+          });
+        };
+        photoThumbs.appendChild(thumb);
+      });
+    } else {
+      photoSelectorRow.style.display = 'none';
+    }
+
+    modal.classList.add('open');
+  }
+
+  function closeShareModal() {
+    document.getElementById('shareModal').classList.remove('open');
+    activeShareProduct = null;
+  }
+
+  async function shareProductNativeAction() {
+    if (!activeShareProduct) return;
+    const p = activeShareProduct;
+    const photoIdx = activeSharePhotoIndex;
+
+    const btn = document.getElementById('btnNativeShare');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = `${ICONS.loader} <span>Preparing Share...</span>`;
+
+    try {
+      const cardBlob = await generateShareCardBlob(p, photoIdx);
+      const filename = `AQIQ-${sanitizeFilename(p.name)}.jpg`;
+      const file = new File([cardBlob], filename, { type: 'image/jpeg' });
+      const shareText = `*AQIQ (MBM) TILES*\nItem: ${p.name}\nSize: ${p.size}\nStock: ${p.stock} Boxes`;
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          title: `AQIQ TILES - ${p.name}`,
+          text: shareText,
+          files: [file]
+        });
+        showToast('Shared successfully!');
+      } else if (navigator.share) {
+        await navigator.share({
+          title: `AQIQ TILES - ${p.name}`,
+          text: shareText,
+          url: window.location.href
+        });
+        showToast('Product shared!');
+      } else {
+        shareProductWhatsAppAction();
+      }
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        console.warn('Share error, falling back:', err);
+        shareProductWhatsAppAction();
+      }
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    }
+  }
+
+  async function shareProductWhatsAppAction() {
+    if (!activeShareProduct) return;
+    const p = activeShareProduct;
+    const photoIdx = activeSharePhotoIndex;
+
+    const msg = [
+      `*AQIQ (MBM) TILES*`,
+      `━━━━━━━━━━━━━━━━━━`,
+      `📦 *Item Name:* ${p.name}`,
+      `📐 *Size:* ${p.size}`,
+      `🏷️ *Category:* ${p.category || (p.theme || 'Standard') + ' Series'}`,
+      `📊 *Available Stock:* ${p.stock} Boxes`,
+      `━━━━━━━━━━━━━━━━━━`,
+      `🔗 *Catalog:* ${window.location.origin}`
+    ].join('\n');
+
+    try {
+      const cardBlob = await generateShareCardBlob(p, photoIdx);
+      if (navigator.clipboard && window.ClipboardItem) {
+        await navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': cardBlob.slice(0, cardBlob.size, 'image/png') })
+        ]);
+        showToast('Tile photo copied to clipboard! Paste (Ctrl+V) directly into WhatsApp.');
+      }
+    } catch (e) {}
+
+    const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+  }
+
+  async function downloadShareCardAction() {
+    if (!activeShareProduct) return;
+    const p = activeShareProduct;
+    const photoIdx = activeSharePhotoIndex;
+
+    const btn = document.getElementById('btnDownloadShareCard');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = `${ICONS.loader} <span>Saving...</span>`;
+
+    try {
+      const cardBlob = await generateShareCardBlob(p, photoIdx);
+      const url = URL.createObjectURL(cardBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `AQIQ-Tile-${sanitizeFilename(p.name)}.jpg`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast(`Saved <strong>${p.name}</strong> product card image.`);
+    } catch (err) {
+      console.error('Download card error:', err);
+      showToast('Could not save card image.');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    }
+  }
+
+  async function copyProductDetailsAction() {
+    if (!activeShareProduct) return;
+    const p = activeShareProduct;
+    const text = `AQIQ (MBM) TILES\nItem: ${p.name}\nSize: ${p.size}\nStock: ${p.stock} Boxes\nCategory: ${p.category || (p.theme || 'Standard') + ' Series'}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast('Product details copied to clipboard!');
+    } catch (err) {
+      showToast('Could not copy text.');
+    }
+  }
+
+  async function copyProductImageAction() {
+    if (!activeShareProduct) return;
+    const p = activeShareProduct;
+    const photoIdx = activeSharePhotoIndex;
+
+    try {
+      const cardBlob = await generateShareCardBlob(p, photoIdx);
+      if (navigator.clipboard && window.ClipboardItem) {
+        await navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': cardBlob.slice(0, cardBlob.size, 'image/png') })
+        ]);
+        showToast('Product photo card copied to clipboard!');
+      } else {
+        showToast('Clipboard image copying not supported in this browser.');
+      }
+    } catch (err) {
+      console.error('Copy photo error:', err);
+      showToast('Could not copy image.');
+    }
+  }
+
 
   /* --------------------------------------------------------------------------
      Backup, Restore & Export CSV
@@ -1246,17 +1699,33 @@
       }
     });
 
-    // Lightbox Close
+    // Lightbox & Share Connections
     document.getElementById('btnLightboxClose').onclick = closeLightbox;
     document.getElementById('lightboxModal').onclick = (e) => {
       if (e.target.id === 'lightboxModal') closeLightbox();
     };
+    document.getElementById('btnLightboxShare').onclick = () => {
+      if (activeLightboxProduct) {
+        openShareModal(activeLightboxProduct.id, activeLightboxImgIndex);
+      }
+    };
+
+    // Share Modal Controls
+    const shareModal = document.getElementById('shareModal');
+    document.getElementById('btnShareClose').onclick = closeShareModal;
+    document.getElementById('btnShareDone').onclick = closeShareModal;
+    document.getElementById('btnNativeShare').onclick = shareProductNativeAction;
+    document.getElementById('btnWhatsappShare').onclick = shareProductWhatsAppAction;
+    document.getElementById('btnDownloadShareCard').onclick = downloadShareCardAction;
+    document.getElementById('btnCopyProductDetails').onclick = copyProductDetailsAction;
+    document.getElementById('btnCopyProductImage').onclick = copyProductImageAction;
 
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeProductEditor();
         closeLightbox();
+        closeShareModal();
         backupModal.classList.remove('open');
         reorderModal.classList.remove('open');
       }
