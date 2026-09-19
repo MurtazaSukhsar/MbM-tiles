@@ -239,23 +239,29 @@
               <span>WhatsApp</span>
             </button>
 
-            <button id="btnDownloadShareCard" class="btn btn-secondary btn-share-action" style="justify-content:center; gap:0.5rem;">
+            <button id="btnDownloadShareCard" class="btn btn-secondary btn-share-action" style="justify-content:center; gap:0.5rem;" title="Download crystal clear 1600x1920 poster card">
               <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              <span>Save Card Image</span>
+              <span>Save HD Card</span>
             </button>
           </div>
 
-          <!-- Quick Copy Controls -->
+          <!-- Quick Copy & Raw Photo Controls -->
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem;">
-            <button id="btnCopyProductDetails" class="btn btn-secondary btn-share-action" style="justify-content:center; gap:0.5rem;">
-              <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span>Copy Details</span>
-            </button>
-            <button id="btnCopyProductImage" class="btn btn-secondary btn-share-action" style="justify-content:center; gap:0.5rem;">
+            <button id="btnDownloadRawPhoto" class="btn btn-secondary btn-share-action" style="justify-content:center; gap:0.5rem;" title="Download the original full-resolution tile photo">
               <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-              <span>Copy Photo</span>
+              <span>Save Pure Photo</span>
+            </button>
+
+            <button id="btnCopyProductImage" class="btn btn-secondary btn-share-action" style="justify-content:center; gap:0.5rem;" title="Copy crystal clear photo to clipboard for instant pasting">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Photo (HD)</span>
             </button>
           </div>
+
+          <button id="btnCopyProductDetails" class="btn btn-secondary btn-share-action" style="width:100%; justify-content:center; gap:0.5rem;">
+            <svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy Text Details</span>
+          </button>
         </div>
       </div>
 

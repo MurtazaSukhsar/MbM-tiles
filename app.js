@@ -1106,89 +1106,93 @@
 
   async function generateShareCardBlob(product, photoIndex = 0) {
     const canvas = document.createElement('canvas');
-    const W = 800;
-    const H = 960;
+    // Ultra-HD 2x Retina Resolution (1600x1920) for razor sharp clarity on all screens & WhatsApp
+    const W = 1600;
+    const H = 1920;
     canvas.width = W;
     canvas.height = H;
     const ctx = canvas.getContext('2d');
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
 
     // 1. Background
     ctx.fillStyle = '#090c14';
     ctx.fillRect(0, 0, W, H);
 
     // Subtle header gradient
-    const grad = ctx.createLinearGradient(0, 0, W, 100);
+    const grad = ctx.createLinearGradient(0, 0, W, 200);
     grad.addColorStop(0, '#0f131f');
     grad.addColorStop(1, '#182035');
     ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, 90);
+    ctx.fillRect(0, 0, W, 180);
 
     // Accent line
     ctx.fillStyle = '#3b4998';
-    ctx.fillRect(0, 88, W, 2);
+    ctx.fillRect(0, 176, W, 4);
 
     // 2. Brand Header
     const logoSrc = catalog.logoIcon || '';
-    let textLeft = 30;
+    let textLeft = 60;
     if (logoSrc) {
       const logoImg = await loadImageAsync(logoSrc);
       if (logoImg) {
         ctx.fillStyle = '#ffffff';
         if (ctx.roundRect) {
           ctx.beginPath();
-          ctx.roundRect(24, 18, 120, 54, 6);
+          ctx.roundRect(48, 36, 240, 108, 12);
           ctx.fill();
         } else {
-          ctx.fillRect(24, 18, 120, 54);
+          ctx.fillRect(48, 36, 240, 108);
         }
-        ctx.drawImage(logoImg, 28, 22, 112, 46);
-        textLeft = 160;
+        ctx.drawImage(logoImg, 56, 44, 224, 92);
+        textLeft = 320;
       }
     }
 
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('AQIQ (MBM) TILES', textLeft, 44);
+    ctx.font = 'bold 48px "Plus Jakarta Sans", -apple-system, sans-serif';
+    ctx.fillText('AQIQ (MBM) TILES', textLeft, 88);
 
     ctx.fillStyle = '#94a3b8';
-    ctx.font = '500 14px "Inter", sans-serif';
-    ctx.fillText('Tile Catalog & Inventory', textLeft, 68);
+    ctx.font = '600 28px "Inter", -apple-system, sans-serif';
+    ctx.fillText('Tile Catalog & Inventory', textLeft, 134);
 
     // Category / Size Pill top right
     const pillText = product.size || '600×1200';
-    ctx.font = 'bold 14px "JetBrains Mono", monospace';
-    const pillW = ctx.measureText(pillText).width + 24;
+    ctx.font = 'bold 28px "JetBrains Mono", monospace';
+    const pillW = ctx.measureText(pillText).width + 48;
     ctx.fillStyle = '#20293f';
     if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.roundRect(W - 24 - pillW, 26, pillW, 36, 18);
+      ctx.roundRect(W - 48 - pillW, 52, pillW, 72, 36);
       ctx.fill();
     } else {
-      ctx.fillRect(W - 24 - pillW, 26, pillW, 36);
+      ctx.fillRect(W - 48 - pillW, 52, pillW, 72);
     }
     ctx.strokeStyle = '#3b4968';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
     ctx.stroke();
 
     ctx.fillStyle = '#7dc3fc';
-    ctx.fillText(pillText, W - 24 - pillW + 12, 50);
+    ctx.fillText(pillText, W - 48 - pillW + 24, 98);
 
-    // 3. Tile Photo Box
-    const stageX = 24;
-    const stageY = 110;
-    const stageW = W - 48;
-    const stageH = 590;
+    // 3. Tile Photo Stage
+    const stageX = 48;
+    const stageY = 220;
+    const stageW = W - 96;
+    const stageH = 1180;
 
     ctx.fillStyle = '#ffffff';
     if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.roundRect(stageX, stageY, stageW, stageH, 12);
+      ctx.roundRect(stageX, stageY, stageW, stageH, 24);
       ctx.fill();
     } else {
       ctx.fillRect(stageX, stageY, stageW, stageH);
     }
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 2;
     ctx.stroke();
 
     const currentImgUrl = (product.images && product.images[photoIndex])
@@ -1198,7 +1202,7 @@
     if (currentImgUrl) {
       const tileImg = await loadImageAsync(currentImgUrl);
       if (tileImg) {
-        const padding = 24;
+        const padding = 48;
         const maxImgW = stageW - padding * 2;
         const maxImgH = stageH - padding * 2;
         let drawW = tileImg.naturalWidth || tileImg.width;
@@ -1214,78 +1218,81 @@
       }
     } else {
       ctx.fillStyle = '#64748b';
-      ctx.font = '16px "Inter", sans-serif';
+      ctx.font = '32px "Inter", sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('No Image Available', W / 2, stageY + stageH / 2);
       ctx.textAlign = 'left';
     }
 
     // 4. Product Details Deck
-    const deckY = 720;
+    const deckY = 1440;
+    const deckH = 320;
     ctx.fillStyle = '#131826';
     if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.roundRect(stageX, deckY, stageW, 160, 12);
+      ctx.roundRect(stageX, deckY, stageW, deckH, 24);
       ctx.fill();
     } else {
-      ctx.fillRect(stageX, deckY, stageW, 160);
+      ctx.fillRect(stageX, deckY, stageW, deckH);
     }
     ctx.strokeStyle = '#26314c';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
     ctx.stroke();
 
     // Product Title
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText(product.name || 'Untitled Tile', stageX + 20, deckY + 40);
+    ctx.font = 'bold 48px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText(product.name || 'Untitled Tile', stageX + 40, deckY + 80);
 
-    // Meta row badges (Size & Category - stock omitted for customer sharing)
-    const metaY = deckY + 70;
-    const badgeW = (stageW - 50) / 2;
+    // Meta row badges (Size & Category)
+    const metaY = deckY + 140;
+    const badgeW = (stageW - 100) / 2;
+    const badgeH = 104;
     
     // Size badge
     ctx.fillStyle = '#0c0f18';
     if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.roundRect(stageX + 20, metaY, badgeW, 52, 8);
+      ctx.roundRect(stageX + 40, metaY, badgeW, badgeH, 16);
       ctx.fill();
     } else {
-      ctx.fillRect(stageX + 20, metaY, badgeW, 52);
+      ctx.fillRect(stageX + 40, metaY, badgeW, badgeH);
     }
     ctx.fillStyle = '#64748b';
-    ctx.font = '11px "Inter", sans-serif';
-    ctx.fillText('SIZE SPECIFICATION', stageX + 34, metaY + 20);
+    ctx.font = '600 22px "Inter", sans-serif';
+    ctx.fillText('SIZE SPECIFICATION', stageX + 68, metaY + 40);
     ctx.fillStyle = '#f1f5f9';
-    ctx.font = 'bold 16px "JetBrains Mono", monospace';
-    ctx.fillText(product.size || '-', stageX + 34, metaY + 41);
+    ctx.font = 'bold 32px "JetBrains Mono", monospace';
+    ctx.fillText(product.size || '-', stageX + 68, metaY + 82);
 
     // Category / Series badge
     const catName = product.category || `${(product.theme || 'Standard')} Series`;
-    const catX = stageX + 30 + badgeW;
+    const catX = stageX + 60 + badgeW;
     ctx.fillStyle = '#0c0f18';
     if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.roundRect(catX, metaY, badgeW, 52, 8);
+      ctx.roundRect(catX, metaY, badgeW, badgeH, 16);
       ctx.fill();
     } else {
       ctx.fillRect(catX, metaY, badgeW, 52);
     }
     ctx.fillStyle = '#64748b';
-    ctx.font = '11px "Inter", sans-serif';
-    ctx.fillText('CATEGORY / SERIES', catX + 14, metaY + 20);
+    ctx.font = '600 22px "Inter", sans-serif';
+    ctx.fillText('CATEGORY / SERIES', catX + 28, metaY + 40);
     ctx.fillStyle = '#7dc3fc';
-    ctx.font = 'bold 15px "Inter", sans-serif';
-    ctx.fillText(catName.length > 25 ? catName.substring(0, 23) + '...' : catName, catX + 14, metaY + 41);
+    ctx.font = 'bold 30px "Inter", sans-serif';
+    ctx.fillText(catName.length > 25 ? catName.substring(0, 23) + '...' : catName, catX + 28, metaY + 82);
 
     // 5. Footer Branding
-    ctx.fillStyle = '#475569';
-    ctx.font = '500 12px "Inter", sans-serif';
+    ctx.fillStyle = '#64748b';
+    ctx.font = '600 24px "Inter", sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('AQIQ (MBM) TILES · Professional Catalog Studio', W / 2, H - 25);
+    ctx.fillText('AQIQ (MBM) TILES · Professional Catalog Studio', W / 2, H - 50);
     ctx.textAlign = 'left';
 
+    // Maximum JPEG Quality (0.98) for supreme crispness
     return new Promise((resolve) => {
-      canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.94);
+      canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.98);
     });
   }
 
@@ -1362,7 +1369,7 @@
     const btn = document.getElementById('btnNativeShare');
     const originalText = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = `${ICONS.loader} <span>Preparing Share...</span>`;
+    btn.innerHTML = `${ICONS.loader} <span>Preparing HD Share...</span>`;
 
     try {
       const cardBlob = await generateShareCardBlob(p, photoIdx);
@@ -1377,7 +1384,7 @@
           text: shareText,
           files: [file]
         });
-        showToast('Shared successfully!');
+        showToast('Shared in Ultra-HD successfully!');
       } else if (navigator.share) {
         await navigator.share({
           title: `AQIQ TILES - ${p.name}`,
@@ -1433,10 +1440,18 @@
     try {
       const cardBlob = await generateShareCardBlob(p, photoIdx);
       if (navigator.clipboard && window.ClipboardItem) {
-        await navigator.clipboard.write([
-          new ClipboardItem({ 'image/png': cardBlob.slice(0, cardBlob.size, 'image/png') })
-        ]);
-        showToast('<strong>WhatsApp opened!</strong> 📋 Photo card copied to clipboard — press <strong>Ctrl+V</strong> in chat to paste photo.', null, 5500);
+        const img = await loadImageAsync(URL.createObjectURL(cardBlob));
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth;
+        c.height = img.naturalHeight;
+        const cctx = c.getContext('2d');
+        cctx.drawImage(img, 0, 0);
+        c.toBlob(async (pngBlob) => {
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': pngBlob })
+          ]);
+        }, 'image/png');
+        showToast('<strong>WhatsApp opened!</strong> 📋 Ultra-HD Photo copied to clipboard — press <strong>Ctrl+V</strong> in WhatsApp to paste photo.', null, 6000);
       } else {
         showToast('WhatsApp opened!');
       }
@@ -1456,23 +1471,46 @@
     const btn = document.getElementById('btnDownloadShareCard');
     const originalText = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = `${ICONS.loader} <span>Saving...</span>`;
+    btn.innerHTML = `${ICONS.loader} <span>Generating Ultra HD...</span>`;
 
     try {
       const cardBlob = await generateShareCardBlob(p, photoIdx);
       const url = URL.createObjectURL(cardBlob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `AQIQ-Tile-${sanitizeFilename(p.name)}.jpg`;
+      a.download = `AQIQ-Tile-${sanitizeFilename(p.name)}-HD.jpg`;
       a.click();
       URL.revokeObjectURL(url);
-      showToast(`Saved <strong>${p.name}</strong> product card image.`);
+      showToast(`Saved <strong>${p.name}</strong> in Ultra-HD 1600×1920.`);
     } catch (err) {
       console.error('Download card error:', err);
       showToast('Could not save card image.');
     } finally {
       btn.disabled = false;
       btn.innerHTML = originalText;
+    }
+  }
+
+  async function downloadRawPhotoAction() {
+    if (!activeShareProduct) return;
+    const p = activeShareProduct;
+    const photoIdx = activeSharePhotoIndex;
+
+    const images = p.images || [];
+    const src = images[photoIdx] ? images[photoIdx].dataUrl : (images[0] ? images[0].dataUrl : '');
+    if (!src) {
+      showToast('No photo available for this tile.');
+      return;
+    }
+
+    try {
+      const a = document.createElement('a');
+      a.href = src;
+      a.download = `AQIQ-${sanitizeFilename(p.name)}-Original.png`;
+      a.click();
+      showToast(`Saved original uncompressed photo for <strong>${p.name}</strong>.`);
+    } catch (e) {
+      showToast('Could not download raw photo.');
     }
   }
 
@@ -1494,19 +1532,38 @@
     const p = activeShareProduct;
     const photoIdx = activeSharePhotoIndex;
 
+    const btn = document.getElementById('btnCopyProductImage');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = `${ICONS.loader} <span>Copying HD...</span>`;
+
     try {
       const cardBlob = await generateShareCardBlob(p, photoIdx);
       if (navigator.clipboard && window.ClipboardItem) {
-        await navigator.clipboard.write([
-          new ClipboardItem({ 'image/png': cardBlob.slice(0, cardBlob.size, 'image/png') })
-        ]);
-        showToast('Product photo card copied to clipboard!');
+        const img = await loadImageAsync(URL.createObjectURL(cardBlob));
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth;
+        c.height = img.naturalHeight;
+        const cctx = c.getContext('2d');
+        cctx.drawImage(img, 0, 0);
+        c.toBlob(async (pngBlob) => {
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': pngBlob })
+          ]);
+          showToast('<strong>Ultra-HD Photo Card copied!</strong> Paste (Ctrl+V) anywhere in crystal clear quality.');
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+        }, 'image/png');
       } else {
         showToast('Clipboard image copying not supported in this browser.');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
       }
     } catch (err) {
       console.error('Copy photo error:', err);
       showToast('Could not copy image.');
+      btn.disabled = false;
+      btn.innerHTML = originalText;
     }
   }
 
@@ -1724,6 +1781,7 @@
     document.getElementById('btnNativeShare').onclick = shareProductNativeAction;
     document.getElementById('btnWhatsappShare').onclick = shareProductWhatsAppAction;
     document.getElementById('btnDownloadShareCard').onclick = downloadShareCardAction;
+    document.getElementById('btnDownloadRawPhoto').onclick = downloadRawPhotoAction;
     document.getElementById('btnCopyProductDetails').onclick = copyProductDetailsAction;
     document.getElementById('btnCopyProductImage').onclick = copyProductImageAction;
 
