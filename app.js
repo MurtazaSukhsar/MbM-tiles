@@ -338,11 +338,11 @@
   }
 
   function updateCardOrRowStockUI(productId, newStock) {
-    // Grid Card input
-    const cardInput = document.querySelector(`.tile-studio-card[data-id="${productId}"] .stock-num-field`);
-    if (cardInput) {
-      cardInput.value = newStock;
-      cardInput.className = 'stock-num-field' + (newStock === 0 ? ' danger' : newStock < 20 ? ' warning' : '');
+    // Grid Card display number
+    const cardStockNum = document.querySelector(`.tile-studio-card[data-id="${productId}"] .stock-display-num`);
+    if (cardStockNum) {
+      cardStockNum.textContent = newStock;
+      cardStockNum.className = 'stock-display-num' + (newStock === 0 ? ' danger' : newStock < 20 ? ' warning' : '');
     }
 
     // Table Row input
@@ -428,6 +428,16 @@
           <div class="card-meta-tags">
             <span class="card-size-pill" title="${p.size}">${p.size}</span>
             <span style="font-size:0.72rem; text-transform:capitalize; color:var(--text-dim);">${p.theme} Series</span>
+          </div>
+
+          <div class="card-stock-deck">
+            <div class="card-stock-readout">
+              <span class="card-stock-label">Current Stock</span>
+              <div class="card-stock-value-wrap">
+                <span class="stock-display-num ${p.stock === 0 ? 'danger' : p.stock < 20 ? 'warning' : ''}">${p.stock}</span>
+                <span class="stock-boxes-label">Boxes</span>
+              </div>
+            </div>
           </div>
 
           <div class="card-action-footer">
@@ -759,7 +769,7 @@
       document.getElementById('editName').value = '';
       document.getElementById('editStock').value = 100;
       document.getElementById('editSize').value = '600×1200';
-      document.getElementById('editCategory').value = '600×1200 Standard';
+      document.getElementById('editCategory').value = '600×1200 Glossy';
       draftImages = [];
     } else {
       const p = catalog.products.find(x => x.id === id);
@@ -768,7 +778,7 @@
       document.getElementById('editName').value = p.name || '';
       document.getElementById('editStock').value = p.stock || 0;
       document.getElementById('editSize').value = p.size || '600×1200';
-      document.getElementById('editCategory').value = p.category || '';
+      document.getElementById('editCategory').value = p.category || inferProductCategory(p.name, p.size);
       draftImages = JSON.parse(JSON.stringify(p.images || []));
     }
 
@@ -782,13 +792,67 @@
     draftImages = [];
   }
 
+  function inferProductCategory(name, size) {
+    const fullText = `${name || ''} ${size || ''}`.toLowerCase();
+
+    // 600x300 Cladding Elevation
+    if (fullText.includes('600x300') || fullText.includes('600×300') || fullText.includes('cladding') || fullText.includes('clading') || fullText.includes('stone') || fullText.includes('brick')) {
+      return '600×300 Cladding Elevation';
+    }
+
+    // 600x600 Blue Art / Full Body
+    if (fullText.includes('blue art') || fullText.includes('blueart') || (fullText.includes('600x600') && fullText.includes('fullbody'))) {
+      if (fullText.includes('glossy')) return '600×600 Full Body (Glossy)';
+      if (fullText.includes('rustic') || fullText.includes('blast') || fullText.includes('punch')) return '600×600 Full Body (Rustic)';
+      if (fullText.includes('matt') || fullText.includes('mat')) return '600×600 Full Body (Matt)';
+      return '600×600 Full Body';
+    }
+
+    // 600x600 Tag & Waterproof
+    if (fullText.includes('600x600') || fullText.includes('600×600')) {
+      if (fullText.includes('tag')) return '600×600 Tag Series';
+      if (fullText.includes('matt') || fullText.includes('mat') || fullText.includes('waterproof')) return '600×600 Matt Waterproof';
+      return '600×600 Standard';
+    }
+
+    // 600x1200 Full Body
+    if (fullText.includes('full body') || fullText.includes('fullbody')) {
+      if (fullText.includes('glossy')) return '600×1200 Full Body (Glossy)';
+      if (fullText.includes('matt') || fullText.includes('mat')) return '600×1200 Full Body (Matt)';
+      return '600×1200 Full Body';
+    }
+
+    // 600x1200 Carving
+    if (fullText.includes('carving') || fullText.includes('decor')) {
+      return '600×1200 Carving';
+    }
+
+    // 600x1200 Glossy (explicit)
+    if (name.toLowerCase().includes('(glossy)') || name.toLowerCase().includes('glossy')) {
+      return '600×1200 Glossy';
+    }
+
+    // 600x1200 Diamond Matt
+    if (fullText.includes('diamond') || fullText.includes(' dm') || fullText.includes('dm')) {
+      return '600×1200 Diamond Matt';
+    }
+
+    // 600x1200 Matt
+    if (fullText.includes('matt') || fullText.includes('mat') || fullText.includes('onetime matt')) {
+      return '600×1200 Matt';
+    }
+
+    // 600x1200 Glossy
+    return '600×1200 Glossy';
+  }
+
   // PDF row color is no longer a manual choice - it's worked out from the
   // category/size text, matching the same 5 groups the old swatch picker offered.
   function inferProductTheme(category, size) {
     const text = `${category || ''} ${size || ''}`.toLowerCase();
-    if (text.includes('blue art') || text.includes('blueart')) return 'pink';
-    if (text.includes('cladding') || text.includes('clading')) return 'green';
-    if (text.includes('tag') || text.includes('waterproof')) return 'blue';
+    if (text.includes('blue art') || text.includes('blueart') || text.includes('600×600 full body') || text.includes('600x600 full body')) return 'pink';
+    if (text.includes('cladding') || text.includes('clading') || text.includes('elevation')) return 'green';
+    if (text.includes('tag') || text.includes('waterproof') || text.includes('600×600 tag') || text.includes('600×600 matt')) return 'blue';
     if (text.includes('full body') || text.includes('fullbody')) return 'peach';
     return 'black';
   }
@@ -947,7 +1011,10 @@
 
     const stock = parseInt(document.getElementById('editStock').value, 10) || 0;
     const size = document.getElementById('editSize').value.trim() || '600×1200';
-    const category = document.getElementById('editCategory').value.trim() || 'General';
+    let category = document.getElementById('editCategory').value.trim();
+    if (!category) {
+      category = inferProductCategory(name, size);
+    }
     const theme = inferProductTheme(category, size);
     const pdfMode = 'auto';
 
@@ -1657,6 +1724,21 @@
       document.getElementById('headerLogoImg').src = catalog.logoIcon;
     }
 
+    // Auto-migrate any unspecific/standard categories to their specific finish/series (e.g., 600×1200 Matt, 600×1200 Glossy, etc.)
+    if (catalog && catalog.products) {
+      let migrated = false;
+      catalog.products.forEach((p, idx) => {
+        if (!p.category || p.category === '600×1200 Standard' || p.category === '600x1200 Standard' || p.category === 'General') {
+          p.category = inferProductCategory(p.name, p.size);
+          p.theme = inferProductTheme(p.category, p.size);
+          migrated = true;
+        }
+      });
+      if (migrated) {
+        scheduleSave();
+      }
+    }
+
     // Header Actions
     document.getElementById('btnAddNewTile').onclick = () => openProductEditor(null);
     document.getElementById('btnDownloadPdf').onclick = exportPdfDownload;
@@ -1725,6 +1807,17 @@
     document.getElementById('btnDeleteProduct').onclick = () => {
       if (editingProductId) deleteProduct(editingProductId);
     };
+
+    const editNameInput = document.getElementById('editName');
+    const editSizeInput = document.getElementById('editSize');
+    const editCategoryInput = document.getElementById('editCategory');
+    const updateCategoryAutoSuggestion = () => {
+      if (!editingProductId) {
+        editCategoryInput.value = inferProductCategory(editNameInput.value, editSizeInput.value);
+      }
+    };
+    editNameInput.addEventListener('input', updateCategoryAutoSuggestion);
+    editSizeInput.addEventListener('input', updateCategoryAutoSuggestion);
 
     // Image Dropzone
     const dropzone = document.getElementById('imageDropzone');

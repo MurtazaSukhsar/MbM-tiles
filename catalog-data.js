@@ -16,7 +16,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -27,7 +27,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.438Z"
+      "updatedAt": "2026-09-19T12:41:49.403Z"
     },
     {
       "id": "3svqtohwpi7b",
@@ -36,7 +36,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -47,7 +47,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "ly3grxnfzier",
@@ -56,7 +56,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -67,7 +67,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "s08l06ov2jtm",
@@ -76,7 +76,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -87,7 +87,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "wa5ehlrgt8le",
@@ -96,7 +96,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Glossy)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -107,7 +107,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "ipaji5a06rw0",
@@ -116,7 +116,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Glossy)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -127,7 +127,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "1nar57q3if17",
@@ -136,7 +136,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (SONEX)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -147,7 +147,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "tkydxuibtgis",
@@ -156,7 +156,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Regular) spenox",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -167,7 +167,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "8bhak647pqo1",
@@ -176,7 +176,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -187,7 +187,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "4h4y1lf6pyak",
@@ -196,7 +196,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (glossy regular)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -207,7 +207,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.404Z"
     },
     {
       "id": "1vj68vqjf7za",
@@ -216,7 +216,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Glossy)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -227,7 +227,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "u43thawo8n06",
@@ -236,7 +236,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Std)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -247,7 +247,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "fiomrxr034ep",
@@ -256,7 +256,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Std)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -267,7 +267,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "uis6fq7ttqnp",
@@ -276,7 +276,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Regular)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -287,7 +287,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "bmu2isxcwi8x",
@@ -296,7 +296,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Regular)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -307,7 +307,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "ew2p5nna46c4",
@@ -316,7 +316,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Regular)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -327,7 +327,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "knsdihm5dqty",
@@ -336,7 +336,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -347,7 +347,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "cgt5btny95kj",
@@ -356,7 +356,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Glossy)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -367,7 +367,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "mso3x4777qyz",
@@ -376,7 +376,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -387,7 +387,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "v9iyz4acgvyl",
@@ -396,7 +396,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -407,7 +407,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "hkhrqm2cin7v",
@@ -416,7 +416,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -427,7 +427,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "6662rx5mbq7h",
@@ -436,7 +436,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -447,7 +447,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "w3sx3vjv9ut2",
@@ -456,7 +456,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -467,7 +467,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "1yvbg7tjj0yc",
@@ -476,7 +476,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -487,7 +487,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "sifqu9y6eyq8",
@@ -496,7 +496,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -507,7 +507,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "c5croxbs1lm5",
@@ -516,7 +516,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -527,7 +527,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "9ww8gnetdq77",
@@ -536,7 +536,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -547,7 +547,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "y8zyoig7e5tp",
@@ -556,7 +556,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -567,7 +567,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "rsipfzktkqjl",
@@ -576,7 +576,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -587,7 +587,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "fekk3tupm7sz",
@@ -596,7 +596,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -607,7 +607,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "wmtxk51w9icm",
@@ -616,7 +616,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Carving) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Carving",
       "description": "",
       "price": "",
       "images": [
@@ -627,7 +627,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "qonomheykm97",
@@ -636,7 +636,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Carving) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Carving",
       "description": "",
       "price": "",
       "images": [
@@ -647,7 +647,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "0rn2jmdbvyf8",
@@ -656,7 +656,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -667,7 +667,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "w590ddpysdjf",
@@ -676,7 +676,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -687,7 +687,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "u8yamx003yl4",
@@ -696,7 +696,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -707,7 +707,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "5p9bj3hy7x0w",
@@ -716,7 +716,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -727,7 +727,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "6181cva1fi1w",
@@ -736,7 +736,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) kei sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -747,7 +747,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "1kct80wisrom",
@@ -756,7 +756,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -767,7 +767,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "svhwmejlau6d",
@@ -776,7 +776,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -787,7 +787,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "4wb62rpgbp2m",
@@ -796,7 +796,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -807,7 +807,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "dqp7ueb1quxu",
@@ -816,7 +816,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -827,7 +827,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "0pk0mshawqk3",
@@ -836,7 +836,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 matt",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -847,7 +847,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "ccl15cx8aqjk",
@@ -856,7 +856,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 onetime matt endless",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -867,7 +867,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "m3t457e1ktye",
@@ -876,7 +876,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -887,7 +887,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "3rpezlh2gxng",
@@ -896,7 +896,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -907,7 +907,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "ookw6hmxqkyf",
@@ -916,7 +916,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 matt",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -927,7 +927,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "gm2cxce969z4",
@@ -936,7 +936,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -947,7 +947,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "6c9q2h5yg7mf",
@@ -956,7 +956,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Regular) matt",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -967,7 +967,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "1uryshhyga6d",
@@ -976,7 +976,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -987,7 +987,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "yl50vn07bemj",
@@ -996,7 +996,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 matt",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -1007,7 +1007,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "c7xg6he16kwk",
@@ -1016,7 +1016,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -1027,7 +1027,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "9ffo07z09rza",
@@ -1036,7 +1036,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -1047,7 +1047,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "2xcfokidigfw",
@@ -1056,7 +1056,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (matt) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -1067,7 +1067,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "ue2bp5y48425",
@@ -1076,7 +1076,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Matt",
       "description": "",
       "price": "",
       "images": [
@@ -1087,7 +1087,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "tydxecevqdt8",
@@ -1096,7 +1096,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy (Anuj)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -1107,7 +1107,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "pz1kzkx76mct",
@@ -1116,7 +1116,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy (sonex)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -1127,7 +1127,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "5u5yyq7i23wt",
@@ -1136,7 +1136,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -1147,7 +1147,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "rtj0dwaobuqa",
@@ -1156,7 +1156,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Carving) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Carving",
       "description": "",
       "price": "",
       "images": [
@@ -1167,7 +1167,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "fiz4e78r0h87",
@@ -1176,7 +1176,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy (savino)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Glossy",
       "description": "",
       "price": "",
       "images": [
@@ -1187,7 +1187,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "dcazs1s2wghj",
@@ -1196,7 +1196,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 glossy",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Carving",
       "description": "",
       "price": "",
       "images": [
@@ -1207,7 +1207,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "1yigeyebk2fm",
@@ -1216,7 +1216,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Diamond) sonex",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Diamond Matt",
       "description": "",
       "price": "",
       "images": [
@@ -1227,7 +1227,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "vatvuze7qkm4",
@@ -1236,7 +1236,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Carving)",
       "theme": "black",
-      "category": "600×1200 Standard",
+      "category": "600×1200 Carving",
       "description": "",
       "price": "",
       "images": [
@@ -1247,7 +1247,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "uk3mu7jlr0bl",
@@ -1256,12 +1256,12 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (glossy) (full body)",
       "theme": "peach",
-      "category": "600×1200 Full Body",
+      "category": "600×1200 Full Body (Glossy)",
       "description": "",
       "price": "",
       "images": [],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "yufsf1wiktxg",
@@ -1270,7 +1270,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Glossy) (full body)",
       "theme": "peach",
-      "category": "600×1200 Full Body",
+      "category": "600×1200 Full Body (Glossy)",
       "description": "",
       "price": "",
       "images": [
@@ -1281,7 +1281,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "lajnd05glkxf",
@@ -1290,7 +1290,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Matt) (full body)",
       "theme": "peach",
-      "category": "600×1200 Full Body",
+      "category": "600×1200 Full Body (Matt)",
       "description": "",
       "price": "",
       "images": [
@@ -1301,7 +1301,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "9y2c3dkn53tf",
@@ -1310,7 +1310,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 matt (full body)",
       "theme": "peach",
-      "category": "600×1200 Full Body",
+      "category": "600×1200 Full Body (Matt)",
       "description": "",
       "price": "",
       "images": [
@@ -1321,7 +1321,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "t282e2sylfr2",
@@ -1330,7 +1330,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Matt) (full body)",
       "theme": "peach",
-      "category": "600×1200 Full Body",
+      "category": "600×1200 Full Body (Matt)",
       "description": "",
       "price": "",
       "images": [
@@ -1341,7 +1341,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "00hrpi2bd0cg",
@@ -1350,7 +1350,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x1200 (Matt) (full body)",
       "theme": "peach",
-      "category": "600×1200 Full Body",
+      "category": "600×1200 Full Body (Matt)",
       "description": "",
       "price": "",
       "images": [
@@ -1361,7 +1361,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "k9jn20d32s9z",
@@ -1370,7 +1370,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 Tag",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Tag Series",
       "description": "",
       "price": "",
       "images": [
@@ -1381,7 +1381,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "xcomq5ax5tcr",
@@ -1390,7 +1390,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 Tag",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Tag Series",
       "description": "",
       "price": "",
       "images": [
@@ -1401,7 +1401,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "b4t28thyagdf",
@@ -1410,7 +1410,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 Tag",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Tag Series",
       "description": "",
       "price": "",
       "images": [
@@ -1421,7 +1421,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "07922gdr8st2",
@@ -1430,7 +1430,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 Tag",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Tag Series",
       "description": "",
       "price": "",
       "images": [
@@ -1441,7 +1441,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "pysakoif79cf",
@@ -1450,7 +1450,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (matt) waterproof (new)",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1461,7 +1461,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "clud3l3burmx",
@@ -1470,7 +1470,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (matt) waterproof",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1481,7 +1481,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "pxqvtjk90wwa",
@@ -1490,7 +1490,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (matt) waterproof (new)",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1501,7 +1501,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "rrhu4h8mm1yd",
@@ -1510,7 +1510,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (Matt) waterproof",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1521,7 +1521,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "5y9dxj4gh466",
@@ -1530,7 +1530,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (matt) waterproof",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1541,7 +1541,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "iiikzquokgk1",
@@ -1550,7 +1550,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (matt) waterproof",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1561,7 +1561,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "hoxq3ryiufzy",
@@ -1570,7 +1570,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (Matt) waterproof",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1581,7 +1581,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "4q0knb352ary",
@@ -1590,7 +1590,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (matt) waterproof",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1601,7 +1601,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "ae5xt1d10lsp",
@@ -1610,7 +1610,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (matt)",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1621,7 +1621,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "jwh58dr95a1s",
@@ -1630,7 +1630,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 matt",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Matt Waterproof",
       "description": "",
       "price": "",
       "images": [
@@ -1641,7 +1641,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "4906y0ghxgn5",
@@ -1650,7 +1650,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (koyo)",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Standard",
       "description": "",
       "price": "",
       "images": [
@@ -1661,7 +1661,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "7etp8armze3f",
@@ -1670,7 +1670,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600",
       "theme": "blue",
-      "category": "600×600 Tag & Waterproof",
+      "category": "600×600 Standard",
       "description": "",
       "price": "",
       "images": [
@@ -1681,7 +1681,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "lneos7cuadv6",
@@ -1690,12 +1690,12 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 fullbody blueart",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Glossy)",
       "description": "",
       "price": "",
       "images": [],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "bye6ez8c6l6i",
@@ -1704,7 +1704,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 fullbody blueart",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Matt)",
       "description": "",
       "price": "",
       "images": [
@@ -1715,7 +1715,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "eohtgd3opeo0",
@@ -1724,7 +1724,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 fullbody blueart",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Matt)",
       "description": "",
       "price": "",
       "images": [
@@ -1735,7 +1735,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "77l2o09nr8rt",
@@ -1744,7 +1744,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 fullbody blueart",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Glossy)",
       "description": "",
       "price": "",
       "images": [
@@ -1755,7 +1755,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "husw2fkkvcn2",
@@ -1764,7 +1764,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 fullbody blueart",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Matt)",
       "description": "",
       "price": "",
       "images": [
@@ -1775,7 +1775,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "bafxnpa1vfaj",
@@ -1784,7 +1784,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 fullbody blueart (full body)",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Rustic)",
       "description": "",
       "price": "",
       "images": [
@@ -1795,7 +1795,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "mvhqv1h7pue8",
@@ -1804,7 +1804,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (full body)",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Rustic)",
       "description": "",
       "price": "",
       "images": [
@@ -1815,7 +1815,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "gmjq6mvg4tm5",
@@ -1824,7 +1824,7 @@ window.DEFAULT_CATALOG_DATA = {
       "unit": "Box",
       "size": "600x600 (full body)",
       "theme": "pink",
-      "category": "600×600 Blue Art Fullbody",
+      "category": "600×600 Full Body (Glossy)",
       "description": "",
       "price": "",
       "images": [
@@ -1835,7 +1835,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "vswnm8xofocy",
@@ -1855,7 +1855,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "vv0htkhsuv2k",
@@ -1875,7 +1875,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "qcoxllc98wqq",
@@ -1895,7 +1895,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "ibt04tkqa4qi",
@@ -1915,7 +1915,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "rcsoo2t6bcb2",
@@ -1935,7 +1935,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "nqyh64uvbnnt",
@@ -1955,7 +1955,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "rck4gsuophln",
@@ -1975,7 +1975,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "mbml80zh6im7",
@@ -1995,7 +1995,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "u2s11eeie9dy",
@@ -2015,7 +2015,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "qi79qj7ljd15",
@@ -2035,7 +2035,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "mpxussu7ftyu",
@@ -2055,7 +2055,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "9rzfjkte5rqt",
@@ -2075,7 +2075,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "jp317ofea3ad",
@@ -2095,7 +2095,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "sjs4s1qblf2q",
@@ -2115,7 +2115,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "ueqicta5ooge",
@@ -2135,7 +2135,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "1aor6ftwjk9p",
@@ -2155,7 +2155,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "mr3bsm6633fn",
@@ -2175,7 +2175,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "tciiiophjxxv",
@@ -2195,7 +2195,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     },
     {
       "id": "pfccxnv5v8ye",
@@ -2215,7 +2215,7 @@ window.DEFAULT_CATALOG_DATA = {
         }
       ],
       "pdfImageMode": "auto",
-      "updatedAt": "2026-09-18T18:19:44.439Z"
+      "updatedAt": "2026-09-19T12:41:49.405Z"
     }
   ]
 };

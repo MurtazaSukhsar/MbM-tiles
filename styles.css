@@ -685,10 +685,9 @@ body {
   background: var(--bg-input);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  padding: 0.5rem;
+  padding: 0.45rem 0.65rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
 }
 
 .card-stock-readout {
@@ -703,6 +702,25 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-dim);
+}
+
+.card-stock-value-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.stock-display-num {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.stock-display-num.warning {
+  color: var(--accent-amber-light);
+}
+.stock-display-num.danger {
+  color: var(--accent-rose);
 }
 
 .card-stock-field-wrap {

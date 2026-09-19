@@ -15,23 +15,64 @@ const logoLockup = html.substring(lockupStart, lockupEnd);
 
 console.log('Logo icon len:', logoIcon.length, 'Logo lockup len:', logoLockup.length);
 
-const enrichedProducts = raw.products.map((p, idx) => {
-  let theme = 'black';
-  let category = '600×1200 Standard';
-  
-  if (idx >= 62 && idx <= 67) {
-    theme = 'peach';
-    category = '600×1200 Full Body';
-  } else if (idx >= 68 && idx <= 83) {
-    theme = 'blue';
-    category = '600×600 Tag & Waterproof';
-  } else if (idx >= 84 && idx <= 91) {
-    theme = 'pink';
-    category = '600×600 Blue Art Fullbody';
-  } else if (idx >= 92) {
-    theme = 'green';
-    category = '600×300 Cladding Elevation';
+function inferCategoryAndTheme(p, idx) {
+  const name = p.name || '';
+  const size = p.size || '';
+  const fullText = (name + ' ' + size).toLowerCase();
+
+  // 600x300 Cladding Elevation
+  if (idx >= 92 || fullText.includes('600x300') || fullText.includes('cladding') || fullText.includes('stone') || fullText.includes('brick')) {
+    return { category: '600×300 Cladding Elevation', theme: 'green' };
   }
+
+  // 600x600 Blue Art Fullbody
+  if (idx >= 84 && idx <= 91) {
+    if (fullText.includes('glossy')) return { category: '600×600 Full Body (Glossy)', theme: 'pink' };
+    if (fullText.includes('rustic') || fullText.includes('blast') || fullText.includes('punch')) return { category: '600×600 Full Body (Rustic)', theme: 'pink' };
+    if (fullText.includes('matt') || fullText.includes('mat')) return { category: '600×600 Full Body (Matt)', theme: 'pink' };
+    return { category: '600×600 Full Body', theme: 'pink' };
+  }
+
+  // 600x600 Tag & Waterproof
+  if (idx >= 68 && idx <= 83 || fullText.includes('600x600')) {
+    if (fullText.includes('tag')) return { category: '600×600 Tag Series', theme: 'blue' };
+    if (fullText.includes('matt') || fullText.includes('waterproof')) return { category: '600×600 Matt Waterproof', theme: 'blue' };
+    return { category: '600×600 Standard', theme: 'blue' };
+  }
+
+  // 600x1200 Full Body
+  if (idx >= 62 && idx <= 67 || fullText.includes('full body') || fullText.includes('fullbody')) {
+    if (fullText.includes('glossy')) return { category: '600×1200 Full Body (Glossy)', theme: 'peach' };
+    if (fullText.includes('matt') || fullText.includes('mat')) return { category: '600×1200 Full Body (Matt)', theme: 'peach' };
+    return { category: '600×1200 Full Body', theme: 'peach' };
+  }
+
+  // 600x1200 Carving
+  if (fullText.includes('carving') || fullText.includes('decor')) {
+    return { category: '600×1200 Carving', theme: 'black' };
+  }
+
+  // 600x1200 Glossy (explicit)
+  if (name.toLowerCase().includes('(glossy)') || name.toLowerCase().includes('glossy')) {
+    return { category: '600×1200 Glossy', theme: 'black' };
+  }
+
+  // 600x1200 Diamond Matt
+  if (fullText.includes('diamond') || fullText.includes(' dm') || fullText.includes('dm')) {
+    return { category: '600×1200 Diamond Matt', theme: 'black' };
+  }
+
+  // 600x1200 Matt
+  if (fullText.includes('matt') || fullText.includes('mat') || fullText.includes('onetime matt')) {
+    return { category: '600×1200 Matt', theme: 'black' };
+  }
+
+  // 600x1200 Glossy
+  return { category: '600×1200 Glossy', theme: 'black' };
+}
+
+const enrichedProducts = raw.products.map((p, idx) => {
+  const { category, theme } = inferCategoryAndTheme(p, idx);
 
   // Ensure each image has id and dataUrl
   const images = (p.images || []).map((img, imgIdx) => {
