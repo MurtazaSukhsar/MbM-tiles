@@ -1239,65 +1239,49 @@
     ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
     ctx.fillText(product.name || 'Untitled Tile', stageX + 20, deckY + 40);
 
-    // Meta row badges
+    // Meta row badges (Size & Category - stock omitted for customer sharing)
     const metaY = deckY + 70;
+    const badgeW = (stageW - 50) / 2;
     
     // Size badge
     ctx.fillStyle = '#0c0f18';
     if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.roundRect(stageX + 20, metaY, 210, 48, 8);
+      ctx.roundRect(stageX + 20, metaY, badgeW, 52, 8);
       ctx.fill();
     } else {
-      ctx.fillRect(stageX + 20, metaY, 210, 48);
+      ctx.fillRect(stageX + 20, metaY, badgeW, 52);
     }
     ctx.fillStyle = '#64748b';
     ctx.font = '11px "Inter", sans-serif';
-    ctx.fillText('SIZE SPECIFICATION', stageX + 32, metaY + 18);
+    ctx.fillText('SIZE SPECIFICATION', stageX + 34, metaY + 20);
     ctx.fillStyle = '#f1f5f9';
-    ctx.font = 'bold 15px "JetBrains Mono", monospace';
-    ctx.fillText(product.size || '-', stageX + 32, metaY + 38);
-
-    // Stock badge
-    ctx.fillStyle = '#0c0f18';
-    if (ctx.roundRect) {
-      ctx.beginPath();
-      ctx.roundRect(stageX + 250, metaY, 220, 48, 8);
-      ctx.fill();
-    } else {
-      ctx.fillRect(stageX + 250, metaY, 220, 48);
-    }
-    ctx.fillStyle = '#64748b';
-    ctx.font = '11px "Inter", sans-serif';
-    ctx.fillText('AVAILABLE STOCK', stageX + 262, metaY + 18);
-    const isOut = (product.stock || 0) <= 0;
-    const isLow = (product.stock || 0) < 20 && !isOut;
-    ctx.fillStyle = isOut ? '#f43f5e' : isLow ? '#f59e0b' : '#10b981';
-    ctx.font = 'bold 15px "JetBrains Mono", monospace';
-    ctx.fillText(`${product.stock || 0} Boxes`, stageX + 262, metaY + 38);
+    ctx.font = 'bold 16px "JetBrains Mono", monospace';
+    ctx.fillText(product.size || '-', stageX + 34, metaY + 41);
 
     // Category / Series badge
     const catName = product.category || `${(product.theme || 'Standard')} Series`;
+    const catX = stageX + 30 + badgeW;
     ctx.fillStyle = '#0c0f18';
     if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.roundRect(stageX + 490, metaY, stageW - 510, 48, 8);
+      ctx.roundRect(catX, metaY, badgeW, 52, 8);
       ctx.fill();
     } else {
-      ctx.fillRect(stageX + 490, metaY, stageW - 510, 48);
+      ctx.fillRect(catX, metaY, badgeW, 52);
     }
     ctx.fillStyle = '#64748b';
     ctx.font = '11px "Inter", sans-serif';
-    ctx.fillText('CATEGORY / THEME', stageX + 502, metaY + 18);
-    ctx.fillStyle = '#f1f5f9';
-    ctx.font = 'bold 14px "Inter", sans-serif';
-    ctx.fillText(catName.length > 22 ? catName.substring(0, 20) + '...' : catName, stageX + 502, metaY + 38);
+    ctx.fillText('CATEGORY / SERIES', catX + 14, metaY + 20);
+    ctx.fillStyle = '#7dc3fc';
+    ctx.font = 'bold 15px "Inter", sans-serif';
+    ctx.fillText(catName.length > 25 ? catName.substring(0, 23) + '...' : catName, catX + 14, metaY + 41);
 
     // 5. Footer Branding
     ctx.fillStyle = '#475569';
     ctx.font = '500 12px "Inter", sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('AQIQ (MBM) TILES · Professional Inventory Management', W / 2, H - 25);
+    ctx.fillText('AQIQ (MBM) TILES · Professional Catalog Studio', W / 2, H - 25);
     ctx.textAlign = 'left';
 
     return new Promise((resolve) => {
@@ -1319,14 +1303,16 @@
     const cardImg = document.getElementById('shareCardImg');
     const cardName = document.getElementById('shareCardName');
     const cardSize = document.getElementById('shareCardSize');
-    const cardStock = document.getElementById('shareCardStock');
     const photoSelectorRow = document.getElementById('sharePhotoSelectorRow');
     const photoThumbs = document.getElementById('sharePhotoThumbs');
 
     titleEl.textContent = `Share: ${p.name}`;
     cardName.textContent = p.name;
     cardSize.textContent = p.size;
-    cardStock.textContent = `${p.stock} Boxes`;
+    const catTextEl = document.getElementById('shareCardCategoryText');
+    if (catTextEl) {
+      catTextEl.textContent = p.category || (p.theme ? (p.theme.charAt(0).toUpperCase() + p.theme.slice(1) + ' Series') : 'Standard');
+    }
     cardCategoryPill.textContent = p.size || p.category || 'Standard';
 
     if (catalog.logoIcon) {
@@ -1382,7 +1368,8 @@
       const cardBlob = await generateShareCardBlob(p, photoIdx);
       const filename = `AQIQ-${sanitizeFilename(p.name)}.jpg`;
       const file = new File([cardBlob], filename, { type: 'image/jpeg' });
-      const shareText = `*AQIQ (MBM) TILES*\nItem: ${p.name}\nSize: ${p.size}\nStock: ${p.stock} Boxes`;
+      const categoryName = p.category || (p.theme ? (p.theme.charAt(0).toUpperCase() + p.theme.slice(1) + ' Series') : 'Standard');
+      const shareText = `*AQIQ (MBM) TILES*\nItem: ${p.name}\nSize: ${p.size}\nCategory: ${categoryName}`;
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
@@ -1417,16 +1404,31 @@
     const p = activeShareProduct;
     const photoIdx = activeSharePhotoIndex;
 
-    const msg = [
+    const categoryName = p.category || (p.theme ? (p.theme.charAt(0).toUpperCase() + p.theme.slice(1) + ' Series') : 'Standard');
+
+    // Check if the primary image is a web URL (e.g. Cloudinary)
+    const currentImgUrl = (p.images && p.images[photoIdx])
+      ? p.images[photoIdx].dataUrl
+      : (p.images && p.images[0] ? p.images[0].dataUrl : '');
+    const isCloudUrl = currentImgUrl && (currentImgUrl.startsWith('http://') || currentImgUrl.startsWith('https://'));
+
+    const msgLines = [
       `*AQIQ (MBM) TILES*`,
       `━━━━━━━━━━━━━━━━━━`,
       `📦 *Item Name:* ${p.name}`,
       `📐 *Size:* ${p.size}`,
-      `🏷️ *Category:* ${p.category || (p.theme || 'Standard') + ' Series'}`,
-      `📊 *Available Stock:* ${p.stock} Boxes`,
-      `━━━━━━━━━━━━━━━━━━`,
-      `🔗 *Catalog:* ${window.location.origin}`
-    ].join('\n');
+      `🏷️ *Category:* ${categoryName}`,
+      `━━━━━━━━━━━━━━━━━━`
+    ];
+
+    if (isCloudUrl) {
+      msgLines.push(`🖼️ *Photo:* ${currentImgUrl}`);
+    }
+
+    const appUrl = window.location.origin.includes('localhost') ? 'https://mb-m-tiles.vercel.app' : window.location.origin;
+    msgLines.push(`🔗 *Catalog:* ${appUrl}`);
+
+    const msg = msgLines.join('\n');
 
     try {
       const cardBlob = await generateShareCardBlob(p, photoIdx);
@@ -1434,9 +1436,13 @@
         await navigator.clipboard.write([
           new ClipboardItem({ 'image/png': cardBlob.slice(0, cardBlob.size, 'image/png') })
         ]);
-        showToast('Tile photo copied to clipboard! Paste (Ctrl+V) directly into WhatsApp.');
+        showToast('<strong>WhatsApp opened!</strong> 📋 Photo card copied to clipboard — press <strong>Ctrl+V</strong> in chat to paste photo.', null, 5500);
+      } else {
+        showToast('WhatsApp opened!');
       }
-    } catch (e) {}
+    } catch (e) {
+      showToast('WhatsApp opened!');
+    }
 
     const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
     window.open(waUrl, '_blank');
@@ -1473,7 +1479,8 @@
   async function copyProductDetailsAction() {
     if (!activeShareProduct) return;
     const p = activeShareProduct;
-    const text = `AQIQ (MBM) TILES\nItem: ${p.name}\nSize: ${p.size}\nStock: ${p.stock} Boxes\nCategory: ${p.category || (p.theme || 'Standard') + ' Series'}`;
+    const categoryName = p.category || (p.theme ? (p.theme.charAt(0).toUpperCase() + p.theme.slice(1) + ' Series') : 'Standard');
+    const text = `AQIQ (MBM) TILES\nItem: ${p.name}\nSize: ${p.size}\nCategory: ${categoryName}`;
     try {
       await navigator.clipboard.writeText(text);
       showToast('Product details copied to clipboard!');
