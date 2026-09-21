@@ -103,6 +103,7 @@ const enrichedProducts = raw.products.map((p, idx) => {
 });
 
 const defaultCatalog = {
+  version: 2,
   title: 'AQIQ (MBM) TILES',
   subtitle: 'Aqiq · Inventory & Stock Catalog',
   companyName: 'AQIQ (MBM) TILES',

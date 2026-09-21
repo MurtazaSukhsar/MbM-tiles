@@ -233,37 +233,57 @@
   }
 
   /* --------------------------------------------------------------------------
-     Filtering & Stock Adjustments
+     Filtering & Search & Stock Adjustments
      -------------------------------------------------------------------------- */
+  function normalizeSearchString(str) {
+    if (!str) return '';
+    return String(str)
+      .toLowerCase()
+      .replace(/[×x*]/g, 'x')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
   function getFilteredProducts() {
     let prods = [...catalog.products];
 
-    // Search query
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
+    // Category / Size / Stock filter
+    if (currentFilter === '600x1200' || currentFilter === 'black') {
       prods = prods.filter(p => {
-        const name = (p.name || '').toLowerCase();
-        const size = (p.size || '').toLowerCase();
-        const cat = (p.category || '').toLowerCase();
-        return name.includes(q) || size.includes(q) || cat.includes(q);
+        const s = normalizeSearchString(p.size);
+        const cat = normalizeSearchString(p.category);
+        return s.includes('600x1200') || cat.includes('600x1200') || p.theme === 'black' || p.theme === 'peach';
       });
-    }
-
-    // Category / Stock filter
-    if (currentFilter === 'black') {
-      prods = prods.filter(p => p.theme === 'black');
-    } else if (currentFilter === 'peach') {
-      prods = prods.filter(p => p.theme === 'peach');
-    } else if (currentFilter === 'blue') {
-      prods = prods.filter(p => p.theme === 'blue');
-    } else if (currentFilter === 'pink') {
-      prods = prods.filter(p => p.theme === 'pink');
-    } else if (currentFilter === 'green') {
-      prods = prods.filter(p => p.theme === 'green');
+    } else if (currentFilter === '600x600' || currentFilter === 'blue') {
+      prods = prods.filter(p => {
+        const s = normalizeSearchString(p.size);
+        const cat = normalizeSearchString(p.category);
+        return s.includes('600x600') || cat.includes('600x600') || p.theme === 'blue' || p.theme === 'pink';
+      });
+    } else if (currentFilter === '600x300' || currentFilter === 'green') {
+      prods = prods.filter(p => {
+        const s = normalizeSearchString(p.size);
+        const cat = normalizeSearchString(p.category);
+        return s.includes('600x300') || cat.includes('600x300') || p.theme === 'green';
+      });
     } else if (currentFilter === 'low-stock') {
       prods = prods.filter(p => p.stock > 0 && p.stock < 20);
     } else if (currentFilter === 'out-of-stock') {
       prods = prods.filter(p => p.stock <= 0);
+    }
+
+    // Search query
+    if (searchQuery && searchQuery.trim()) {
+      const q = normalizeSearchString(searchQuery);
+      prods = prods.filter(p => {
+        const name = normalizeSearchString(p.name);
+        const size = normalizeSearchString(p.size);
+        const cat = normalizeSearchString(p.category);
+        const desc = normalizeSearchString(p.description);
+        const theme = normalizeSearchString(p.theme);
+        const stockStr = String(p.stock || 0);
+        return name.includes(q) || size.includes(q) || cat.includes(q) || desc.includes(q) || theme.includes(q) || stockStr === q;
+      });
     }
 
     // Sort
@@ -283,6 +303,65 @@
     }
 
     return prods;
+  }
+
+  function updateFilterCounts() {
+    if (!catalog || !catalog.products) return;
+    const all = catalog.products;
+
+    const countAll = all.length;
+    const count600x1200 = all.filter(p => {
+      const s = normalizeSearchString(p.size);
+      const cat = normalizeSearchString(p.category);
+      return s.includes('600x1200') || cat.includes('600x1200') || p.theme === 'black' || p.theme === 'peach';
+    }).length;
+    const count600x600 = all.filter(p => {
+      const s = normalizeSearchString(p.size);
+      const cat = normalizeSearchString(p.category);
+      return s.includes('600x600') || cat.includes('600x600') || p.theme === 'blue' || p.theme === 'pink';
+    }).length;
+    const count600x300 = all.filter(p => {
+      const s = normalizeSearchString(p.size);
+      const cat = normalizeSearchString(p.category);
+      return s.includes('600x300') || cat.includes('600x300') || p.theme === 'green';
+    }).length;
+    const countLow = all.filter(p => p.stock > 0 && p.stock < 20).length;
+    const countOut = all.filter(p => p.stock <= 0).length;
+
+    const elAll = document.getElementById('chipCountAll');
+    if (elAll) elAll.textContent = countAll;
+
+    const el1200 = document.getElementById('chipCount600x1200');
+    if (el1200) el1200.textContent = count600x1200;
+
+    const el600 = document.getElementById('chipCount600x600');
+    if (el600) el600.textContent = count600x600;
+
+    const el300 = document.getElementById('chipCount600x300');
+    if (el300) el300.textContent = count600x300;
+
+    const elLow = document.getElementById('chipCountLow');
+    if (elLow) elLow.textContent = countLow;
+
+    const elOut = document.getElementById('chipCountOut');
+    if (elOut) elOut.textContent = countOut;
+  }
+
+  function clearSearchAndFilter() {
+    searchQuery = '';
+    currentFilter = 'all';
+    const searchInput = document.getElementById('searchInput');
+    const searchClearBtn = document.getElementById('searchClearBtn');
+    if (searchInput) {
+      searchInput.value = '';
+    }
+    if (searchClearBtn) {
+      searchClearBtn.classList.remove('visible');
+    }
+    document.querySelectorAll('.filter-chip-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === 'all');
+    });
+    renderCurrentView();
   }
 
   function adjustProductStock(productId, delta) {
@@ -367,7 +446,29 @@
 
   function renderCurrentView() {
     updateHeaderStats();
+    updateFilterCounts();
     const filtered = getFilteredProducts();
+
+    // Update live results count text in toolbar
+    const visibleCountNum = document.getElementById('visibleCountNum');
+    const totalCountNum = document.getElementById('totalCountNum');
+    const resultsCountEl = document.getElementById('searchResultsCount');
+
+    if (visibleCountNum && totalCountNum) {
+      const total = catalog ? (catalog.products || []).length : 0;
+      visibleCountNum.textContent = filtered.length;
+      totalCountNum.textContent = total;
+
+      if (resultsCountEl) {
+        if (searchQuery.trim()) {
+          resultsCountEl.innerHTML = `Showing <strong style="color:#fff">${filtered.length}</strong> of ${total} matching <span style="color:var(--cat-blue); font-weight:600;">"${searchQuery.trim()}"</span>`;
+        } else if (currentFilter !== 'all') {
+          resultsCountEl.innerHTML = `Showing <strong style="color:#fff">${filtered.length}</strong> of ${total} filtered tiles`;
+        } else {
+          resultsCountEl.innerHTML = `Showing <strong style="color:#fff">${filtered.length}</strong> of ${total} tiles`;
+        }
+      }
+    }
 
     if (currentView === 'cards') {
       renderCardsGrid(filtered);
@@ -386,13 +487,33 @@
     container.innerHTML = '';
 
     if (!products.length) {
+      const isSearching = searchQuery.trim().length > 0;
+      const isFiltering = currentFilter !== 'all';
+
       container.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 3.5rem 1rem; color: var(--text-dim);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">${ICONS.search}</div>
-          <div style="font-size: 1rem; font-weight: 600; color: #fff;">No matching tiles</div>
-          <p style="font-size: 0.8rem; margin-top: 0.25rem;">Adjust your search or clear filters to view catalog items.</p>
+          <div style="font-size: 2rem; margin-bottom: 0.75rem; color: var(--text-muted);">${ICONS.search}</div>
+          <div style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">
+            ${isSearching ? `No tiles matching "${searchQuery.trim()}"` : 'No matching tiles found'}
+          </div>
+          <p style="font-size: 0.82rem; margin-bottom: 1.25rem; color: var(--text-dim);">
+            ${isSearching || isFiltering ? 'Try searching for a different tile name, size (e.g. 600×1200), finish, or clear filters.' : 'There are currently no tiles in this catalog.'}
+          </p>
+          ${isSearching || isFiltering ? `
+            <button id="btnEmptyStateClear" class="btn btn-primary btn-sm" style="margin: 0 auto; gap: 0.45rem;" type="button">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>Clear Search &amp; Filters</span>
+            </button>
+          ` : ''}
         </div>
       `;
+
+      const emptyClearBtn = document.getElementById('btnEmptyStateClear');
+      if (emptyClearBtn) {
+        emptyClearBtn.onclick = () => {
+          clearSearchAndFilter();
+        };
+      }
       return;
     }
 
@@ -585,26 +706,23 @@
       const themeClass = 'theme-' + (p.theme || 'black');
       const images = p.images || [];
 
-      // One photo: shown as big as the cell allows. Multiple photos (max 3
-      // per tile): laid out as equal-width tiles side by side, each filling
-      // its box the same way (cropped to fit) so every photo reads as the
-      // same size instead of varying with its own original aspect ratio.
-      const MAX_PDF_PHOTOS = 3;
+      // Photos layout in PDF: Fixed, predictable, and even grid layout for 1, 2, 3, 4, 5, 6+ photos
       let photoInnerHtml = '';
       if (images.length === 0) {
-        photoInnerHtml = `<span style="font-size:10px; color:#999;">No photo</span>`;
-      } else if (images.length === 1) {
-        photoInnerHtml = `<img src="${images[0].dataUrl}" alt="${p.name}">`;
+        photoInnerHtml = `<div class="pdf-photo-empty">No Photo</div>`;
       } else {
-        const shown = images.slice(0, MAX_PDF_PHOTOS);
+        const count = images.length;
+        const gridClass = count === 1 ? 'count-1' : count === 2 ? 'count-2' : count === 3 ? 'count-3' : count === 4 ? 'count-4' : count === 5 ? 'count-5' : 'count-6';
+        const MAX_PDF_SHOWN = 6;
+        const shown = images.slice(0, MAX_PDF_SHOWN);
         const extraCount = images.length - shown.length;
-        photoInnerHtml = `<div class="pdf-photo-grid count-${shown.length}">` +
+        photoInnerHtml = `<div class="pdf-photo-grid ${gridClass}">` +
           shown.map((im, idx) => {
             const isLast = idx === shown.length - 1;
             const badge = (isLast && extraCount > 0)
               ? `<span class="pdf-photo-more-badge">+${extraCount}</span>`
               : '';
-            return `<div class="pdf-photo-tile"><img src="${im.dataUrl}" alt="${p.name}">${badge}</div>`;
+            return `<div class="pdf-photo-tile"><img src="${im.dataUrl}" alt="${p.name}" loading="eager" crossorigin="anonymous">${badge}</div>`;
           }).join('') +
           `</div>`;
       }
@@ -628,7 +746,7 @@
       <div class="sheet-top-accent"></div>
       <div class="pdf-sheet-header">
         <div class="pdf-brand-left">
-          ${logoSrc ? `<img class="pdf-logo-icon" src="${logoSrc}" alt="Aqiq">` : ''}
+          ${logoSrc ? `<img class="pdf-logo-icon" src="${logoSrc}" alt="Aqiq" loading="eager" crossorigin="anonymous">` : ''}
           <div class="pdf-brand-titles">
             <span class="pdf-brand-name">Aqiq</span>
             <span class="pdf-brand-sub">Aqiq</span>
@@ -675,11 +793,11 @@
   }
 
   /* --------------------------------------------------------------------------
-     PDF Export & Print Engines
+     PDF Export & Print Engines (High-Speed & Non-Blocking)
      -------------------------------------------------------------------------- */
   async function exportPdfDownload() {
     if (!window.jspdf || !window.html2canvas) {
-      showToast('PDF libraries loading, please retry in a second...');
+      showToast('PDF generator is initializing, please retry in a moment...');
       return;
     }
 
@@ -690,50 +808,127 @@
     }
 
     const exportBtn = document.getElementById('btnDownloadPdf');
-    const originalText = exportBtn.innerHTML;
-    exportBtn.disabled = true;
-    exportBtn.innerHTML = `${ICONS.loader} <span>Generating...</span>`;
-    showToast('Rendering high-resolution PDF catalog...');
+    const previewExportBtn = document.getElementById('btnPdfPreviewDownload');
+    const originalText = exportBtn ? exportBtn.innerHTML : '';
+    const origPreviewText = previewExportBtn ? previewExportBtn.innerHTML : '';
+
+    if (exportBtn) {
+      exportBtn.disabled = true;
+      exportBtn.innerHTML = `<svg class="svg-icon spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Exporting PDF...</span>`;
+    }
+    if (previewExportBtn) {
+      previewExportBtn.disabled = true;
+      previewExportBtn.innerHTML = `<svg class="svg-icon spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Exporting...</span>`;
+    }
+
+    // Show Progress Modal
+    const progressModal = document.getElementById('pdfExportProgressModal');
+    const statusText = document.getElementById('pdfExportStatusText');
+    const progressBar = document.getElementById('pdfExportProgressBar');
+    const pagesCount = document.getElementById('pdfExportPagesCount');
+    const percentText = document.getElementById('pdfExportPercent');
+
+    if (progressModal) {
+      progressModal.classList.add('open');
+      if (progressBar) progressBar.style.width = '0%';
+      if (percentText) percentText.textContent = '0%';
+      if (statusText) statusText.textContent = 'Initializing PDF engine...';
+    }
+
+    // Dedicated off-screen fixed-width rendering stage (avoids DOM measurement locks)
+    let renderStage = document.getElementById('pdfRenderStage');
+    if (!renderStage) {
+      renderStage = document.createElement('div');
+      renderStage.id = 'pdfRenderStage';
+      renderStage.style.cssText = 'position:fixed; left:-9999px; top:0; width:800px; z-index:-999; opacity:1; pointer-events:none; background:#ffffff;';
+      document.body.appendChild(renderStage);
+    }
+    renderStage.innerHTML = '';
 
     try {
       const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+      // High-resolution A4 (210mm x 297mm)
+      const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait', compress: true });
       const pages = chunkArray(prods, ROWS_PER_PAGE);
 
-      const printRoot = document.getElementById('printRoot');
-      printRoot.innerHTML = '';
-
       for (let i = 0; i < pages.length; i++) {
-        const sheet = buildSinglePdfSheet(pages[i], i + 1, pages.length, i * ROWS_PER_PAGE);
-        printRoot.appendChild(sheet);
+        const pageNum = i + 1;
+        const total = pages.length;
+        const pct = Math.round((i / total) * 100);
 
+        if (statusText) statusText.textContent = `Rendering page ${pageNum} of ${total}...`;
+        if (pagesCount) pagesCount.textContent = `Page ${pageNum} of ${total} (${pages[i].length} tiles)`;
+        if (progressBar) progressBar.style.width = `${pct}%`;
+        if (percentText) percentText.textContent = `${pct}%`;
+
+        // Render sheet into stage
+        renderStage.innerHTML = '';
+        const sheet = buildSinglePdfSheet(pages[i], pageNum, total, i * ROWS_PER_PAGE);
+        renderStage.appendChild(sheet);
+
+        // Preload & decode images with safe fallback timeout
         const imgs = [...sheet.querySelectorAll('img')];
         await Promise.all(imgs.map(im => {
-          if (im.complete) return Promise.resolve();
-          return new Promise(res => { im.onload = im.onerror = res; });
+          if (!im.src) return Promise.resolve();
+          if (im.complete && im.naturalWidth > 0) return Promise.resolve();
+          return new Promise(res => {
+            const tm = setTimeout(res, 800);
+            im.onload = () => { clearTimeout(tm); res(); };
+            im.onerror = () => { clearTimeout(tm); res(); };
+          });
         }));
 
+        // Yield execution to browser for responsive UI rendering
+        await new Promise(r => setTimeout(r, 20));
+
+        // High-Quality rasterization (Scale 2.0 provides ~200-300 DPI print quality without memory spikes)
         const canvas = await html2canvas(sheet, {
-          scale: 2.2,
+          scale: 2.0,
           useCORS: true,
-          backgroundColor: '#ffffff'
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          logging: false,
+          windowWidth: 800
         });
 
-        const imgData = canvas.toDataURL('image/jpeg', 0.95);
-        if (i > 0) pdf.addPage();
+        // Convert to high-grade JPEG and append with FAST compression
+        const imgData = canvas.toDataURL('image/jpeg', 0.94);
+        if (i > 0) pdf.addPage('a4', 'portrait');
         pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
+
+        // Free memory immediately
+        renderStage.innerHTML = '';
+        canvas.width = 1;
+        canvas.height = 1;
+
+        // Micro-yield between pages for garbage collection
+        await new Promise(r => setTimeout(r, 15));
       }
 
-      printRoot.innerHTML = '';
+      if (progressBar) progressBar.style.width = '100%';
+      if (percentText) percentText.textContent = '100%';
+      if (statusText) statusText.textContent = 'Saving PDF document...';
+      await new Promise(r => setTimeout(r, 150));
+
       const filename = `AQIQ-MBM-Tiles-Catalog-${formatDateOnly()}.pdf`;
       pdf.save(filename);
       showToast(`<strong>${filename}</strong> downloaded successfully.`);
     } catch (err) {
       console.error('PDF export error:', err);
-      showToast('Export failed. You can use Print as an alternative.');
+      showToast('Export encountered an issue. You can also use "Instant Print / Save".');
     } finally {
-      exportBtn.disabled = false;
-      exportBtn.innerHTML = originalText;
+      if (progressModal) progressModal.classList.remove('open');
+      if (renderStage) {
+        renderStage.innerHTML = '';
+      }
+      if (exportBtn) {
+        exportBtn.disabled = false;
+        exportBtn.innerHTML = originalText;
+      }
+      if (previewExportBtn) {
+        previewExportBtn.disabled = false;
+        previewExportBtn.innerHTML = origPreviewText;
+      }
     }
   }
 
@@ -741,6 +936,7 @@
     const prods = getFilteredProducts();
     const pages = chunkArray(prods, ROWS_PER_PAGE);
     const printRoot = document.getElementById('printRoot');
+    if (!printRoot) return;
     printRoot.innerHTML = '';
 
     pages.forEach((pageGroup, idx) => {
@@ -863,7 +1059,7 @@
 
     const dropzone = document.getElementById('imageDropzone');
     if (dropzone) {
-      dropzone.style.display = draftImages.length >= MAX_TILE_PHOTOS ? 'none' : '';
+      dropzone.style.display = ''; // Keep dropzone always visible so users can add unlimited photos
     }
 
     draftImages.forEach((img, idx) => {
@@ -923,7 +1119,8 @@
       reader.onload = (e) => {
         const img = new Image();
         img.onload = () => {
-          const maxDim = 1200;
+          // Ultra-high resolution preservation (up to 2560px for crystal-clear PDF & print)
+          const maxDim = 2560;
           let { width, height } = img;
           if (width > maxDim || height > maxDim) {
             if (width > height) {
@@ -938,10 +1135,24 @@
           canvas.width = width;
           canvas.height = height;
           const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
           ctx.drawImage(img, 0, 0, width, height);
-          resolve(canvas.toDataURL('image/jpeg', 0.88));
+
+          // Preserve transparency for PNGs, otherwise 0.96 high-quality JPEG
+          if (file.type === 'image/png') {
+            resolve(canvas.toDataURL('image/png'));
+          } else {
+            resolve(canvas.toDataURL('image/jpeg', 0.96));
+          }
+        };
+        img.onerror = () => {
+          resolve(e.target.result);
         };
         img.src = e.target.result;
+      };
+      reader.onerror = () => {
+        resolve('');
       };
       reader.readAsDataURL(file);
     });
@@ -968,24 +1179,14 @@
     return json.secure_url;
   }
 
-  const MAX_TILE_PHOTOS = 3;
-
+  // Upload unlimited photos per tile
   async function handleFilesUpload(files) {
     const imgFiles = [...files].filter(f => f.type.startsWith('image/'));
     if (!imgFiles.length) return;
 
-    const remainingSlots = MAX_TILE_PHOTOS - draftImages.length;
-    if (remainingSlots <= 0) {
-      showToast(`Maximum ${MAX_TILE_PHOTOS} photos per tile.`);
-      return;
-    }
+    showToast(`Uploading ${imgFiles.length} photo(s)...`);
 
-    const filesToProcess = imgFiles.slice(0, remainingSlots);
-    if (imgFiles.length > filesToProcess.length) {
-      showToast(`Only ${remainingSlots} more photo(s) can be added (max ${MAX_TILE_PHOTOS} per tile).`);
-    }
-
-    for (const f of filesToProcess) {
+    for (const f of imgFiles) {
       try {
         const resizedDataUrl = await resizeImageFile(f);
         const hostedUrl = await uploadImageToCloudinary(resizedDataUrl, f.name);
@@ -1713,10 +1914,29 @@
      -------------------------------------------------------------------------- */
   async function init() {
     const saved = await loadFromStorage();
+    const seed = window.DEFAULT_CATALOG_DATA;
     if (saved && saved.products && saved.products.length) {
       catalog = saved;
-    } else if (window.DEFAULT_CATALOG_DATA) {
-      catalog = JSON.parse(JSON.stringify(window.DEFAULT_CATALOG_DATA));
+      // Auto-upgrade existing cached catalog to High-Res images if version is upgraded
+      if (seed && (!catalog.version || catalog.version < (seed.version || 2))) {
+        const seedMap = new Map((seed.products || []).map(p => [p.id, p]));
+        let upgraded = false;
+        catalog.products.forEach(p => {
+          const seedProd = seedMap.get(p.id);
+          if (seedProd && seedProd.images && seedProd.images.length) {
+            // Upgrade to high-resolution image from the master catalog
+            p.images = seedProd.images;
+            upgraded = true;
+          }
+        });
+        catalog.version = seed.version || 2;
+        if (upgraded) {
+          await saveToStorage(catalog);
+          console.info('Catalog auto-upgraded to Ultra-HD images from reference PDF.');
+        }
+      }
+    } else if (seed) {
+      catalog = JSON.parse(JSON.stringify(seed));
       await saveToStorage(catalog);
     }
 
@@ -1752,6 +1972,10 @@
     document.getElementById('btnPdfPreviewClose').onclick = () => pdfPreviewModal.classList.remove('open');
     document.getElementById('btnPdfPreviewDone').onclick = () => pdfPreviewModal.classList.remove('open');
     document.getElementById('btnPdfPreviewDownload').onclick = exportPdfDownload;
+    const btnPdfPrint = document.getElementById('btnPdfPreviewPrint');
+    if (btnPdfPrint) {
+      btnPdfPrint.onclick = triggerNativePrint;
+    }
 
     // Backup Modal (opened only from code now - no header button launches it)
     const backupModal = document.getElementById('backupModal');
@@ -1878,6 +2102,55 @@
     document.getElementById('btnCopyProductDetails').onclick = copyProductDetailsAction;
     document.getElementById('btnCopyProductImage').onclick = copyProductImageAction;
 
+    // Search Input & Filter Chips
+    const searchInput = document.getElementById('searchInput');
+    const searchClearBtn = document.getElementById('searchClearBtn');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        if (searchClearBtn) {
+          searchClearBtn.classList.toggle('visible', searchQuery.trim().length > 0);
+        }
+        renderCurrentView();
+      });
+
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (searchInput.value) {
+            searchInput.value = '';
+            searchQuery = '';
+            if (searchClearBtn) searchClearBtn.classList.remove('visible');
+            renderCurrentView();
+          } else {
+            searchInput.blur();
+          }
+        }
+      });
+    }
+
+    if (searchClearBtn) {
+      searchClearBtn.addEventListener('click', () => {
+        if (searchInput) {
+          searchInput.value = '';
+          searchInput.focus();
+        }
+        searchQuery = '';
+        searchClearBtn.classList.remove('visible');
+        renderCurrentView();
+      });
+    }
+
+    // Filter Chips
+    document.querySelectorAll('.filter-chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter || 'all';
+        renderCurrentView();
+      });
+    });
+
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -1886,6 +2159,19 @@
         closeShareModal();
         backupModal.classList.remove('open');
         reorderModal.classList.remove('open');
+      }
+
+      // Quick Search Focus: '/' or 'Ctrl+K' / 'Cmd+K' when not in any input/modal
+      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      const isInputActive = activeTag === 'input' || activeTag === 'textarea' || activeTag === 'select';
+      const isModalOpen = document.querySelector('.modal-layer.open') || document.querySelector('.lightbox-overlay.open');
+
+      if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && !isInputActive && !isModalOpen) {
+        e.preventDefault();
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.select();
+        }
       }
     });
 

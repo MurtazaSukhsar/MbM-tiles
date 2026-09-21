@@ -1,0 +1,1556 @@
+[
+  {
+    "num": 1,
+    "page": 1,
+    "crop_file": "crop_001.png",
+    "crop_res": "560x377",
+    "raw_file": "scratch/extracted_all\\raw_001.jpeg",
+    "raw_res": "1170x666",
+    "raw_rect": [
+      50.06110763549805,
+      158.95611572265625,
+      175.76541137695312,
+      229.8474884033203
+    ]
+  },
+  {
+    "num": 2,
+    "page": 1,
+    "crop_file": "crop_002.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_002.jpeg",
+    "raw_res": "1170x440",
+    "raw_rect": [
+      50.06110763549805,
+      310.2397766113281,
+      175.76541137695312,
+      357.7442932128906
+    ]
+  },
+  {
+    "num": 3,
+    "page": 1,
+    "crop_file": "crop_003.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_003.jpeg",
+    "raw_res": "1170x453",
+    "raw_rect": [
+      50.06110763549805,
+      449.0991516113281,
+      175.76541137695312,
+      498.06536865234375
+    ]
+  },
+  {
+    "num": 4,
+    "page": 1,
+    "crop_file": "crop_004.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_004.jpeg",
+    "raw_res": "1170x825",
+    "raw_rect": [
+      50.06110763549805,
+      568.9567260742188,
+      175.76541137695312,
+      657.3882446289062
+    ]
+  },
+  {
+    "num": 5,
+    "page": 1,
+    "crop_file": "crop_005.png",
+    "crop_res": "560x510",
+    "raw_file": "scratch/extracted_all\\raw_005.jpeg",
+    "raw_res": "570x329",
+    "raw_rect": [
+      50.06110763549805,
+      716.586181640625,
+      175.76539611816406,
+      788.939208984375
+    ]
+  },
+  {
+    "num": 6,
+    "page": 2,
+    "crop_file": "crop_006.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_006.jpeg",
+    "raw_res": "723x517",
+    "raw_rect": [
+      50.06110763549805,
+      63.947105407714844,
+      175.76539611816406,
+      153.8402862548828
+    ]
+  },
+  {
+    "num": 7,
+    "page": 2,
+    "crop_file": "crop_007.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_007.jpeg",
+    "raw_res": "596x1280",
+    "raw_rect": [
+      83.67969512939453,
+      185.99716186523438,
+      142.1468048095703,
+      311.70147705078125
+    ]
+  },
+  {
+    "num": 8,
+    "page": 2,
+    "crop_file": "crop_008.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_008.jpeg",
+    "raw_res": "672x1133",
+    "raw_rect": [
+      75.64047241210938,
+      325.58746337890625,
+      150.18603515625,
+      451.291748046875
+    ]
+  },
+  {
+    "num": 9,
+    "page": 2,
+    "crop_file": "crop_009.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_009.jpeg",
+    "raw_res": "1058x1280",
+    "raw_rect": [
+      61.02368927001953,
+      465.1776428222656,
+      164.8028106689453,
+      590.8819580078125
+    ]
+  },
+  {
+    "num": 10,
+    "page": 2,
+    "crop_file": "crop_010.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_010.jpeg",
+    "raw_res": "1092x1280",
+    "raw_rect": [
+      59.56201171875,
+      604.7679443359375,
+      166.26449584960938,
+      730.4722290039062
+    ]
+  },
+  {
+    "num": 11,
+    "page": 3,
+    "crop_file": "crop_011.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_011.jpeg",
+    "raw_res": "1081x1280",
+    "raw_rect": [
+      59.56201171875,
+      46.406944274902344,
+      166.26449584960938,
+      172.1112518310547
+    ]
+  },
+  {
+    "num": 12,
+    "page": 3,
+    "crop_file": "crop_012.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_012.jpeg",
+    "raw_res": "1170x567",
+    "raw_rect": [
+      50.06110763549805,
+      218.15411376953125,
+      175.76541137695312,
+      278.8137512207031
+    ]
+  },
+  {
+    "num": 13,
+    "page": 3,
+    "crop_file": "crop_013.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_013.jpeg",
+    "raw_res": "1170x581",
+    "raw_rect": [
+      50.06110763549805,
+      357.0135803222656,
+      175.76541137695312,
+      419.1348876953125
+    ]
+  },
+  {
+    "num": 14,
+    "page": 3,
+    "crop_file": "crop_014.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_014.jpeg",
+    "raw_res": "1095x1600",
+    "raw_rect": [
+      69.79375457763672,
+      465.177734375,
+      156.03274536132812,
+      590.8820190429688
+    ]
+  },
+  {
+    "num": 15,
+    "page": 3,
+    "crop_file": "crop_015.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_015.jpeg",
+    "raw_res": "1042x1280",
+    "raw_rect": [
+      61.7545280456543,
+      604.76806640625,
+      164.0719757080078,
+      730.4723510742188
+    ]
+  },
+  {
+    "num": 16,
+    "page": 4,
+    "crop_file": "crop_016.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_016.jpeg",
+    "raw_res": "987x1280",
+    "raw_rect": [
+      64.67788696289062,
+      46.406944274902344,
+      161.14862060546875,
+      172.1112518310547
+    ]
+  },
+  {
+    "num": 17,
+    "page": 4,
+    "crop_file": "crop_017.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_017.jpeg",
+    "raw_res": "1106x1280",
+    "raw_rect": [
+      58.831172943115234,
+      185.99716186523438,
+      166.99533081054688,
+      311.70147705078125
+    ]
+  },
+  {
+    "num": 18,
+    "page": 4,
+    "crop_file": "crop_018.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_018.jpeg",
+    "raw_res": "1106x1280",
+    "raw_rect": [
+      58.831172943115234,
+      325.58740234375,
+      166.99533081054688,
+      451.2917175292969
+    ]
+  },
+  {
+    "num": 19,
+    "page": 4,
+    "crop_file": "crop_019.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_019.jpeg",
+    "raw_res": "1076x1280",
+    "raw_rect": [
+      60.292850494384766,
+      465.1776428222656,
+      165.53366088867188,
+      590.8819580078125
+    ]
+  },
+  {
+    "num": 20,
+    "page": 4,
+    "crop_file": "crop_020.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_020.jpeg",
+    "raw_res": "611x300",
+    "raw_rect": [
+      50.06110763549805,
+      636.19384765625,
+      175.76539611816406,
+      698.3151245117188
+    ]
+  },
+  {
+    "num": 21,
+    "page": 5,
+    "crop_file": "crop_021.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_021.jpeg",
+    "raw_res": "611x327",
+    "raw_rect": [
+      50.06110763549805,
+      74.90975189208984,
+      175.76539611816406,
+      142.87777709960938
+    ]
+  },
+  {
+    "num": 22,
+    "page": 5,
+    "crop_file": "crop_022.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_022.jpeg",
+    "raw_res": "611x306",
+    "raw_rect": [
+      50.06110763549805,
+      216.69256591796875,
+      175.76539611816406,
+      280.2755432128906
+    ]
+  },
+  {
+    "num": 23,
+    "page": 5,
+    "crop_file": "crop_023.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_023.jpeg",
+    "raw_res": "819x447",
+    "raw_rect": [
+      50.06110763549805,
+      354.0902099609375,
+      175.76539611816406,
+      422.0582275390625
+    ]
+  },
+  {
+    "num": 24,
+    "page": 5,
+    "crop_file": "crop_024.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_024.jpeg",
+    "raw_res": "727x378",
+    "raw_rect": [
+      50.06110763549805,
+      495.1423034667969,
+      175.76539611816406,
+      560.1869506835938
+    ]
+  },
+  {
+    "num": 25,
+    "page": 5,
+    "crop_file": "crop_025.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_025.jpeg",
+    "raw_res": "784x418",
+    "raw_rect": [
+      50.06110763549805,
+      634.00146484375,
+      175.76539611816406,
+      700.5078125
+    ]
+  },
+  {
+    "num": 26,
+    "page": 6,
+    "crop_file": "crop_026.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_026.jpeg",
+    "raw_res": "886x404",
+    "raw_rect": [
+      50.06110763549805,
+      80.0250015258789,
+      175.76541137695312,
+      137.7612762451172
+    ]
+  },
+  {
+    "num": 27,
+    "page": 6,
+    "crop_file": "crop_027.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_027.jpeg",
+    "raw_res": "886x410",
+    "raw_rect": [
+      50.06110763549805,
+      219.615478515625,
+      175.76541137695312,
+      277.35174560546875
+    ]
+  },
+  {
+    "num": 28,
+    "page": 6,
+    "crop_file": "crop_028.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_028.jpeg",
+    "raw_res": "788x456",
+    "raw_rect": [
+      50.06110763549805,
+      351.8971862792969,
+      175.76539611816406,
+      424.250244140625
+    ]
+  },
+  {
+    "num": 29,
+    "page": 6,
+    "crop_file": "crop_029.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_029.jpeg",
+    "raw_res": "1118x582",
+    "raw_rect": [
+      50.06110763549805,
+      495.14154052734375,
+      175.76541137695312,
+      560.1862182617188
+    ]
+  },
+  {
+    "num": 30,
+    "page": 6,
+    "crop_file": "crop_030.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_030.jpeg",
+    "raw_res": "1056x573",
+    "raw_rect": [
+      50.06110763549805,
+      633.2705078125,
+      175.76539611816406,
+      701.238525390625
+    ]
+  },
+  {
+    "num": 31,
+    "page": 7,
+    "crop_file": "crop_031.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_031.jpeg",
+    "raw_res": "870x965",
+    "raw_rect": [
+      55.90781784057617,
+      46.406715393066406,
+      169.91868591308594,
+      172.1110076904297
+    ]
+  },
+  {
+    "num": 32,
+    "page": 7,
+    "crop_file": "crop_032.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_032.jpeg",
+    "raw_res": "1080x914",
+    "raw_rect": [
+      50.06110763549805,
+      195.49778747558594,
+      175.76539611816406,
+      301.46942138671875
+    ]
+  },
+  {
+    "num": 33,
+    "page": 7,
+    "crop_file": "crop_033.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_033.jpeg",
+    "raw_res": "511x690",
+    "raw_rect": [
+      66.13956451416016,
+      325.587158203125,
+      159.68695068359375,
+      451.29144287109375
+    ]
+  },
+  {
+    "num": 34,
+    "page": 7,
+    "crop_file": "crop_034.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_034.jpeg",
+    "raw_res": "521x690",
+    "raw_rect": [
+      65.40872192382812,
+      465.1776123046875,
+      160.41778564453125,
+      590.8818969726562
+    ]
+  },
+  {
+    "num": 35,
+    "page": 7,
+    "crop_file": "crop_035.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_035.jpeg",
+    "raw_res": "511x716",
+    "raw_rect": [
+      68.33208465576172,
+      604.7676391601562,
+      157.4944305419922,
+      730.471923828125
+    ]
+  },
+  {
+    "num": 36,
+    "page": 8,
+    "crop_file": "crop_036.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_036.jpeg",
+    "raw_res": "524x736",
+    "raw_rect": [
+      68.33208465576172,
+      46.407188415527344,
+      157.49441528320312,
+      172.1114959716797
+    ]
+  },
+  {
+    "num": 37,
+    "page": 8,
+    "crop_file": "crop_037.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_037.jpeg",
+    "raw_res": "536x699",
+    "raw_rect": [
+      64.67788696289062,
+      185.99716186523438,
+      161.14862060546875,
+      311.7014465332031
+    ]
+  },
+  {
+    "num": 38,
+    "page": 8,
+    "crop_file": "crop_038.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_038.jpeg",
+    "raw_res": "517x694",
+    "raw_rect": [
+      66.13956451416016,
+      325.587646484375,
+      159.68695068359375,
+      451.29193115234375
+    ]
+  },
+  {
+    "num": 39,
+    "page": 8,
+    "crop_file": "crop_039.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_039.jpeg",
+    "raw_res": "1090x1280",
+    "raw_rect": [
+      59.56201171875,
+      465.1776428222656,
+      166.26449584960938,
+      590.8819580078125
+    ]
+  },
+  {
+    "num": 40,
+    "page": 8,
+    "crop_file": "crop_040.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_040.jpeg",
+    "raw_res": "1071x1280",
+    "raw_rect": [
+      60.292850494384766,
+      604.7681884765625,
+      165.53366088867188,
+      730.4724731445312
+    ]
+  },
+  {
+    "num": 41,
+    "page": 9,
+    "crop_file": "crop_041.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_041.jpeg",
+    "raw_res": "687x811",
+    "raw_rect": [
+      59.56201171875,
+      46.407188415527344,
+      166.26449584960938,
+      172.1114959716797
+    ]
+  },
+  {
+    "num": 42,
+    "page": 9,
+    "crop_file": "crop_042.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_042.jpeg",
+    "raw_res": "590x857",
+    "raw_rect": [
+      69.79375457763672,
+      185.99765014648438,
+      156.03274536132812,
+      311.7019348144531
+    ]
+  },
+  {
+    "num": 43,
+    "page": 9,
+    "crop_file": "crop_043.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_043.jpeg",
+    "raw_res": "1145x1009",
+    "raw_rect": [
+      50.06110763549805,
+      332.89593505859375,
+      175.76539611816406,
+      443.25262451171875
+    ]
+  },
+  {
+    "num": 44,
+    "page": 9,
+    "crop_file": "crop_044.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_044.jpeg",
+    "raw_res": "1085x1280",
+    "raw_rect": [
+      59.56201171875,
+      465.1781311035156,
+      166.26449584960938,
+      590.8824462890625
+    ]
+  },
+  {
+    "num": 45,
+    "page": 9,
+    "crop_file": "crop_045.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_045.jpeg",
+    "raw_res": "747x389",
+    "raw_rect": [
+      50.06110763549805,
+      634.7324829101562,
+      175.76539611816406,
+      699.7771606445312
+    ]
+  },
+  {
+    "num": 46,
+    "page": 10,
+    "crop_file": "crop_046.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_046.jpeg",
+    "raw_res": "950x431",
+    "raw_rect": [
+      50.06110763549805,
+      80.0250015258789,
+      175.76539611816406,
+      137.7612762451172
+    ]
+  },
+  {
+    "num": 47,
+    "page": 10,
+    "crop_file": "crop_047.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_047.jpeg",
+    "raw_res": "738x375",
+    "raw_rect": [
+      50.06110763549805,
+      216.69186401367188,
+      175.76539611816406,
+      280.27484130859375
+    ]
+  },
+  {
+    "num": 48,
+    "page": 10,
+    "crop_file": "crop_048.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_048.jpeg",
+    "raw_res": "733x367",
+    "raw_rect": [
+      50.06110763549805,
+      356.2823486328125,
+      175.76541137695312,
+      419.8653259277344
+    ]
+  },
+  {
+    "num": 49,
+    "page": 10,
+    "crop_file": "crop_049.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_049.jpeg",
+    "raw_res": "733x367",
+    "raw_rect": [
+      50.06110763549805,
+      495.8723449707031,
+      175.76541137695312,
+      559.455322265625
+    ]
+  },
+  {
+    "num": 50,
+    "page": 10,
+    "crop_file": "crop_050.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_050.jpeg",
+    "raw_res": "1081x1280",
+    "raw_rect": [
+      59.56201171875,
+      604.7672119140625,
+      166.26449584960938,
+      730.4714965820312
+    ]
+  },
+  {
+    "num": 51,
+    "page": 11,
+    "crop_file": "crop_051.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_051.jpeg",
+    "raw_res": "794x414",
+    "raw_rect": [
+      50.06110763549805,
+      76.37062072753906,
+      175.76539611816406,
+      141.415283203125
+    ]
+  },
+  {
+    "num": 52,
+    "page": 11,
+    "crop_file": "crop_052.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_052.jpeg",
+    "raw_res": "268x136",
+    "raw_rect": [
+      50.06110763549805,
+      216.69186401367188,
+      175.76539611816406,
+      280.27484130859375
+    ]
+  },
+  {
+    "num": 53,
+    "page": 11,
+    "crop_file": "crop_053.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_053.jpeg",
+    "raw_res": "878x448",
+    "raw_rect": [
+      50.06110763549805,
+      356.2818603515625,
+      175.76539611816406,
+      419.8648376464844
+    ]
+  },
+  {
+    "num": 54,
+    "page": 11,
+    "crop_file": "crop_054.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_054.jpeg",
+    "raw_res": "893x412",
+    "raw_rect": [
+      50.06110763549805,
+      498.79595947265625,
+      175.76539611816406,
+      556.5322265625
+    ]
+  },
+  {
+    "num": 55,
+    "page": 11,
+    "crop_file": "crop_055.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_055.jpeg",
+    "raw_res": "809x535",
+    "raw_rect": [
+      50.06110763549805,
+      625.9612426757812,
+      175.76539611816406,
+      708.5460205078125
+    ]
+  },
+  {
+    "num": 56,
+    "page": 12,
+    "crop_file": "crop_056.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_056.jpeg",
+    "raw_res": "612x1280",
+    "raw_rect": [
+      82.9488525390625,
+      46.407188415527344,
+      142.8776397705078,
+      172.1114959716797
+    ]
+  },
+  {
+    "num": 57,
+    "page": 12,
+    "crop_file": "crop_057.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_057.jpeg",
+    "raw_res": "599x1071",
+    "raw_rect": [
+      77.8329849243164,
+      185.99716186523438,
+      147.9935302734375,
+      311.70147705078125
+    ]
+  },
+  {
+    "num": 58,
+    "page": 12,
+    "crop_file": "crop_058.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_058.jpeg",
+    "raw_res": "901x952",
+    "raw_rect": [
+      53.71529769897461,
+      325.587158203125,
+      172.1112060546875,
+      451.2914733886719
+    ]
+  },
+  {
+    "num": 59,
+    "page": 12,
+    "crop_file": "crop_059.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_059.jpeg",
+    "raw_res": "1106x915",
+    "raw_rect": [
+      50.06110763549805,
+      475.4090576171875,
+      175.76539611816406,
+      579.9190063476562
+    ]
+  },
+  {
+    "num": 60,
+    "page": 12,
+    "crop_file": "crop_060.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_060.jpeg",
+    "raw_res": "251x124",
+    "raw_rect": [
+      50.06110763549805,
+      636.194091796875,
+      175.76541137695312,
+      698.3153686523438
+    ]
+  },
+  {
+    "num": 61,
+    "page": 13,
+    "crop_file": "crop_061.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_061.jpeg",
+    "raw_res": "281x454",
+    "raw_rect": [
+      74.17879486083984,
+      46.40624237060547,
+      151.64772033691406,
+      172.11053466796875
+    ]
+  },
+  {
+    "num": 62,
+    "page": 13,
+    "crop_file": "crop_062.png",
+    "crop_res": "560x446",
+    "raw_file": "scratch/extracted_all\\raw_062.jpeg",
+    "raw_res": "1125x914",
+    "raw_rect": [
+      50.06110763549805,
+      197.69064331054688,
+      175.76541137695312,
+      299.2772521972656
+    ]
+  },
+  {
+    "num": 63,
+    "page": 13,
+    "crop_file": "crop_063.png",
+    "crop_res": "560x330",
+    "raw_file": "scratch/extracted_all\\raw_063.jpeg",
+    "raw_res": "1125x914",
+    "raw_rect": [
+      50.06110763549805,
+      197.69064331054688,
+      175.76541137695312,
+      299.2772521972656
+    ]
+  },
+  {
+    "num": 64,
+    "page": 13,
+    "crop_file": "crop_064.png",
+    "crop_res": "560x444",
+    "raw_file": "scratch/extracted_all\\raw_064.jpeg",
+    "raw_res": "556x301",
+    "raw_rect": [
+      50.06110763549805,
+      378.2071838378906,
+      175.76539611816406,
+      446.9060363769531
+    ]
+  },
+  {
+    "num": 65,
+    "page": 13,
+    "crop_file": "crop_065.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_065.jpeg",
+    "raw_res": "406x215",
+    "raw_rect": [
+      50.06110763549805,
+      518.5284423828125,
+      175.76539611816406,
+      585.765625
+    ]
+  },
+  {
+    "num": 66,
+    "page": 13,
+    "crop_file": "crop_066.png",
+    "crop_res": "560x753",
+    "raw_file": "scratch/extracted_all\\raw_066.jpeg",
+    "raw_res": "545x338",
+    "raw_rect": [
+      50.06110763549805,
+      653.00341796875,
+      175.76541137695312,
+      730.4723510742188
+    ]
+  },
+  {
+    "num": 67,
+    "page": 14,
+    "crop_file": "crop_067.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_067.jpeg",
+    "raw_res": "561x297",
+    "raw_rect": [
+      50.06110763549805,
+      75.64124298095703,
+      175.76539611816406,
+      142.1475830078125
+    ]
+  },
+  {
+    "num": 68,
+    "page": 14,
+    "crop_file": "crop_068.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_068.jpeg",
+    "raw_res": "569x295",
+    "raw_rect": [
+      50.06110763549805,
+      215.96156311035156,
+      175.76541137695312,
+      281.0062255859375
+    ]
+  },
+  {
+    "num": 69,
+    "page": 14,
+    "crop_file": "crop_069.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_069.jpeg",
+    "raw_res": "1170x772",
+    "raw_rect": [
+      50.06110763549805,
+      346.7821960449219,
+      175.76541137695312,
+      429.36700439453125
+    ]
+  },
+  {
+    "num": 70,
+    "page": 14,
+    "crop_file": "crop_070.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_070.jpeg",
+    "raw_res": "1170x814",
+    "raw_rect": [
+      50.06110763549805,
+      484.1802978515625,
+      175.76541137695312,
+      571.150146484375
+    ]
+  },
+  {
+    "num": 71,
+    "page": 14,
+    "crop_file": "crop_071.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_071.jpeg",
+    "raw_res": "1170x740",
+    "raw_rect": [
+      50.06110763549805,
+      627.4246826171875,
+      175.76541137695312,
+      707.0861206054688
+    ]
+  },
+  {
+    "num": 72,
+    "page": 15,
+    "crop_file": "crop_072.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_072.jpeg",
+    "raw_res": "1170x834",
+    "raw_rect": [
+      50.06110763549805,
+      63.946876525878906,
+      175.76541137695312,
+      153.84005737304688
+    ]
+  },
+  {
+    "num": 73,
+    "page": 15,
+    "crop_file": "crop_073.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_073.jpeg",
+    "raw_res": "1170x806",
+    "raw_rect": [
+      50.06110763549805,
+      204.99937438964844,
+      175.76541137695312,
+      291.9692077636719
+    ]
+  },
+  {
+    "num": 74,
+    "page": 15,
+    "crop_file": "crop_074.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_074.jpeg",
+    "raw_res": "1170x822",
+    "raw_rect": [
+      50.06110763549805,
+      343.85809326171875,
+      175.76541137695312,
+      432.28961181640625
+    ]
+  },
+  {
+    "num": 75,
+    "page": 15,
+    "crop_file": "crop_075.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_075.jpeg",
+    "raw_res": "1170x828",
+    "raw_rect": [
+      50.06110763549805,
+      483.44903564453125,
+      175.76541137695312,
+      571.8805541992188
+    ]
+  },
+  {
+    "num": 76,
+    "page": 15,
+    "crop_file": "crop_076.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_076.jpeg",
+    "raw_res": "1170x828",
+    "raw_rect": [
+      50.06110763549805,
+      623.0390014648438,
+      175.76541137695312,
+      711.4705200195312
+    ]
+  },
+  {
+    "num": 77,
+    "page": 16,
+    "crop_file": "crop_077.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_077.jpeg",
+    "raw_res": "917x1280",
+    "raw_rect": [
+      67.60124206542969,
+      46.407188415527344,
+      158.2252655029297,
+      172.1114959716797
+    ]
+  },
+  {
+    "num": 78,
+    "page": 16,
+    "crop_file": "crop_078.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_078.jpeg",
+    "raw_res": "1170x833",
+    "raw_rect": [
+      50.06110763549805,
+      203.536865234375,
+      175.76541137695312,
+      293.4300537109375
+    ]
+  },
+  {
+    "num": 79,
+    "page": 16,
+    "crop_file": "crop_079.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_079.jpeg",
+    "raw_res": "1170x837",
+    "raw_rect": [
+      50.06110763549805,
+      343.1278076171875,
+      175.76541137695312,
+      433.02099609375
+    ]
+  },
+  {
+    "num": 80,
+    "page": 16,
+    "crop_file": "crop_080.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_080.jpeg",
+    "raw_res": "1170x845",
+    "raw_rect": [
+      50.06110763549805,
+      481.986572265625,
+      175.76541137695312,
+      573.3414306640625
+    ]
+  },
+  {
+    "num": 81,
+    "page": 16,
+    "crop_file": "crop_081.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_081.jpeg",
+    "raw_res": "1170x871",
+    "raw_rect": [
+      50.06110763549805,
+      620.114990234375,
+      175.76541137695312,
+      714.3931884765625
+    ]
+  },
+  {
+    "num": 82,
+    "page": 17,
+    "crop_file": "crop_082.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_082.jpeg",
+    "raw_res": "1128x1600",
+    "raw_rect": [
+      68.33208465576172,
+      46.407188415527344,
+      157.4944305419922,
+      172.11148071289062
+    ]
+  },
+  {
+    "num": 83,
+    "page": 17,
+    "crop_file": "crop_083.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_083.jpeg",
+    "raw_res": "267x240",
+    "raw_rect": [
+      50.06110763549805,
+      191.8443603515625,
+      175.76539611816406,
+      305.1243896484375
+    ]
+  },
+  {
+    "num": 84,
+    "page": 17,
+    "crop_file": "crop_084.png",
+    "crop_res": "560x445",
+    "raw_file": "scratch/extracted_all\\raw_084.jpeg",
+    "raw_res": "1170x839",
+    "raw_rect": [
+      50.06110763549805,
+      343.1278076171875,
+      175.76541137695312,
+      433.02099609375
+    ]
+  },
+  {
+    "num": 85,
+    "page": 17,
+    "crop_file": "crop_085.png",
+    "crop_res": "560x330",
+    "raw_file": "scratch/extracted_all\\raw_085.jpeg",
+    "raw_res": "1170x839",
+    "raw_rect": [
+      50.06110763549805,
+      343.1278076171875,
+      175.76541137695312,
+      433.02099609375
+    ]
+  },
+  {
+    "num": 86,
+    "page": 17,
+    "crop_file": "crop_086.png",
+    "crop_res": "560x444",
+    "raw_file": "scratch/extracted_all\\raw_086.jpeg",
+    "raw_res": "277x279",
+    "raw_rect": [
+      50.79194641113281,
+      489.29620361328125,
+      175.0345458984375,
+      615.00048828125
+    ]
+  },
+  {
+    "num": 87,
+    "page": 17,
+    "crop_file": "crop_087.png",
+    "crop_res": "560x753",
+    "raw_file": "scratch/extracted_all\\raw_087.jpeg",
+    "raw_res": "218x232",
+    "raw_rect": [
+      53.71529769897461,
+      628.8862915039062,
+      172.1112060546875,
+      754.590576171875
+    ]
+  },
+  {
+    "num": 88,
+    "page": 18,
+    "crop_file": "crop_088.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_088.jpeg",
+    "raw_res": "280x274",
+    "raw_rect": [
+      50.06110763549805,
+      47.13843536376953,
+      175.76539611816406,
+      170.6502227783203
+    ]
+  },
+  {
+    "num": 89,
+    "page": 18,
+    "crop_file": "crop_089.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_089.jpeg",
+    "raw_res": "269x281",
+    "raw_rect": [
+      52.98446273803711,
+      185.99716186523438,
+      172.842041015625,
+      311.7014465332031
+    ]
+  },
+  {
+    "num": 90,
+    "page": 18,
+    "crop_file": "crop_090.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_090.jpeg",
+    "raw_res": "555x547",
+    "raw_rect": [
+      50.06110763549805,
+      326.31842041015625,
+      175.76539611816406,
+      449.8302001953125
+    ]
+  },
+  {
+    "num": 91,
+    "page": 18,
+    "crop_file": "crop_091.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_091.jpeg",
+    "raw_res": "1080x1352",
+    "raw_rect": [
+      62.48537063598633,
+      465.1781005859375,
+      163.3411407470703,
+      590.8823852539062
+    ]
+  },
+  {
+    "num": 92,
+    "page": 18,
+    "crop_file": "crop_092.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_092.jpeg",
+    "raw_res": "833x826",
+    "raw_rect": [
+      50.06110763549805,
+      604.76806640625,
+      175.76539611816406,
+      729.7415161132812
+    ]
+  },
+  {
+    "num": 93,
+    "page": 19,
+    "crop_file": "crop_093.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_093.jpeg",
+    "raw_res": "560x279",
+    "raw_rect": [
+      50.06110763549805,
+      77.83216857910156,
+      175.76539611816406,
+      139.95347595214844
+    ]
+  },
+  {
+    "num": 94,
+    "page": 19,
+    "crop_file": "crop_094.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_094.jpeg",
+    "raw_res": "662x392",
+    "raw_rect": [
+      50.06110763549805,
+      211.575927734375,
+      175.76541137695312,
+      285.3906555175781
+    ]
+  },
+  {
+    "num": 95,
+    "page": 19,
+    "crop_file": "crop_095.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_095.jpeg",
+    "raw_res": "857x691",
+    "raw_rect": [
+      50.06110763549805,
+      337.2796936035156,
+      175.76539611816406,
+      438.8663024902344
+    ]
+  },
+  {
+    "num": 96,
+    "page": 19,
+    "crop_file": "crop_096.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_096.jpeg",
+    "raw_res": "1131x572",
+    "raw_rect": [
+      50.06110763549805,
+      495.8719177246094,
+      175.76539611816406,
+      559.4548950195312
+    ]
+  },
+  {
+    "num": 97,
+    "page": 19,
+    "crop_file": "crop_097.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_097.jpeg",
+    "raw_res": "1125x561",
+    "raw_rect": [
+      50.06110763549805,
+      636.193115234375,
+      175.76541137695312,
+      698.314453125
+    ]
+  },
+  {
+    "num": 98,
+    "page": 20,
+    "crop_file": "crop_098.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_098.jpeg",
+    "raw_res": "1125x562",
+    "raw_rect": [
+      50.06110763549805,
+      77.83311462402344,
+      175.76541137695312,
+      139.9544219970703
+    ]
+  },
+  {
+    "num": 99,
+    "page": 20,
+    "crop_file": "crop_099.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_099.jpeg",
+    "raw_res": "558x277",
+    "raw_rect": [
+      50.06110763549805,
+      217.423095703125,
+      175.76539611816406,
+      279.5444030761719
+    ]
+  },
+  {
+    "num": 100,
+    "page": 20,
+    "crop_file": "crop_100.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_100.jpeg",
+    "raw_res": "1599x799",
+    "raw_rect": [
+      50.06110763549805,
+      357.0140380859375,
+      175.76539611816406,
+      419.1353454589844
+    ]
+  },
+  {
+    "num": 101,
+    "page": 20,
+    "crop_file": "crop_101.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_101.jpeg",
+    "raw_res": "1507x786",
+    "raw_rect": [
+      50.06110763549805,
+      495.14154052734375,
+      175.76541137695312,
+      560.1862182617188
+    ]
+  },
+  {
+    "num": 102,
+    "page": 20,
+    "crop_file": "crop_102.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_102.jpeg",
+    "raw_res": "1493x786",
+    "raw_rect": [
+      50.06110763549805,
+      634.002197265625,
+      175.76539611816406,
+      700.508544921875
+    ]
+  },
+  {
+    "num": 103,
+    "page": 21,
+    "crop_file": "crop_103.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_103.jpeg",
+    "raw_res": "1407x797",
+    "raw_rect": [
+      50.06110763549805,
+      73.44749450683594,
+      175.76539611816406,
+      144.3388671875
+    ]
+  },
+  {
+    "num": 104,
+    "page": 21,
+    "crop_file": "crop_104.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_104.jpeg",
+    "raw_res": "810x479",
+    "raw_rect": [
+      50.06110763549805,
+      211.57501220703125,
+      175.76539611816406,
+      285.3897399902344
+    ]
+  },
+  {
+    "num": 105,
+    "page": 21,
+    "crop_file": "crop_105.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_105.jpeg",
+    "raw_res": "1024x490",
+    "raw_rect": [
+      50.06110763549805,
+      357.7424621582031,
+      175.76539611816406,
+      418.402099609375
+    ]
+  },
+  {
+    "num": 106,
+    "page": 21,
+    "crop_file": "crop_106.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_106.jpeg",
+    "raw_res": "1170x729",
+    "raw_rect": [
+      50.06110763549805,
+      488.5631103515625,
+      175.76541137695312,
+      566.7628784179688
+    ]
+  },
+  {
+    "num": 107,
+    "page": 21,
+    "crop_file": "crop_107.png",
+    "crop_res": "560x852",
+    "raw_file": "scratch/extracted_all\\raw_107.jpeg",
+    "raw_res": "1125x562",
+    "raw_rect": [
+      50.06110763549805,
+      636.1931762695312,
+      175.76541137695312,
+      698.314453125
+    ]
+  },
+  {
+    "num": 108,
+    "page": 22,
+    "crop_file": "crop_108.png",
+    "crop_res": "560x376",
+    "raw_file": "scratch/extracted_all\\raw_108.jpeg",
+    "raw_res": "1600x1200",
+    "raw_rect": [
+      50.06110763549805,
+      61.75499725341797,
+      175.76539611816406,
+      156.03321838378906
+    ]
+  },
+  {
+    "num": 109,
+    "page": 22,
+    "crop_file": "crop_109.png",
+    "crop_res": "560x560",
+    "raw_file": "scratch/extracted_all\\raw_109.jpeg",
+    "raw_res": "695x367",
+    "raw_rect": [
+      50.06110763549805,
+      215.23123168945312,
+      175.76539611816406,
+      281.7375793457031
+    ]
+  },
+  {
+    "num": 110,
+    "page": 22,
+    "crop_file": "crop_110.png",
+    "crop_res": "560x559",
+    "raw_file": "scratch/extracted_all\\raw_110.jpeg",
+    "raw_res": "836x494",
+    "raw_rect": [
+      50.06110763549805,
+      351.1668701171875,
+      175.76539611816406,
+      424.9815979003906
+    ]
+  },
+  {
+    "num": 111,
+    "page": 22,
+    "crop_file": "crop_111.png",
+    "crop_res": "560x1411",
+    "raw_file": "scratch/extracted_all\\raw_111.jpeg",
+    "raw_res": "718x433",
+    "raw_rect": [
+      50.06110763549805,
+      490.0256042480469,
+      175.76539611816406,
+      565.302001953125
+    ]
+  }
+]

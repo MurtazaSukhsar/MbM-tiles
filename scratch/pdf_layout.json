@@ -1,0 +1,3669 @@
+[
+  {
+    "page": 1,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 5,
+        "ext": "png",
+        "width": 1408,
+        "height": 768,
+        "size": 1253948,
+        "rects": [
+          [
+            21.6,
+            39.1,
+            53.7,
+            56.6
+          ]
+        ]
+      },
+      {
+        "xref": 12,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 666,
+        "size": 44848,
+        "rects": [
+          [
+            50.1,
+            159.0,
+            175.8,
+            229.8
+          ]
+        ]
+      },
+      {
+        "xref": 14,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 440,
+        "size": 26481,
+        "rects": [
+          [
+            50.1,
+            310.2,
+            175.8,
+            357.7
+          ]
+        ]
+      },
+      {
+        "xref": 15,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 453,
+        "size": 28523,
+        "rects": [
+          [
+            50.1,
+            449.1,
+            175.8,
+            498.1
+          ]
+        ]
+      },
+      {
+        "xref": 16,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 825,
+        "size": 68759,
+        "rects": [
+          [
+            50.1,
+            569.0,
+            175.8,
+            657.4
+          ]
+        ]
+      },
+      {
+        "xref": 17,
+        "ext": "jpeg",
+        "width": 570,
+        "height": 329,
+        "size": 19736,
+        "rects": [
+          [
+            50.1,
+            716.6,
+            175.8,
+            788.9
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          62.5,
+          28.7,
+          89.6,
+          42.0
+        ],
+        "text": "Aqiq"
+      },
+      {
+        "bbox": [
+          62.5,
+          48.2,
+          79.0,
+          56.2
+        ],
+        "text": "Aqiq"
+      },
+      {
+        "bbox": [
+          62.5,
+          60.0,
+          159.1,
+          67.7
+        ],
+        "text": "Generated: 18/09/2026, 14:01:55"
+      },
+      {
+        "bbox": [
+          477.9,
+          39.8,
+          572.8,
+          50.2
+        ],
+        "text": "AQIQ (MBM) TILES"
+      },
+      {
+        "bbox": [
+          32.3,
+          106.4,
+          465.2,
+          114.5
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          32.4,
+          188.8,
+          485.7,
+          198.2
+        ],
+        "text": "1\nQueBec Light (Glossy)\n726 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          32.4,
+          328.4,
+          485.7,
+          337.8
+        ],
+        "text": "2\nNorway Grey (Matt)\n166 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          32.4,
+          468.0,
+          485.7,
+          477.4
+        ],
+        "text": "3\nNorway Grey (Glossy)\n156 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          32.4,
+          607.5,
+          485.7,
+          617.0
+        ],
+        "text": "4\nLuxury Dyna Crema (savino)\n492 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          32.4,
+          747.1,
+          517.4,
+          756.6
+        ],
+        "text": "5\nLuxury Dyna Grey ( savino )\n198 Box\n600\u00d71200 (Glossy)"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 2,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 31,
+        "ext": "jpeg",
+        "width": 723,
+        "height": 517,
+        "size": 34748,
+        "rects": [
+          [
+            50.1,
+            63.9,
+            175.8,
+            153.8
+          ]
+        ]
+      },
+      {
+        "xref": 32,
+        "ext": "jpeg",
+        "width": 596,
+        "height": 1280,
+        "size": 21437,
+        "rects": [
+          [
+            83.7,
+            186.0,
+            142.1,
+            311.7
+          ]
+        ]
+      },
+      {
+        "xref": 34,
+        "ext": "jpeg",
+        "width": 672,
+        "height": 1133,
+        "size": 14541,
+        "rects": [
+          [
+            75.6,
+            325.6,
+            150.2,
+            451.3
+          ]
+        ]
+      },
+      {
+        "xref": 35,
+        "ext": "jpeg",
+        "width": 1058,
+        "height": 1280,
+        "size": 104732,
+        "rects": [
+          [
+            61.0,
+            465.2,
+            164.8,
+            590.9
+          ]
+        ]
+      },
+      {
+        "xref": 36,
+        "ext": "jpeg",
+        "width": 1092,
+        "height": 1280,
+        "size": 129705,
+        "rects": [
+          [
+            59.6,
+            604.8,
+            166.3,
+            730.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          32.4,
+          103.3,
+          517.4,
+          112.7
+        ],
+        "text": "6\nLuxury Dyna Natural ( savino )\n7 Box\n600\u00d71200 (Glossy)"
+      },
+      {
+        "bbox": [
+          32.4,
+          242.9,
+          520.9,
+          252.3
+        ],
+        "text": "7\nStatuario Cara (Glossy)\n334 Box\n600\u00d71200 (SONEX )"
+      },
+      {
+        "bbox": [
+          32.4,
+          382.4,
+          550.4,
+          391.9
+        ],
+        "text": "8\nPlain White ( glossy)\n850 Box\n600\u00d71200 ( Regular) spenox"
+      },
+      {
+        "bbox": [
+          32.4,
+          522.0,
+          485.7,
+          531.5
+        ],
+        "text": "9\nIndus Beige (Glossy)\n77 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          543.0,
+          671.0
+        ],
+        "text": "10\nGEMAS ASH (SPENOX)\n426 Box\n600x1200 (glossy regular)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 3,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 49,
+        "ext": "jpeg",
+        "width": 1081,
+        "height": 1280,
+        "size": 54728,
+        "rects": [
+          [
+            59.6,
+            46.4,
+            166.3,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 50,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 567,
+        "size": 28589,
+        "rects": [
+          [
+            50.1,
+            218.2,
+            175.8,
+            278.8
+          ]
+        ]
+      },
+      {
+        "xref": 51,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 581,
+        "size": 65907,
+        "rects": [
+          [
+            50.1,
+            357.0,
+            175.8,
+            419.1
+          ]
+        ]
+      },
+      {
+        "xref": 52,
+        "ext": "jpeg",
+        "width": 1095,
+        "height": 1600,
+        "size": 59738,
+        "rects": [
+          [
+            69.8,
+            465.2,
+            156.0,
+            590.9
+          ]
+        ]
+      },
+      {
+        "xref": 53,
+        "ext": "jpeg",
+        "width": 1042,
+        "height": 1280,
+        "size": 91643,
+        "rects": [
+          [
+            61.8,
+            604.8,
+            164.1,
+            730.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          515.4,
+          112.7
+        ],
+        "text": "11\nUrban pearl (Glossy)\n378 box\n600\u00d71200(Glossy)"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          507.2,
+          252.3
+        ],
+        "text": "12\nCera Avery Gold Onyx (STD)\n469 Box\n600\u00d71200( Std )"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          505.2,
+          391.9
+        ],
+        "text": "13\nThe Taj Avorio (STD)\n14 Box\n600\u00d71200 (Std)"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          520.6,
+          531.5
+        ],
+        "text": "14\nGreek Statuario (glossy)\n389 Box\n600\u00d71200 (Ragular)"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          520.5,
+          671.0
+        ],
+        "text": "15\nDiamond Statuario (Glossy)\n221 Box\n600\u00d71200( Regular)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 4,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 66,
+        "ext": "jpeg",
+        "width": 987,
+        "height": 1280,
+        "size": 100374,
+        "rects": [
+          [
+            64.7,
+            46.4,
+            161.1,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 67,
+        "ext": "jpeg",
+        "width": 1106,
+        "height": 1280,
+        "size": 104626,
+        "rects": [
+          [
+            58.8,
+            186.0,
+            167.0,
+            311.7
+          ]
+        ]
+      },
+      {
+        "xref": 68,
+        "ext": "jpeg",
+        "width": 1106,
+        "height": 1280,
+        "size": 86196,
+        "rects": [
+          [
+            58.8,
+            325.6,
+            167.0,
+            451.3
+          ]
+        ]
+      },
+      {
+        "xref": 69,
+        "ext": "jpeg",
+        "width": 1076,
+        "height": 1280,
+        "size": 54472,
+        "rects": [
+          [
+            60.3,
+            465.2,
+            165.5,
+            590.9
+          ]
+        ]
+      },
+      {
+        "xref": 70,
+        "ext": "jpeg",
+        "width": 611,
+        "height": 300,
+        "size": 30139,
+        "rects": [
+          [
+            50.1,
+            636.2,
+            175.8,
+            698.3
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          522.5,
+          112.7
+        ],
+        "text": "16\nVoyage Blue (Glossy)\n249 Box\n600\u00d71200 ( Regular)"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          485.7,
+          252.3
+        ],
+        "text": "17\nVoyage Teal (Glossy) spenox\n436 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          517.4,
+          391.9
+        ],
+        "text": "18\nVapor Aqua ( spenox)\n192 Box\n600\u00d71200 (Glossy)"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          485.7,
+          531.5
+        ],
+        "text": "19\nVapor White(Glossy) ( spenox)\n722 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          655.8,
+          285.6,
+          670.8
+        ],
+        "text": "20\n115 - HL (Glossy) 3pic Box ("
+      },
+      {
+        "bbox": [
+          186.7,
+          668.2,
+          207.5,
+          677.6
+        ],
+        "text": "Anuj )"
+      },
+      {
+        "bbox": [
+          318.3,
+          661.6,
+          485.7,
+          671.0
+        ],
+        "text": "86 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 5,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 83,
+        "ext": "jpeg",
+        "width": 611,
+        "height": 327,
+        "size": 14816,
+        "rects": [
+          [
+            50.1,
+            74.9,
+            175.8,
+            142.9
+          ]
+        ]
+      },
+      {
+        "xref": 84,
+        "ext": "jpeg",
+        "width": 611,
+        "height": 306,
+        "size": 20012,
+        "rects": [
+          [
+            50.1,
+            216.7,
+            175.8,
+            280.3
+          ]
+        ]
+      },
+      {
+        "xref": 85,
+        "ext": "jpeg",
+        "width": 819,
+        "height": 447,
+        "size": 51027,
+        "rects": [
+          [
+            50.1,
+            354.1,
+            175.8,
+            422.1
+          ]
+        ]
+      },
+      {
+        "xref": 86,
+        "ext": "jpeg",
+        "width": 727,
+        "height": 378,
+        "size": 48435,
+        "rects": [
+          [
+            50.1,
+            495.1,
+            175.8,
+            560.2
+          ]
+        ]
+      },
+      {
+        "xref": 87,
+        "ext": "jpeg",
+        "width": 784,
+        "height": 418,
+        "size": 25345,
+        "rects": [
+          [
+            50.1,
+            634.0,
+            175.8,
+            700.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          485.7,
+          112.7
+        ],
+        "text": "21\n115 - L (Glossy) 3pic Box ( Anuj )\n147 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          485.7,
+          252.3
+        ],
+        "text": "22\n115 - D ( Glossy ) 3pic Box\n199 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          485.7,
+          391.9
+        ],
+        "text": "23\n132 - D (Glossy) 3 pic Box\n149 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          485.7,
+          531.5
+        ],
+        "text": "24\n132 - HL (Glossy) 3pic Box\n41 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          485.7,
+          671.0
+        ],
+        "text": "25\n132 - L (Glossy) 3 pic Box\n15 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 6,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 100,
+        "ext": "jpeg",
+        "width": 886,
+        "height": 404,
+        "size": 64441,
+        "rects": [
+          [
+            50.1,
+            80.0,
+            175.8,
+            137.8
+          ]
+        ]
+      },
+      {
+        "xref": 101,
+        "ext": "jpeg",
+        "width": 886,
+        "height": 410,
+        "size": 40934,
+        "rects": [
+          [
+            50.1,
+            219.6,
+            175.8,
+            277.4
+          ]
+        ]
+      },
+      {
+        "xref": 102,
+        "ext": "jpeg",
+        "width": 788,
+        "height": 456,
+        "size": 18880,
+        "rects": [
+          [
+            50.1,
+            351.9,
+            175.8,
+            424.3
+          ]
+        ]
+      },
+      {
+        "xref": 103,
+        "ext": "jpeg",
+        "width": 1118,
+        "height": 582,
+        "size": 77591,
+        "rects": [
+          [
+            50.1,
+            495.1,
+            175.8,
+            560.2
+          ]
+        ]
+      },
+      {
+        "xref": 104,
+        "ext": "jpeg",
+        "width": 1056,
+        "height": 573,
+        "size": 125029,
+        "rects": [
+          [
+            50.1,
+            633.3,
+            175.8,
+            701.2
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          485.7,
+          112.7
+        ],
+        "text": "26\n131 - HL (Glossy) 3pic Box\n88 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          485.7,
+          252.3
+        ],
+        "text": "27\n131 - D (Glossy) 3pic Box\n246Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          485.7,
+          391.9
+        ],
+        "text": "28\n111 - L ( Glossy ) 3 pic packing\n185 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          485.7,
+          531.5
+        ],
+        "text": "29\n107 - HL ( Glossy ) 3pic box\n69 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          485.7,
+          671.0
+        ],
+        "text": "30\n125 - HL ( Glossy) 3pic box\n56 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 7,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 117,
+        "ext": "jpeg",
+        "width": 870,
+        "height": 965,
+        "size": 135198,
+        "rects": [
+          [
+            55.9,
+            46.4,
+            169.9,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 118,
+        "ext": "jpeg",
+        "width": 1080,
+        "height": 914,
+        "size": 121019,
+        "rects": [
+          [
+            50.1,
+            195.5,
+            175.8,
+            301.5
+          ]
+        ]
+      },
+      {
+        "xref": 119,
+        "ext": "jpeg",
+        "width": 511,
+        "height": 690,
+        "size": 22249,
+        "rects": [
+          [
+            66.1,
+            325.6,
+            159.7,
+            451.3
+          ]
+        ]
+      },
+      {
+        "xref": 120,
+        "ext": "jpeg",
+        "width": 521,
+        "height": 690,
+        "size": 42186,
+        "rects": [
+          [
+            65.4,
+            465.2,
+            160.4,
+            590.9
+          ]
+        ]
+      },
+      {
+        "xref": 121,
+        "ext": "jpeg",
+        "width": 511,
+        "height": 716,
+        "size": 28969,
+        "rects": [
+          [
+            68.3,
+            604.8,
+            157.5,
+            730.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          97.4,
+          295.3,
+          112.5
+        ],
+        "text": "31\nLiberty leaves decore carving ("
+      },
+      {
+        "bbox": [
+          186.7,
+          109.8,
+          212.9,
+          119.3
+        ],
+        "text": "sonex )"
+      },
+      {
+        "bbox": [
+          318.3,
+          103.3,
+          542.6,
+          112.7
+        ],
+        "text": "88 box\n600x1200 (carving) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          237.0,
+          289.4,
+          252.1
+        ],
+        "text": "32\nApulio Aqua decore carving ("
+      },
+      {
+        "bbox": [
+          186.7,
+          249.4,
+          212.9,
+          258.9
+        ],
+        "text": "sonex )"
+      },
+      {
+        "bbox": [
+          318.3,
+          242.9,
+          542.6,
+          252.3
+        ],
+        "text": "50 box\n600x1200 (carving) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          548.6,
+          391.9
+        ],
+        "text": "33\nAspen beige ( Regular) ( sonex )\n275 box\n600x1200 (Diamond) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          546.6,
+          531.5
+        ],
+        "text": "34\nRuno Mocha DM\n152 box\n600x1200 (Diamond)sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          546.6,
+          671.0
+        ],
+        "text": "35\nRuno white DM\n7 box\n600x1200 (Diamond)sonex"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 8,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 134,
+        "ext": "jpeg",
+        "width": 524,
+        "height": 736,
+        "size": 41787,
+        "rects": [
+          [
+            68.3,
+            46.4,
+            157.5,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 135,
+        "ext": "jpeg",
+        "width": 536,
+        "height": 699,
+        "size": 24363,
+        "rects": [
+          [
+            64.7,
+            186.0,
+            161.1,
+            311.7
+          ]
+        ]
+      },
+      {
+        "xref": 136,
+        "ext": "jpeg",
+        "width": 517,
+        "height": 694,
+        "size": 40292,
+        "rects": [
+          [
+            66.1,
+            325.6,
+            159.7,
+            451.3
+          ]
+        ]
+      },
+      {
+        "xref": 137,
+        "ext": "jpeg",
+        "width": 1090,
+        "height": 1280,
+        "size": 119547,
+        "rects": [
+          [
+            59.6,
+            465.2,
+            166.3,
+            590.9
+          ]
+        ]
+      },
+      {
+        "xref": 138,
+        "ext": "jpeg",
+        "width": 1071,
+        "height": 1280,
+        "size": 166055,
+        "rects": [
+          [
+            60.3,
+            604.8,
+            165.5,
+            730.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          552.6,
+          112.7
+        ],
+        "text": "36\nAspen grey ( Regular)\n85 Box\n600x1200 ( Diamond ) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          558.8,
+          252.3
+        ],
+        "text": "37\nAspen silver ( Regular)\n21 box\n600x1200 (Diamond)kei sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          548.6,
+          391.9
+        ],
+        "text": "38\nAspen brown DM\n109 box\n600x1200 (Diamond) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          548.6,
+          531.5
+        ],
+        "text": "39\nCent pearl DM\n77 Box\n600x1200 (Diamond) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          550.6,
+          671.0
+        ],
+        "text": "40\nCent black (Regular)\n154 box\n600x1200 (Diamond ) sonex"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 9,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 151,
+        "ext": "jpeg",
+        "width": 687,
+        "height": 811,
+        "size": 74530,
+        "rects": [
+          [
+            59.6,
+            46.4,
+            166.3,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 153,
+        "ext": "jpeg",
+        "width": 590,
+        "height": 857,
+        "size": 34555,
+        "rects": [
+          [
+            69.8,
+            186.0,
+            156.0,
+            311.7
+          ]
+        ]
+      },
+      {
+        "xref": 154,
+        "ext": "jpeg",
+        "width": 1145,
+        "height": 1009,
+        "size": 99235,
+        "rects": [
+          [
+            50.1,
+            332.9,
+            175.8,
+            443.3
+          ]
+        ]
+      },
+      {
+        "xref": 155,
+        "ext": "jpeg",
+        "width": 1085,
+        "height": 1280,
+        "size": 34645,
+        "rects": [
+          [
+            59.6,
+            465.2,
+            166.3,
+            590.9
+          ]
+        ]
+      },
+      {
+        "xref": 156,
+        "ext": "jpeg",
+        "width": 747,
+        "height": 389,
+        "size": 9685,
+        "rects": [
+          [
+            50.1,
+            634.7,
+            175.8,
+            699.8
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          550.9,
+          112.7
+        ],
+        "text": "41\nSpectra wood DM\n100 Box\n600\u00d71200 (Diamond ) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          501.5,
+          252.3
+        ],
+        "text": "42\nFlurry ivory (one time simola)\n11 box\n600x1200 mat"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          565.0,
+          391.9
+        ],
+        "text": "43\nFLURRY BROWN (one time)\n29 box\n600x1200 onetime matt endless"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          485.7,
+          531.5
+        ],
+        "text": "44\nEARTH WHITE (Matt) sonex\n12 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          655.8,
+          279.5,
+          670.8
+        ],
+        "text": "45\nRAINBOW WHITE (glossy)"
+      },
+      {
+        "bbox": [
+          186.7,
+          668.2,
+          217.2,
+          677.6
+        ],
+        "text": "(regular)"
+      },
+      {
+        "bbox": [
+          318.3,
+          661.6,
+          534.0,
+          671.0
+        ],
+        "text": "664 box\n600x1200 glossy sonex"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 10,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 169,
+        "ext": "jpeg",
+        "width": 950,
+        "height": 431,
+        "size": 12574,
+        "rects": [
+          [
+            50.1,
+            80.0,
+            175.8,
+            137.8
+          ]
+        ]
+      },
+      {
+        "xref": 170,
+        "ext": "jpeg",
+        "width": 738,
+        "height": 375,
+        "size": 5909,
+        "rects": [
+          [
+            50.1,
+            216.7,
+            175.8,
+            280.3
+          ]
+        ]
+      },
+      {
+        "xref": 171,
+        "ext": "jpeg",
+        "width": 733,
+        "height": 367,
+        "size": 16812,
+        "rects": [
+          [
+            50.1,
+            356.3,
+            175.8,
+            419.9
+          ],
+          [
+            50.1,
+            495.9,
+            175.8,
+            559.5
+          ]
+        ]
+      },
+      {
+        "xref": 172,
+        "ext": "jpeg",
+        "width": 733,
+        "height": 367,
+        "size": 16812,
+        "rects": [
+          [
+            50.1,
+            356.3,
+            175.8,
+            419.9
+          ],
+          [
+            50.1,
+            495.9,
+            175.8,
+            559.5
+          ]
+        ]
+      },
+      {
+        "xref": 173,
+        "ext": "jpeg",
+        "width": 1081,
+        "height": 1280,
+        "size": 94117,
+        "rects": [
+          [
+            59.6,
+            604.8,
+            166.3,
+            730.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          504.1,
+          112.7
+        ],
+        "text": "46\nEARTH CREAMA ( matt)\n110 box\n600x1200 matt"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          534.0,
+          252.3
+        ],
+        "text": "47\nRAINBOW CREMA (regular)\n331 Box\n600x1200 glossy sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          538.9,
+          391.9
+        ],
+        "text": "48\nEARTH BROWN ( mat finish)\n223 box\n600x1200( Regular) matt"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          534.3,
+          531.5
+        ],
+        "text": "49\nRAINBOW BROWN (regular )\n109 Box\n600\u00d71200 glossy sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          513.7,
+          671.0
+        ],
+        "text": "50\nEARTH FOSSIL ( matt)\n8 box\n600 x 1200 (matt)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 11,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 186,
+        "ext": "jpeg",
+        "width": 794,
+        "height": 414,
+        "size": 21707,
+        "rects": [
+          [
+            50.1,
+            76.4,
+            175.8,
+            141.4
+          ]
+        ]
+      },
+      {
+        "xref": 187,
+        "ext": "jpeg",
+        "width": 268,
+        "height": 136,
+        "size": 3133,
+        "rects": [
+          [
+            50.1,
+            216.7,
+            175.8,
+            280.3
+          ]
+        ]
+      },
+      {
+        "xref": 188,
+        "ext": "jpeg",
+        "width": 878,
+        "height": 448,
+        "size": 21863,
+        "rects": [
+          [
+            50.1,
+            356.3,
+            175.8,
+            419.9
+          ]
+        ]
+      },
+      {
+        "xref": 189,
+        "ext": "jpeg",
+        "width": 893,
+        "height": 412,
+        "size": 13451,
+        "rects": [
+          [
+            50.1,
+            498.8,
+            175.8,
+            556.5
+          ]
+        ]
+      },
+      {
+        "xref": 190,
+        "ext": "jpeg",
+        "width": 809,
+        "height": 535,
+        "size": 17526,
+        "rects": [
+          [
+            50.1,
+            626.0,
+            175.8,
+            708.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          534.3,
+          112.7
+        ],
+        "text": "51\nRAINBOW FOSSIL (Regular)\n149 Box\n600\u00d71200 glossy sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          529.5,
+          252.3
+        ],
+        "text": "52\nRAINBOW TEAL (Regular)\n375 Box\n600x120 glossy sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          533.1,
+          391.9
+        ],
+        "text": "53\nEARTH TEAL regular\n435 Box\n600x1200( matt )sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          485.7,
+          531.5
+        ],
+        "text": "54\nEarth coral (Matt)\n24 box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          544.7,
+          671.0
+        ],
+        "text": "55\nPlain white (2400)\n31 Box\n600 x 1200 glossy ( ANUJ)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 12,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 203,
+        "ext": "jpeg",
+        "width": 612,
+        "height": 1280,
+        "size": 41970,
+        "rects": [
+          [
+            82.9,
+            46.4,
+            142.9,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 204,
+        "ext": "jpeg",
+        "width": 599,
+        "height": 1071,
+        "size": 129709,
+        "rects": [
+          [
+            77.8,
+            186.0,
+            148.0,
+            311.7
+          ]
+        ]
+      },
+      {
+        "xref": 205,
+        "ext": "jpeg",
+        "width": 901,
+        "height": 952,
+        "size": 171904,
+        "rects": [
+          [
+            53.7,
+            325.6,
+            172.1,
+            451.3
+          ]
+        ]
+      },
+      {
+        "xref": 206,
+        "ext": "jpeg",
+        "width": 1106,
+        "height": 915,
+        "size": 39479,
+        "rects": [
+          [
+            50.1,
+            475.4,
+            175.8,
+            579.9
+          ]
+        ]
+      },
+      {
+        "xref": 207,
+        "ext": "jpeg",
+        "width": 251,
+        "height": 124,
+        "size": 6370,
+        "rects": [
+          [
+            50.1,
+            636.2,
+            175.8,
+            698.3
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          539.5,
+          112.7
+        ],
+        "text": "56\nFRESCO BLUE (glossy)\n4 box\n600x1200 glossy (sonex)"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          485.7,
+          252.3
+        ],
+        "text": "57\nDoroti Cafe Light ( one time)\n66 Box\n600\u00d71200"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          543.6,
+          391.9
+        ],
+        "text": "58\nBlossom black decore carving\n6 box\n600x1200 (Carving) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          541.5,
+          531.5
+        ],
+        "text": "59\nFlat grey regular ( savino )\n4 box\n600x1200 glossy (savino)"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          510.6,
+          671.0
+        ],
+        "text": "60\nArizona grey decor\n14 box\n600x1200 glossy"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 13,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 220,
+        "ext": "jpeg",
+        "width": 281,
+        "height": 454,
+        "size": 29052,
+        "rects": [
+          [
+            74.2,
+            46.4,
+            151.6,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 221,
+        "ext": "jpeg",
+        "width": 1125,
+        "height": 914,
+        "size": 102677,
+        "rects": [
+          [
+            50.1,
+            197.7,
+            175.8,
+            299.3
+          ]
+        ]
+      },
+      {
+        "xref": 222,
+        "ext": "jpeg",
+        "width": 556,
+        "height": 301,
+        "size": 3316,
+        "rects": [
+          [
+            50.1,
+            378.2,
+            175.8,
+            446.9
+          ]
+        ]
+      },
+      {
+        "xref": 224,
+        "ext": "jpeg",
+        "width": 406,
+        "height": 215,
+        "size": 2632,
+        "rects": [
+          [
+            50.1,
+            518.5,
+            175.8,
+            585.8
+          ]
+        ]
+      },
+      {
+        "xref": 225,
+        "ext": "jpeg",
+        "width": 545,
+        "height": 338,
+        "size": 3964,
+        "rects": [
+          [
+            50.1,
+            653.0,
+            175.8,
+            730.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          548.6,
+          112.7
+        ],
+        "text": "61\nBlue mosaic\n17 Box\n600x1200 (Diamond) sonex"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          520.2,
+          252.3
+        ],
+        "text": "62\nmistic grigio\n4 box\n600x1200 (Carving)"
+      },
+      {
+        "bbox": [
+          30.1,
+          325.4,
+          552.2,
+          334.9
+        ],
+        "text": "63\nSANDY BEIGE\n26 box\n600x1200(glossy)( full body)"
+      },
+      {
+        "bbox": [
+          30.1,
+          407.3,
+          560.9,
+          416.7
+        ],
+        "text": "64\nAUTHENTIC WHITE\n36 box\n600\u00d71200 (GLOSSY)( full body)"
+      },
+      {
+        "bbox": [
+          30.1,
+          546.9,
+          552.9,
+          556.3
+        ],
+        "text": "65\nSTEEL GREY\n64 BOX\n600\u00d71200 (MATT)( full body)"
+      },
+      {
+        "bbox": [
+          30.1,
+          686.5,
+          547.2,
+          695.9
+        ],
+        "text": "66\nKELLY KOTTA\n10 box\n600\u00d71200 MATT ( fullbody)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 14,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 238,
+        "ext": "jpeg",
+        "width": 561,
+        "height": 297,
+        "size": 4020,
+        "rects": [
+          [
+            50.1,
+            75.6,
+            175.8,
+            142.1
+          ]
+        ]
+      },
+      {
+        "xref": 239,
+        "ext": "jpeg",
+        "width": 569,
+        "height": 295,
+        "size": 13489,
+        "rects": [
+          [
+            50.1,
+            216.0,
+            175.8,
+            281.0
+          ]
+        ]
+      },
+      {
+        "xref": 240,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 772,
+        "size": 106590,
+        "rects": [
+          [
+            50.1,
+            346.8,
+            175.8,
+            429.4
+          ]
+        ]
+      },
+      {
+        "xref": 241,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 814,
+        "size": 143172,
+        "rects": [
+          [
+            50.1,
+            484.2,
+            175.8,
+            571.2
+          ]
+        ]
+      },
+      {
+        "xref": 242,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 740,
+        "size": 78991,
+        "rects": [
+          [
+            50.1,
+            627.4,
+            175.8,
+            707.1
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          552.9,
+          112.7
+        ],
+        "text": "67\nSLATE GREY\n55 box\n600\u00d71200 (MATT) (full body)"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          552.9,
+          252.3
+        ],
+        "text": "68\nSANDY BLACK\n31 BOx\n600\u00d71200 (MATT)( full body)"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          496.3,
+          391.9
+        ],
+        "text": "69\n34265\n128 Box\n600\u00d7600 Tag"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          496.3,
+          531.5
+        ],
+        "text": "70\n34266\n219 Box\n600\u00d7600 Tag"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          496.3,
+          671.0
+        ],
+        "text": "71\n34267\n145 Box\n600\u00d7600 Tag"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 15,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 255,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 834,
+        "size": 129153,
+        "rects": [
+          [
+            50.1,
+            63.9,
+            175.8,
+            153.8
+          ]
+        ]
+      },
+      {
+        "xref": 256,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 806,
+        "size": 100772,
+        "rects": [
+          [
+            50.1,
+            205.0,
+            175.8,
+            292.0
+          ]
+        ]
+      },
+      {
+        "xref": 257,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 822,
+        "size": 102272,
+        "rects": [
+          [
+            50.1,
+            343.9,
+            175.8,
+            432.3
+          ]
+        ]
+      },
+      {
+        "xref": 258,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 828,
+        "size": 103816,
+        "rects": [
+          [
+            50.1,
+            483.4,
+            175.8,
+            571.9
+          ]
+        ]
+      },
+      {
+        "xref": 259,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 828,
+        "size": 127477,
+        "rects": [
+          [
+            50.1,
+            623.0,
+            175.8,
+            711.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          496.3,
+          112.7
+        ],
+        "text": "72\n34268\n254 Box\n600\u00d7600 Tag"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          564.0,
+          252.3
+        ],
+        "text": "73\n34260\n220 Box\n600x600 (mat)waterproof (new)"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          543.7,
+          391.9
+        ],
+        "text": "74\nk 37\n282 Box\n600x600 (mat) waterproof"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          564.0,
+          531.5
+        ],
+        "text": "75\n34262\n173 Box\n600x600 (mat)water proof(new)"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          547.6,
+          671.0
+        ],
+        "text": "76\n34188\n464 Box\n600x600 ( Mat) water proof"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 16,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 272,
+        "ext": "jpeg",
+        "width": 917,
+        "height": 1280,
+        "size": 147341,
+        "rects": [
+          [
+            67.6,
+            46.4,
+            158.2,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 273,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 833,
+        "size": 120135,
+        "rects": [
+          [
+            50.1,
+            203.5,
+            175.8,
+            293.4
+          ]
+        ]
+      },
+      {
+        "xref": 274,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 837,
+        "size": 89664,
+        "rects": [
+          [
+            50.1,
+            343.1,
+            175.8,
+            433.0
+          ]
+        ]
+      },
+      {
+        "xref": 275,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 845,
+        "size": 103895,
+        "rects": [
+          [
+            50.1,
+            482.0,
+            175.8,
+            573.3
+          ]
+        ]
+      },
+      {
+        "xref": 276,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 871,
+        "size": 192386,
+        "rects": [
+          [
+            50.1,
+            620.1,
+            175.8,
+            714.4
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          543.7,
+          112.7
+        ],
+        "text": "77\n34070\n323 Box\n600x600 (mat)water proof"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          545.7,
+          252.3
+        ],
+        "text": "78\n34185\n315 Box\n600x600 (mat) water proof"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          541.6,
+          391.9
+        ],
+        "text": "79\n34195\n86 Box\n600x600 (Mat)waterproof"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          543.7,
+          531.5
+        ],
+        "text": "80\nk 32\n155 box\n600x600 (mat) waterproof"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          502.5,
+          671.0
+        ],
+        "text": "81\n24764\n18 box\n600x600 (mat)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 17,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 289,
+        "ext": "jpeg",
+        "width": 1128,
+        "height": 1600,
+        "size": 203383,
+        "rects": [
+          [
+            68.3,
+            46.4,
+            157.5,
+            172.1
+          ]
+        ]
+      },
+      {
+        "xref": 290,
+        "ext": "jpeg",
+        "width": 267,
+        "height": 240,
+        "size": 4029,
+        "rects": [
+          [
+            50.1,
+            191.8,
+            175.8,
+            305.1
+          ]
+        ]
+      },
+      {
+        "xref": 291,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 839,
+        "size": 47163,
+        "rects": [
+          [
+            50.1,
+            343.1,
+            175.8,
+            433.0
+          ]
+        ]
+      },
+      {
+        "xref": 292,
+        "ext": "jpeg",
+        "width": 277,
+        "height": 279,
+        "size": 7055,
+        "rects": [
+          [
+            50.8,
+            489.3,
+            175.0,
+            615.0
+          ]
+        ]
+      },
+      {
+        "xref": 293,
+        "ext": "jpeg",
+        "width": 218,
+        "height": 232,
+        "size": 9386,
+        "rects": [
+          [
+            53.7,
+            628.9,
+            172.1,
+            754.6
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          497.0,
+          112.7
+        ],
+        "text": "82\n34258\n85 Box\n600x600 mat"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          509.7,
+          252.3
+        ],
+        "text": "83\nPlain ivory\n844 Box\n600\u00d7600 ( koyo )"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          481.2,
+          391.9
+        ],
+        "text": "84\n34045\n19 Box\n600\u00d7600"
+      },
+      {
+        "bbox": [
+          30.1,
+          465.0,
+          538.6,
+          474.4
+        ],
+        "text": "85\nsandy beige (glossy)\n33 box\n600x600 fullbody blueart"
+      },
+      {
+        "bbox": [
+          30.1,
+          546.9,
+          549.1,
+          556.3
+        ],
+        "text": "86\nSANDY BLACK (MATT)\n32 box\n600x600 fullbody BLUE ART"
+      },
+      {
+        "bbox": [
+          30.1,
+          686.5,
+          549.1,
+          695.9
+        ],
+        "text": "87\nSANDY NERO (MATT)\n26 box\n600x600 fullbody BLUE ART"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 18,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 306,
+        "ext": "jpeg",
+        "width": 280,
+        "height": 274,
+        "size": 3000,
+        "rects": [
+          [
+            50.1,
+            47.1,
+            175.8,
+            170.7
+          ]
+        ]
+      },
+      {
+        "xref": 307,
+        "ext": "jpeg",
+        "width": 269,
+        "height": 281,
+        "size": 2369,
+        "rects": [
+          [
+            53.0,
+            186.0,
+            172.8,
+            311.7
+          ]
+        ]
+      },
+      {
+        "xref": 308,
+        "ext": "jpeg",
+        "width": 555,
+        "height": 547,
+        "size": 64503,
+        "rects": [
+          [
+            50.1,
+            326.3,
+            175.8,
+            449.8
+          ]
+        ]
+      },
+      {
+        "xref": 309,
+        "ext": "jpeg",
+        "width": 1080,
+        "height": 1352,
+        "size": 142885,
+        "rects": [
+          [
+            62.5,
+            465.2,
+            163.3,
+            590.9
+          ]
+        ]
+      },
+      {
+        "xref": 310,
+        "ext": "jpeg",
+        "width": 833,
+        "height": 826,
+        "size": 115945,
+        "rects": [
+          [
+            50.1,
+            604.8,
+            175.8,
+            729.7
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          549.1,
+          112.7
+        ],
+        "text": "88\nJAISALMER (GLOSSY)\n32 box\n600x600 fullbody BLUE ART"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          551.1,
+          252.3
+        ],
+        "text": "89\nRICH BLACK (MAT)\n19 box\n600x600 full body BLUE ART"
+      },
+      {
+        "bbox": [
+          30.1,
+          376.6,
+          551.1,
+          391.9
+        ],
+        "text": "90\nSANDY CREMA BLAST (RUSTIC)\n13 box\n600x600 full body BLUE ART"
+      },
+      {
+        "bbox": [
+          449.8,
+          389.0,
+          485.9,
+          398.4
+        ],
+        "text": "(full body)"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          521.0,
+          531.5
+        ],
+        "text": "91\nLapatto slate gray rock punch\n6box\n600x600 ( full body)"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          519.0,
+          671.0
+        ],
+        "text": "92\nchoco (GLOSSY)\n14 box\n600x600 (full body)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 19,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 323,
+        "ext": "jpeg",
+        "width": 560,
+        "height": 279,
+        "size": 30551,
+        "rects": [
+          [
+            50.1,
+            77.8,
+            175.8,
+            140.0
+          ]
+        ]
+      },
+      {
+        "xref": 324,
+        "ext": "jpeg",
+        "width": 662,
+        "height": 392,
+        "size": 40382,
+        "rects": [
+          [
+            50.1,
+            211.6,
+            175.8,
+            285.4
+          ]
+        ]
+      },
+      {
+        "xref": 325,
+        "ext": "jpeg",
+        "width": 857,
+        "height": 691,
+        "size": 98545,
+        "rects": [
+          [
+            50.1,
+            337.3,
+            175.8,
+            438.9
+          ]
+        ]
+      },
+      {
+        "xref": 326,
+        "ext": "jpeg",
+        "width": 1131,
+        "height": 572,
+        "size": 232461,
+        "rects": [
+          [
+            50.1,
+            495.9,
+            175.8,
+            559.5
+          ]
+        ]
+      },
+      {
+        "xref": 327,
+        "ext": "jpeg",
+        "width": 1125,
+        "height": 561,
+        "size": 243969,
+        "rects": [
+          [
+            50.1,
+            636.2,
+            175.8,
+            698.3
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          516.4,
+          112.7
+        ],
+        "text": "93\nRimini 02\n228 Box\n600x300 ( clading)"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          519.0,
+          252.3
+        ],
+        "text": "94\nBOSTON -05\n17 Box\n600x300 (cladding)"
+      },
+      {
+        "bbox": [
+          30.1,
+          382.4,
+          519.0,
+          391.9
+        ],
+        "text": "95\nEL 530\n113 Box\n600x300 (cladding)"
+      },
+      {
+        "bbox": [
+          30.1,
+          522.0,
+          514.4,
+          531.5
+        ],
+        "text": "96\nKERALA STONE GRAFITO\n129 Box\n600x300 (clading)"
+      },
+      {
+        "bbox": [
+          30.1,
+          661.6,
+          520.0,
+          671.0
+        ],
+        "text": "97\nKerala Stone Natural Red\n301 Box\n600x300 (Cladding)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 20,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 340,
+        "ext": "jpeg",
+        "width": 1125,
+        "height": 562,
+        "size": 171709,
+        "rects": [
+          [
+            50.1,
+            77.8,
+            175.8,
+            140.0
+          ]
+        ]
+      },
+      {
+        "xref": 341,
+        "ext": "jpeg",
+        "width": 558,
+        "height": 277,
+        "size": 53097,
+        "rects": [
+          [
+            50.1,
+            217.4,
+            175.8,
+            279.5
+          ]
+        ]
+      },
+      {
+        "xref": 342,
+        "ext": "jpeg",
+        "width": 1599,
+        "height": 799,
+        "size": 322624,
+        "rects": [
+          [
+            50.1,
+            357.0,
+            175.8,
+            419.1
+          ]
+        ]
+      },
+      {
+        "xref": 343,
+        "ext": "jpeg",
+        "width": 1507,
+        "height": 786,
+        "size": 336229,
+        "rects": [
+          [
+            50.1,
+            495.1,
+            175.8,
+            560.2
+          ]
+        ]
+      },
+      {
+        "xref": 344,
+        "ext": "jpeg",
+        "width": 1493,
+        "height": 786,
+        "size": 326508,
+        "rects": [
+          [
+            50.1,
+            634.0,
+            175.8,
+            700.5
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          30.1,
+          103.3,
+          520.0,
+          112.7
+        ],
+        "text": "98\nColorado grafito\n220 box\n600x300 (Cladding)"
+      },
+      {
+        "bbox": [
+          30.1,
+          242.9,
+          516.4,
+          252.3
+        ],
+        "text": "99\nAmazon 05\n120 Box\n600x300 ( clading)"
+      },
+      {
+        "bbox": [
+          29.6,
+          382.4,
+          510.2,
+          391.9
+        ],
+        "text": "100\nFIELD STONE (03)\n215 Box\n600\u00d7300 Clading"
+      },
+      {
+        "bbox": [
+          29.6,
+          522.0,
+          510.2,
+          531.5
+        ],
+        "text": "101\nFIELD STONE (02)\n197 box\n600\u00d7300 Clading"
+      },
+      {
+        "bbox": [
+          29.6,
+          661.6,
+          509.2,
+          671.0
+        ],
+        "text": "102\nFIELD STONE (13)\n210 Box\n600\u00d7300 clading"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 21,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 357,
+        "ext": "jpeg",
+        "width": 1407,
+        "height": 797,
+        "size": 143014,
+        "rects": [
+          [
+            50.1,
+            73.4,
+            175.8,
+            144.3
+          ]
+        ]
+      },
+      {
+        "xref": 358,
+        "ext": "jpeg",
+        "width": 810,
+        "height": 479,
+        "size": 67373,
+        "rects": [
+          [
+            50.1,
+            211.6,
+            175.8,
+            285.4
+          ]
+        ]
+      },
+      {
+        "xref": 359,
+        "ext": "jpeg",
+        "width": 1024,
+        "height": 490,
+        "size": 132734,
+        "rects": [
+          [
+            50.1,
+            357.7,
+            175.8,
+            418.4
+          ]
+        ]
+      },
+      {
+        "xref": 360,
+        "ext": "jpeg",
+        "width": 1170,
+        "height": 729,
+        "size": 114635,
+        "rects": [
+          [
+            50.1,
+            488.6,
+            175.8,
+            566.8
+          ]
+        ]
+      },
+      {
+        "xref": 361,
+        "ext": "jpeg",
+        "width": 1125,
+        "height": 562,
+        "size": 143708,
+        "rects": [
+          [
+            50.1,
+            636.2,
+            175.8,
+            698.3
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          29.6,
+          103.3,
+          509.2,
+          112.7
+        ],
+        "text": "103\nNatural brick (01)\n248 Box\n600\u00d7300 clading"
+      },
+      {
+        "bbox": [
+          29.6,
+          242.9,
+          519.0,
+          252.3
+        ],
+        "text": "104\nZENITH -05\n67 Box\n600x300 (cladding)"
+      },
+      {
+        "bbox": [
+          29.6,
+          382.4,
+          522.0,
+          391.9
+        ],
+        "text": "105\nNepoli grafito\n121 Box\n600x300 ( Cladding)"
+      },
+      {
+        "bbox": [
+          29.6,
+          522.0,
+          500.1,
+          531.5
+        ],
+        "text": "106\nRimini10(7 pic) thermocol\n13 box\n2\u00d71(600\u00d7300)"
+      },
+      {
+        "bbox": [
+          29.6,
+          655.8,
+          244.2,
+          670.8
+        ],
+        "text": "107\nColorado grafito"
+      },
+      {
+        "bbox": [
+          186.7,
+          668.2,
+          243.9,
+          677.6
+        ],
+        "text": "(7pic)thermocol"
+      },
+      {
+        "bbox": [
+          318.3,
+          661.6,
+          481.2,
+          671.0
+        ],
+        "text": "29 box\n600\u00d7300"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  },
+  {
+    "page": 22,
+    "rect": [
+      0.0,
+      0.0,
+      594.9599609375,
+      840.9599609375
+    ],
+    "images": [
+      {
+        "xref": 374,
+        "ext": "jpeg",
+        "width": 1600,
+        "height": 1200,
+        "size": 389628,
+        "rects": [
+          [
+            50.1,
+            61.8,
+            175.8,
+            156.0
+          ]
+        ]
+      },
+      {
+        "xref": 375,
+        "ext": "jpeg",
+        "width": 695,
+        "height": 367,
+        "size": 60672,
+        "rects": [
+          [
+            50.1,
+            215.2,
+            175.8,
+            281.7
+          ]
+        ]
+      },
+      {
+        "xref": 376,
+        "ext": "jpeg",
+        "width": 836,
+        "height": 494,
+        "size": 73882,
+        "rects": [
+          [
+            50.1,
+            351.2,
+            175.8,
+            425.0
+          ]
+        ]
+      },
+      {
+        "xref": 377,
+        "ext": "jpeg",
+        "width": 718,
+        "height": 433,
+        "size": 52397,
+        "rects": [
+          [
+            50.1,
+            490.0,
+            175.8,
+            565.3
+          ]
+        ]
+      }
+    ],
+    "text_blocks": [
+      {
+        "bbox": [
+          32.3,
+          20.9,
+          465.2,
+          29.0
+        ],
+        "text": "#\nPhoto\nItem name\nBox calicut\nSize"
+      },
+      {
+        "bbox": [
+          29.6,
+          103.3,
+          519.0,
+          112.7
+        ],
+        "text": "108\nRimini 18\n31 box\n600x300 (cladding)"
+      },
+      {
+        "bbox": [
+          29.6,
+          242.9,
+          517.3,
+          252.3
+        ],
+        "text": "109\nAmazon 05 (7pic)thermocol\n8 box\n600\u00d7300(cladding)"
+      },
+      {
+        "bbox": [
+          29.6,
+          382.4,
+          521.0,
+          391.9
+        ],
+        "text": "110\nHOSTON-20\n43 Box\n600x300 ( cladding)"
+      },
+      {
+        "bbox": [
+          29.6,
+          522.0,
+          519.0,
+          531.5
+        ],
+        "text": "111\nHOSTON -07\n12 box\n600x300 (cladding)"
+      },
+      {
+        "bbox": [
+          294.5,
+          6.0,
+          298.6,
+          14.6
+        ],
+        "text": "g"
+      },
+      {
+        "bbox": [
+          285.9,
+          816.5,
+          322.8,
+          825.1
+        ],
+        "text": "Page 1 of 1"
+      }
+    ]
+  }
+]

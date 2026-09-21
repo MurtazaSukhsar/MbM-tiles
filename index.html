@@ -36,6 +36,18 @@
           </div>
         </div>
 
+        <!-- Header Search Bar -->
+        <div class="header-search-wrap">
+          <div class="search-field-container">
+            <svg class="svg-icon sm search-icon-pos" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="searchInput" class="search-field" placeholder="Search tiles by name, size, finish... (Ctrl+K or /)" autocomplete="off" spellcheck="false">
+            <button id="searchClearBtn" class="search-clear-pos" title="Clear Search" type="button">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <kbd class="search-kbd-hint">Ctrl+K</kbd>
+          </div>
+        </div>
+
         <!-- Action Buttons -->
         <div class="header-btn-suite">
           <button id="btnAddNewTile" class="btn btn-primary" title="Add a new tile to catalog">
@@ -56,7 +68,7 @@
 
     <!-- Main Workspace -->
     <main class="studio-main no-print">
-      <!-- Tile Grid Cards (the only view now - table & PDF preview tabs removed) -->
+      <!-- Tile Grid Cards -->
       <section id="viewGrid" class="view-content-section">
         <div id="tilesGridContainer" class="tiles-grid-view">
           <!-- Populated by app.js -->
@@ -141,7 +153,7 @@
         <!-- Multi-Images Manager -->
         <div class="form-field-group">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <label class="field-label">Tile Photos (Multiple Images Supported)</label>
+            <label class="field-label">Tile Photos (Unlimited Photos Supported · High Resolution)</label>
             <span style="font-size:0.72rem; color:var(--text-dim)">First photo is Primary PDF Cover</span>
           </div>
 
@@ -394,8 +406,35 @@
         </div>
       </div>
       <div class="modal-bottom-footer">
-        <button id="btnPdfPreviewDownload" class="btn btn-primary">Download PDF</button>
+        <button id="btnPdfPreviewDownload" class="btn btn-primary">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          <span>Download PDF</span>
+        </button>
+        <button id="btnPdfPreviewPrint" class="btn btn-secondary" title="Direct instant vector print via browser dialog">
+          <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Instant Print / Save</span>
+        </button>
         <button id="btnPdfPreviewDone" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Export Progress Modal -->
+  <div id="pdfExportProgressModal" class="modal-layer">
+    <div class="modal-surface" style="max-width: 440px; text-align: center; padding: 2.25rem 1.75rem;">
+      <div style="width: 48px; height: 48px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; background: rgba(99,102,241,0.15); border-radius: 50%; color: var(--brand-indigo);">
+        <svg class="svg-icon spin" style="width: 24px; height: 24px;" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+      </div>
+      <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">Generating High-Definition PDF</h3>
+      <p id="pdfExportStatusText" style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1.25rem;">
+        Preparing pages for export...
+      </p>
+      <div style="width: 100%; height: 8px; background: var(--bg-surface); border-radius: 4px; overflow: hidden; border: 1px solid var(--border-default); margin-bottom: 0.4rem;">
+        <div id="pdfExportProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--brand-indigo), var(--cat-blue)); transition: width 0.15s ease;"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span id="pdfExportPagesCount">Page 0 of 0</span>
+        <span id="pdfExportPercent">0%</span>
       </div>
     </div>
   </div>
