@@ -75,6 +75,8 @@
   let editingProductId = null;
   let draftImages = []; // [{ id, dataUrl, name }]
   let historyStack = [];
+  let currentUser = null;
+  let isAuthBypassed = false;
 
   /* --------------------------------------------------------------------------
      Persistence (Supabase, with a localStorage cache for offline resilience)
@@ -2174,6 +2176,321 @@
         }
       }
     });
+
+    // ========================================================================
+    // SUPABASE AUTHENTICATION SYSTEM
+    // ========================================================================
+    const authScreen = document.getElementById('authScreen');
+    const authAlert = document.getElementById('authAlert');
+    const authLogoImg = document.getElementById('authLogoImg');
+    const tabSignIn = document.getElementById('tabSignIn');
+    const tabSignUp = document.getElementById('tabSignUp');
+    const tabForgot = document.getElementById('tabForgot');
+    const formSignIn = document.getElementById('formSignIn');
+    const formSignUp = document.getElementById('formSignUp');
+    const formForgot = document.getElementById('formForgot');
+    const linkForgotPassword = document.getElementById('linkForgotPassword');
+    const btnBypassAuth = document.getElementById('btnBypassAuth');
+    const btnUserMenu = document.getElementById('btnUserMenu');
+    const userProfileWrap = document.querySelector('.user-profile-wrap');
+    const userAvatarBadge = document.getElementById('userAvatarBadge');
+    const userEmailLabel = document.getElementById('userEmailLabel');
+    const userDropdownEmail = document.getElementById('userDropdownEmail');
+    const btnSignOut = document.getElementById('btnSignOut');
+
+    if (authLogoImg && catalog && catalog.logoIcon) {
+      authLogoImg.src = catalog.logoIcon;
+    }
+
+    function showAuthAlert(msg, type = 'error') {
+      if (!authAlert) return;
+      authAlert.className = `auth-alert-banner ${type}`;
+      authAlert.innerHTML = `
+        <svg class="svg-icon sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>${msg}</span>
+      `;
+      authAlert.style.display = 'flex';
+    }
+
+    function clearAuthAlert() {
+      if (!authAlert) return;
+      authAlert.style.display = 'none';
+      authAlert.innerHTML = '';
+    }
+
+    function switchAuthTab(mode) {
+      clearAuthAlert();
+      [tabSignIn, tabSignUp, tabForgot].forEach(t => {
+        if (t) t.classList.remove('active');
+      });
+      [formSignIn, formSignUp, formForgot].forEach(f => {
+        if (f) f.classList.remove('active');
+      });
+
+      if (mode === 'signIn') {
+        if (tabSignIn) tabSignIn.classList.add('active');
+        if (formSignIn) formSignIn.classList.add('active');
+      } else if (mode === 'signUp') {
+        if (tabSignUp) tabSignUp.classList.add('active');
+        if (formSignUp) formSignUp.classList.add('active');
+      } else if (mode === 'forgot') {
+        if (tabForgot) tabForgot.classList.add('active');
+        if (formForgot) formForgot.classList.add('active');
+      }
+    }
+
+    function updateAuthUI(isLoggedIn) {
+      if (isLoggedIn && currentUser) {
+        const email = currentUser.email || '';
+        const name = (currentUser.user_metadata && currentUser.user_metadata.full_name) || email.split('@')[0] || 'User';
+        const initial = name[0].toUpperCase();
+
+        if (userAvatarBadge) userAvatarBadge.textContent = initial;
+        if (userEmailLabel) userEmailLabel.textContent = name;
+        if (userDropdownEmail) userDropdownEmail.textContent = email;
+      } else {
+        if (userAvatarBadge) userAvatarBadge.textContent = 'G';
+        if (userEmailLabel) userEmailLabel.textContent = 'Guest';
+        if (userDropdownEmail) userDropdownEmail.textContent = 'Guest Mode (Offline/Local)';
+      }
+    }
+
+    function showAuthScreen(tab = 'signIn') {
+      if (authScreen) authScreen.classList.add('active');
+      switchAuthTab(tab);
+    }
+
+    function hideAuthScreen() {
+      if (authScreen) authScreen.classList.remove('active');
+    }
+
+    // Tab bindings
+    if (tabSignIn) tabSignIn.onclick = () => switchAuthTab('signIn');
+    if (tabSignUp) tabSignUp.onclick = () => switchAuthTab('signUp');
+    if (tabForgot) tabForgot.onclick = () => switchAuthTab('forgot');
+    if (linkForgotPassword) linkForgotPassword.onclick = () => switchAuthTab('forgot');
+
+    // Toggle password visibility buttons
+    document.querySelectorAll('.btn-toggle-pw').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = btn.closest('.auth-input-wrap')?.querySelector('input');
+        if (!input) return;
+        const isPw = input.type === 'password';
+        input.type = isPw ? 'text' : 'password';
+        btn.innerHTML = isPw
+          ? `<svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`
+          : `<svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+      });
+    });
+
+    // Sign In Submit
+    if (formSignIn) {
+      formSignIn.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearAuthAlert();
+        const email = document.getElementById('loginEmail')?.value.trim();
+        const password = document.getElementById('loginPassword')?.value;
+        if (!email || !password) return;
+
+        const btn = document.getElementById('btnSubmitLogin');
+        const origText = btn ? btn.innerHTML : '';
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML = `<svg class="svg-icon sm spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Authenticating with Supabase...</span>`;
+        }
+
+        try {
+          if (!supabaseClient || !supabaseClient.auth) {
+            throw new Error('Supabase client is not connected.');
+          }
+          const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+          if (error) throw error;
+
+          currentUser = data.user;
+          isAuthBypassed = false;
+          updateAuthUI(true);
+          hideAuthScreen();
+          showToast(`Welcome back, <strong>${email.split('@')[0]}</strong>!`);
+        } catch (err) {
+          console.error('Login error:', err);
+          showAuthAlert(err.message || 'Invalid email or password.', 'error');
+        } finally {
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+          }
+        }
+      });
+    }
+
+    // Sign Up Submit
+    if (formSignUp) {
+      formSignUp.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearAuthAlert();
+        const fullName = document.getElementById('signupName')?.value.trim();
+        const email = document.getElementById('signupEmail')?.value.trim();
+        const password = document.getElementById('signupPassword')?.value;
+        if (!email || !password) return;
+
+        const btn = document.getElementById('btnSubmitSignup');
+        const origText = btn ? btn.innerHTML : '';
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML = `<svg class="svg-icon sm spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Creating account...</span>`;
+        }
+
+        try {
+          if (!supabaseClient || !supabaseClient.auth) {
+            throw new Error('Supabase client is not connected.');
+          }
+          const { data, error } = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: {
+              data: { full_name: fullName }
+            }
+          });
+          if (error) throw error;
+
+          if (data.session) {
+            currentUser = data.user;
+            isAuthBypassed = false;
+            updateAuthUI(true);
+            hideAuthScreen();
+            showToast(`Account created! Welcome, <strong>${fullName || email}</strong>.`);
+          } else {
+            // Confirmation email required
+            showAuthAlert(`Account created for ${email}! Please check your inbox to confirm your email.`, 'success');
+          }
+        } catch (err) {
+          console.error('Sign up error:', err);
+          showAuthAlert(err.message || 'Could not create account.', 'error');
+        } finally {
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+          }
+        }
+      });
+    }
+
+    // Reset Password Submit
+    if (formForgot) {
+      formForgot.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearAuthAlert();
+        const email = document.getElementById('forgotEmail')?.value.trim();
+        if (!email) return;
+
+        const btn = document.getElementById('btnSubmitForgot');
+        const origText = btn ? btn.innerHTML : '';
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML = `<svg class="svg-icon sm spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Sending link...</span>`;
+        }
+
+        try {
+          if (!supabaseClient || !supabaseClient.auth) {
+            throw new Error('Supabase client is not connected.');
+          }
+          const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+            redirectTo: window.location.origin
+          });
+          if (error) throw error;
+
+          showAuthAlert(`Password recovery link sent to ${email}. Please check your email.`, 'success');
+        } catch (err) {
+          console.error('Forgot password error:', err);
+          showAuthAlert(err.message || 'Could not send recovery email.', 'error');
+        } finally {
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+          }
+        }
+      });
+    }
+
+    // Guest / Offline Mode Bypass
+    if (btnBypassAuth) {
+      btnBypassAuth.onclick = () => {
+        isAuthBypassed = true;
+        hideAuthScreen();
+        updateAuthUI(false);
+        showToast('Browsing studio in offline / guest mode.');
+      };
+    }
+
+    // User Profile Dropdown Toggle
+    if (btnUserMenu && userProfileWrap) {
+      btnUserMenu.onclick = (e) => {
+        e.stopPropagation();
+        userProfileWrap.classList.toggle('open');
+      };
+      document.addEventListener('click', (e) => {
+        if (!userProfileWrap.contains(e.target)) {
+          userProfileWrap.classList.remove('open');
+        }
+      });
+    }
+
+    // Sign Out
+    if (btnSignOut) {
+      btnSignOut.onclick = async () => {
+        if (userProfileWrap) userProfileWrap.classList.remove('open');
+        if (supabaseClient && supabaseClient.auth) {
+          try {
+            await supabaseClient.auth.signOut();
+          } catch (e) {
+            console.warn('Sign out error:', e);
+          }
+        }
+        currentUser = null;
+        isAuthBypassed = false;
+        updateAuthUI(false);
+        showToast('You have signed out.');
+        showAuthScreen('signIn');
+      };
+    }
+
+    // Initial Supabase Session Check
+    if (supabaseClient && supabaseClient.auth) {
+      try {
+        const { data: sessionData } = await supabaseClient.auth.getSession();
+        const session = sessionData && sessionData.session;
+        if (session && session.user) {
+          currentUser = session.user;
+          updateAuthUI(true);
+          hideAuthScreen();
+        } else {
+          showAuthScreen('signIn');
+        }
+
+        // Live auth state listener
+        supabaseClient.auth.onAuthStateChange((event, newSession) => {
+          if (newSession && newSession.user) {
+            currentUser = newSession.user;
+            updateAuthUI(true);
+            hideAuthScreen();
+          } else {
+            currentUser = null;
+            updateAuthUI(false);
+            if (!isAuthBypassed) {
+              showAuthScreen('signIn');
+            }
+          }
+        });
+      } catch (err) {
+        console.warn('Supabase auth session check failed:', err);
+        showAuthScreen('signIn');
+      }
+    } else {
+      // Fallback for offline mode without Supabase connection
+      isAuthBypassed = true;
+      hideAuthScreen();
+      updateAuthUI(false);
+    }
 
     // Initial render
     renderCurrentView();
