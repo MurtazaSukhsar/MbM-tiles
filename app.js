@@ -2178,19 +2178,12 @@
     });
 
     // ========================================================================
-    // SUPABASE AUTHENTICATION SYSTEM
+    // SUPABASE AUTHENTICATION SYSTEM (Sign In Only)
     // ========================================================================
     const authScreen = document.getElementById('authScreen');
     const authAlert = document.getElementById('authAlert');
     const authLogoImg = document.getElementById('authLogoImg');
-    const tabSignIn = document.getElementById('tabSignIn');
-    const tabSignUp = document.getElementById('tabSignUp');
-    const tabForgot = document.getElementById('tabForgot');
     const formSignIn = document.getElementById('formSignIn');
-    const formSignUp = document.getElementById('formSignUp');
-    const formForgot = document.getElementById('formForgot');
-    const linkForgotPassword = document.getElementById('linkForgotPassword');
-    const btnBypassAuth = document.getElementById('btnBypassAuth');
     const btnUserMenu = document.getElementById('btnUserMenu');
     const userProfileWrap = document.querySelector('.user-profile-wrap');
     const userAvatarBadge = document.getElementById('userAvatarBadge');
@@ -2198,8 +2191,8 @@
     const userDropdownEmail = document.getElementById('userDropdownEmail');
     const btnSignOut = document.getElementById('btnSignOut');
 
-    if (authLogoImg && catalog && catalog.logoIcon) {
-      authLogoImg.src = catalog.logoIcon;
+    if (authLogoImg) {
+      authLogoImg.src = (catalog && catalog.logoIcon) ? catalog.logoIcon : 'assets/logo.png';
     }
 
     function showAuthAlert(msg, type = 'error') {
@@ -2218,27 +2211,6 @@
       authAlert.innerHTML = '';
     }
 
-    function switchAuthTab(mode) {
-      clearAuthAlert();
-      [tabSignIn, tabSignUp, tabForgot].forEach(t => {
-        if (t) t.classList.remove('active');
-      });
-      [formSignIn, formSignUp, formForgot].forEach(f => {
-        if (f) f.classList.remove('active');
-      });
-
-      if (mode === 'signIn') {
-        if (tabSignIn) tabSignIn.classList.add('active');
-        if (formSignIn) formSignIn.classList.add('active');
-      } else if (mode === 'signUp') {
-        if (tabSignUp) tabSignUp.classList.add('active');
-        if (formSignUp) formSignUp.classList.add('active');
-      } else if (mode === 'forgot') {
-        if (tabForgot) tabForgot.classList.add('active');
-        if (formForgot) formForgot.classList.add('active');
-      }
-    }
-
     function updateAuthUI(isLoggedIn) {
       if (isLoggedIn && currentUser) {
         const email = currentUser.email || '';
@@ -2249,28 +2221,23 @@
         if (userEmailLabel) userEmailLabel.textContent = name;
         if (userDropdownEmail) userDropdownEmail.textContent = email;
       } else {
-        if (userAvatarBadge) userAvatarBadge.textContent = 'G';
-        if (userEmailLabel) userEmailLabel.textContent = 'Guest';
-        if (userDropdownEmail) userDropdownEmail.textContent = 'Guest Mode (Offline/Local)';
+        if (userAvatarBadge) userAvatarBadge.textContent = 'A';
+        if (userEmailLabel) userEmailLabel.textContent = 'Account';
+        if (userDropdownEmail) userDropdownEmail.textContent = 'Not logged in';
       }
     }
 
-    function showAuthScreen(tab = 'signIn') {
+    function showAuthScreen() {
       if (authScreen) authScreen.classList.add('active');
-      switchAuthTab(tab);
+      clearAuthAlert();
     }
 
     function hideAuthScreen() {
       if (authScreen) authScreen.classList.remove('active');
+      clearAuthAlert();
     }
 
-    // Tab bindings
-    if (tabSignIn) tabSignIn.onclick = () => switchAuthTab('signIn');
-    if (tabSignUp) tabSignUp.onclick = () => switchAuthTab('signUp');
-    if (tabForgot) tabForgot.onclick = () => switchAuthTab('forgot');
-    if (linkForgotPassword) linkForgotPassword.onclick = () => switchAuthTab('forgot');
-
-    // Toggle password visibility buttons
+    // Toggle password visibility
     document.querySelectorAll('.btn-toggle-pw').forEach(btn => {
       btn.addEventListener('click', () => {
         const input = btn.closest('.auth-input-wrap')?.querySelector('input');
@@ -2283,7 +2250,7 @@
       });
     });
 
-    // Sign In Submit
+    // Sign In Submit via Supabase
     if (formSignIn) {
       formSignIn.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -2301,7 +2268,7 @@
 
         try {
           if (!supabaseClient || !supabaseClient.auth) {
-            throw new Error('Supabase client is not connected.');
+            throw new Error('Supabase client is not initialized.');
           }
           const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
           if (error) throw error;
@@ -2321,105 +2288,6 @@
           }
         }
       });
-    }
-
-    // Sign Up Submit
-    if (formSignUp) {
-      formSignUp.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        clearAuthAlert();
-        const fullName = document.getElementById('signupName')?.value.trim();
-        const email = document.getElementById('signupEmail')?.value.trim();
-        const password = document.getElementById('signupPassword')?.value;
-        if (!email || !password) return;
-
-        const btn = document.getElementById('btnSubmitSignup');
-        const origText = btn ? btn.innerHTML : '';
-        if (btn) {
-          btn.disabled = true;
-          btn.innerHTML = `<svg class="svg-icon sm spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Creating account...</span>`;
-        }
-
-        try {
-          if (!supabaseClient || !supabaseClient.auth) {
-            throw new Error('Supabase client is not connected.');
-          }
-          const { data, error } = await supabaseClient.auth.signUp({
-            email,
-            password,
-            options: {
-              data: { full_name: fullName }
-            }
-          });
-          if (error) throw error;
-
-          if (data.session) {
-            currentUser = data.user;
-            isAuthBypassed = false;
-            updateAuthUI(true);
-            hideAuthScreen();
-            showToast(`Account created! Welcome, <strong>${fullName || email}</strong>.`);
-          } else {
-            // Confirmation email required
-            showAuthAlert(`Account created for ${email}! Please check your inbox to confirm your email.`, 'success');
-          }
-        } catch (err) {
-          console.error('Sign up error:', err);
-          showAuthAlert(err.message || 'Could not create account.', 'error');
-        } finally {
-          if (btn) {
-            btn.disabled = false;
-            btn.innerHTML = origText;
-          }
-        }
-      });
-    }
-
-    // Reset Password Submit
-    if (formForgot) {
-      formForgot.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        clearAuthAlert();
-        const email = document.getElementById('forgotEmail')?.value.trim();
-        if (!email) return;
-
-        const btn = document.getElementById('btnSubmitForgot');
-        const origText = btn ? btn.innerHTML : '';
-        if (btn) {
-          btn.disabled = true;
-          btn.innerHTML = `<svg class="svg-icon sm spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Sending link...</span>`;
-        }
-
-        try {
-          if (!supabaseClient || !supabaseClient.auth) {
-            throw new Error('Supabase client is not connected.');
-          }
-          const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-            redirectTo: window.location.origin
-          });
-          if (error) throw error;
-
-          showAuthAlert(`Password recovery link sent to ${email}. Please check your email.`, 'success');
-        } catch (err) {
-          console.error('Forgot password error:', err);
-          showAuthAlert(err.message || 'Could not send recovery email.', 'error');
-        } finally {
-          if (btn) {
-            btn.disabled = false;
-            btn.innerHTML = origText;
-          }
-        }
-      });
-    }
-
-    // Guest / Offline Mode Bypass
-    if (btnBypassAuth) {
-      btnBypassAuth.onclick = () => {
-        isAuthBypassed = true;
-        hideAuthScreen();
-        updateAuthUI(false);
-        showToast('Browsing studio in offline / guest mode.');
-      };
     }
 
     // User Profile Dropdown Toggle
@@ -2450,11 +2318,11 @@
         isAuthBypassed = false;
         updateAuthUI(false);
         showToast('You have signed out.');
-        showAuthScreen('signIn');
+        showAuthScreen();
       };
     }
 
-    // Initial Supabase Session Check
+    // Check Existing Session
     if (supabaseClient && supabaseClient.auth) {
       try {
         const { data: sessionData } = await supabaseClient.auth.getSession();
@@ -2464,10 +2332,10 @@
           updateAuthUI(true);
           hideAuthScreen();
         } else {
-          showAuthScreen('signIn');
+          showAuthScreen();
         }
 
-        // Live auth state listener
+        // Live Auth State Listener
         supabaseClient.auth.onAuthStateChange((event, newSession) => {
           if (newSession && newSession.user) {
             currentUser = newSession.user;
@@ -2476,20 +2344,15 @@
           } else {
             currentUser = null;
             updateAuthUI(false);
-            if (!isAuthBypassed) {
-              showAuthScreen('signIn');
-            }
+            showAuthScreen();
           }
         });
       } catch (err) {
         console.warn('Supabase auth session check failed:', err);
-        showAuthScreen('signIn');
+        showAuthScreen();
       }
     } else {
-      // Fallback for offline mode without Supabase connection
-      isAuthBypassed = true;
-      hideAuthScreen();
-      updateAuthUI(false);
+      showAuthScreen();
     }
 
     // Initial render
