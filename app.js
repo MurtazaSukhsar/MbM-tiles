@@ -10,7 +10,7 @@
      Constants & Utilities
      -------------------------------------------------------------------------- */
   const DB_KEY = 'current_catalog'; // localStorage cache key (offline fallback)
-  const ROWS_PER_PAGE = 5;
+  const ROWS_PER_PAGE = 4; // fewer rows/page so each product photo gets much more room
 
   // Cloud backend: product/catalog text data lives in Supabase, photos live in
   // Cloudinary. localStorage is kept only as an offline fallback cache.
@@ -699,6 +699,22 @@
     return res;
   }
 
+  // Product photos vary between wide "landscape" crops and tall "portrait"
+  // crops. A single fixed box shape leaves dead white space around whichever
+  // orientation doesn't match it. This detects each image's real aspect ratio
+  // once it has loaded and shrinks the white photo box to hug it, instead of
+  // stretching a generic box around a smaller-looking image.
+  function fitPhotoBoxToImage(imgEl) {
+    if (!imgEl || !imgEl.naturalWidth || !imgEl.naturalHeight) return;
+    const box = imgEl.parentElement;
+    if (!box || !box.classList || !box.classList.contains('pdf-photo-box')) return;
+    const BOX_HEIGHT = 209; // matches .pdf-photo-box height in styles.css
+    const MAX_WIDTH = 324;  // matches .td-photo content width (340 - 2*8 padding)
+    const aspect = imgEl.naturalWidth / imgEl.naturalHeight;
+    const fitWidth = Math.max(60, Math.min(MAX_WIDTH, Math.round(aspect * BOX_HEIGHT)));
+    box.style.width = fitWidth + 'px';
+  }
+
   function buildSinglePdfSheet(pageProducts, pageNumber, totalPages, startIndex) {
     const sheet = document.createElement('div');
     sheet.className = 'pdf-sheet';
@@ -769,11 +785,18 @@
     const prods = getFilteredProducts();
     const pages = chunkArray(prods, ROWS_PER_PAGE);
 
-    document.getElementById('pdfPageCountBadge').textContent = `${pages.length} Pages (${prods.length} items · 5 items/page)`;
+    document.getElementById('pdfPageCountBadge').textContent = `${pages.length} Pages (${prods.length} items · ${ROWS_PER_PAGE} items/page)`;
 
     pages.forEach((pageGroup, idx) => {
       const sheet = buildSinglePdfSheet(pageGroup, idx + 1, pages.length, idx * ROWS_PER_PAGE);
       feed.appendChild(sheet);
+      sheet.querySelectorAll('.pdf-photo-box img').forEach(img => {
+        if (img.complete && img.naturalWidth) {
+          fitPhotoBoxToImage(img);
+        } else {
+          img.addEventListener('load', () => fitPhotoBoxToImage(img));
+        }
+      });
     });
   }
 
@@ -862,6 +885,10 @@
             im.onerror = () => { clearTimeout(tm); res(); };
           });
         }));
+
+        // Now that natural dimensions are known, shrink each photo box to
+        // hug its image's real aspect ratio before rasterizing.
+        imgs.forEach(fitPhotoBoxToImage);
 
         // Yield execution to browser for responsive UI rendering
         await new Promise(r => setTimeout(r, 8));
