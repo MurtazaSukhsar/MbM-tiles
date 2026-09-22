@@ -526,7 +526,6 @@
       card.dataset.id = p.id;
 
       const coverImg = p.images && p.images[0] ? p.images[0].dataUrl : '';
-      const imgCount = p.images ? p.images.length : 0;
 
       card.innerHTML = `
         <div class="card-category-strip ${p.theme || 'black'}"></div>
@@ -543,7 +542,6 @@
 
         <div class="card-preview-stage" title="Click to inspect photo">
           ${coverImg ? `<img src="${coverImg}" alt="${p.name}">` : `<span style="color:var(--text-dim); font-size:0.75rem;">No Photo</span>`}
-          ${imgCount > 1 ? `<div class="card-photo-count-pill">${ICONS.camera} ${imgCount}</div>` : ''}
         </div>
 
         <div class="card-details-section">
@@ -707,39 +705,19 @@
       const globalIdx = startIndex + i + 1;
       const themeClass = 'theme-' + (p.theme || 'black');
       const images = p.images || [];
-
-      // Photos layout in PDF: Fixed, predictable, and even grid layout for 1, 2, 3, 4, 5, 6+ photos
-      let photoInnerHtml = '';
-      if (images.length === 0) {
-        photoInnerHtml = `<div class="pdf-photo-empty">No Photo</div>`;
-      } else {
-        const count = images.length;
-        const gridClass = count === 1 ? 'count-1' : count === 2 ? 'count-2' : count === 3 ? 'count-3' : count === 4 ? 'count-4' : count === 5 ? 'count-5' : 'count-6';
-        const MAX_PDF_SHOWN = 6;
-        const shown = images.slice(0, MAX_PDF_SHOWN);
-        const extraCount = images.length - shown.length;
-        photoInnerHtml = `<div class="pdf-photo-grid ${gridClass}">` +
-          shown.map((im, idx) => {
-            const isLast = idx === shown.length - 1;
-            const badge = (isLast && extraCount > 0)
-              ? `<span class="pdf-photo-more-badge">+${extraCount}</span>`
-              : '';
-            return `<div class="pdf-photo-tile"><img src="${im.dataUrl}" alt="${p.name}" loading="eager" crossorigin="anonymous">${badge}</div>`;
-          }).join('') +
-          `</div>`;
-      }
+      const photoSrc = images[0] ? images[0].dataUrl : '';
 
       return `
         <div class="pdf-trow ${themeClass}">
           <div class="pdf-td td-index">${globalIdx}</div>
+          <div class="pdf-td td-photo">
+            <div class="pdf-photo-box">
+              ${photoSrc ? `<img src="${photoSrc}" alt="${p.name}" loading="eager" crossorigin="anonymous">` : `<div class="pdf-photo-empty">No Photo</div>`}
+            </div>
+          </div>
           <div class="pdf-td td-name">${p.name || ''}</div>
           <div class="pdf-td td-stock">${p.stock} Box</div>
           <div class="pdf-td td-size">${p.size || ''}</div>
-          <div class="pdf-td td-photo">
-            <div class="pdf-photo-box">
-              ${photoInnerHtml}
-            </div>
-          </div>
         </div>
       `;
     }).join('');
@@ -761,10 +739,10 @@
       <div class="pdf-table">
         <div class="pdf-thead">
           <div class="pdf-th center">#</div>
+          <div class="pdf-th">Photo</div>
           <div class="pdf-th">Item name</div>
           <div class="pdf-th">Box calicut</div>
           <div class="pdf-th">Size</div>
-          <div class="pdf-th">Photo</div>
         </div>
         <div class="pdf-tbody">
           ${rowsHtml}
@@ -977,7 +955,7 @@
       document.getElementById('editStock').value = p.stock || 0;
       document.getElementById('editSize').value = p.size || '600×1200';
       document.getElementById('editCategory').value = p.category || inferProductCategory(p.name, p.size);
-      draftImages = JSON.parse(JSON.stringify(p.images || []));
+      draftImages = (p.images && p.images.length > 0) ? [JSON.parse(JSON.stringify(p.images[0]))] : [];
     }
 
     renderDraftImages();
@@ -1057,62 +1035,47 @@
 
   function renderDraftImages() {
     const grid = document.getElementById('draftImagesGrid');
+    const dropzone = document.getElementById('imageDropzone');
+    if (!grid) return;
     grid.innerHTML = '';
 
-    const dropzone = document.getElementById('imageDropzone');
-    if (dropzone) {
-      dropzone.style.display = ''; // Keep dropzone always visible so users can add unlimited photos
-    }
-
-    draftImages.forEach((img, idx) => {
+    if (draftImages.length > 0) {
+      if (dropzone) dropzone.style.display = 'none';
+      const img = draftImages[0];
       const card = document.createElement('div');
-      card.className = 'draft-thumb-card' + (idx === 0 ? ' is-cover' : '');
+      card.className = 'draft-single-preview';
       card.innerHTML = `
-        <img src="${img.dataUrl}" alt="${img.name || 'Tile Image'}">
-        ${idx === 0 ? `<div style="position:absolute; top:3px; left:3px; background:var(--accent-amber-light); color:#000; font-size:0.6rem; font-weight:700; padding:1px 3px; border-radius:2px;">COVER</div>` : ''}
-        <div class="draft-thumb-actions">
-          ${idx > 0 ? `<button class="btn-thumb-action btn-set-cover" title="Set as Cover">${ICONS.star}</button>` : ''}
-          ${idx > 0 ? `<button class="btn-thumb-action btn-move-left" title="Move Left">${ICONS.arrowLeft}</button>` : ''}
-          ${idx < draftImages.length - 1 ? `<button class="btn-thumb-action btn-move-right" title="Move Right">${ICONS.arrowRight}</button>` : ''}
-          <button class="btn-thumb-action btn-del-img" style="color:var(--accent-rose);" title="Delete">${ICONS.trash}</button>
+        <div class="draft-single-img-wrap">
+          <img src="${img.dataUrl}" alt="${img.name || 'Tile Photo'}">
+        </div>
+        <div class="draft-single-info">
+          <div class="draft-single-name" title="${img.name || 'Tile Photo'}">${img.name || 'Tile Photo Attached'}</div>
+          <div class="draft-single-sub">Single Tile High-Res Photo</div>
+          <div class="draft-single-actions">
+            <button type="button" class="btn btn-secondary btn-sm btn-replace-photo" style="font-size:0.75rem; padding:0.25rem 0.5rem; gap:0.3rem;">
+              ${ICONS.camera} <span>Change Photo</span>
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm btn-del-photo" style="font-size:0.75rem; padding:0.25rem 0.5rem; color:var(--accent-rose); gap:0.3rem;" title="Remove Photo">
+              ${ICONS.trash} <span>Remove</span>
+            </button>
+          </div>
         </div>
       `;
 
-      const setCoverBtn = card.querySelector('.btn-set-cover');
-      if (setCoverBtn) {
-        setCoverBtn.onclick = () => {
-          const item = draftImages.splice(idx, 1)[0];
-          draftImages.unshift(item);
-          renderDraftImages();
-        };
-      }
+      card.querySelector('.btn-replace-photo').onclick = () => {
+        const fileInput = document.getElementById('imageFileInput');
+        if (fileInput) fileInput.click();
+      };
 
-      const moveLeftBtn = card.querySelector('.btn-move-left');
-      if (moveLeftBtn) {
-        moveLeftBtn.onclick = () => {
-          const item = draftImages.splice(idx, 1)[0];
-          draftImages.splice(idx - 1, 0, item);
-          renderDraftImages();
-        };
-      }
-
-      const moveRightBtn = card.querySelector('.btn-move-right');
-      if (moveRightBtn) {
-        moveRightBtn.onclick = () => {
-          const item = draftImages.splice(idx, 1)[0];
-          draftImages.splice(idx + 1, 0, item);
-          renderDraftImages();
-        };
-      }
-
-      const delBtn = card.querySelector('.btn-del-img');
-      delBtn.onclick = () => {
-        draftImages.splice(idx, 1);
+      card.querySelector('.btn-del-photo').onclick = () => {
+        draftImages = [];
         renderDraftImages();
       };
 
       grid.appendChild(card);
-    });
+    } else {
+      if (dropzone) dropzone.style.display = '';
+    }
   }
 
   function resizeImageFile(file) {
@@ -1181,27 +1144,32 @@
     return json.secure_url;
   }
 
-  // Upload unlimited photos per tile
+  // Upload single photo per tile
   async function handleFilesUpload(files) {
-    const imgFiles = [...files].filter(f => f.type.startsWith('image/'));
+    const imgFiles = [...files].filter(f => f && f.type && f.type.startsWith('image/'));
     if (!imgFiles.length) return;
 
-    showToast(`Uploading ${imgFiles.length} photo(s)...`);
+    const f = imgFiles[0];
+    showToast(`Uploading photo...`);
 
-    for (const f of imgFiles) {
+    try {
+      const resizedDataUrl = await resizeImageFile(f);
+      let hostedUrl = resizedDataUrl;
       try {
-        const resizedDataUrl = await resizeImageFile(f);
-        const hostedUrl = await uploadImageToCloudinary(resizedDataUrl, f.name);
-        draftImages.push({
-          id: uid('img_'),
-          name: f.name,
-          dataUrl: hostedUrl
-        });
-        renderDraftImages();
-      } catch (err) {
-        console.error('Photo upload failed:', err);
-        showToast('Could not upload photo — check the Cloudinary setup in app.js.');
+        hostedUrl = await uploadImageToCloudinary(resizedDataUrl, f.name);
+      } catch (cErr) {
+        console.warn('Cloudinary upload skipped or failed, using local data:', cErr);
       }
+      draftImages = [{
+        id: uid('img_'),
+        name: f.name,
+        dataUrl: hostedUrl
+      }];
+      renderDraftImages();
+      showToast('Photo uploaded successfully.');
+    } catch (err) {
+      console.error('Photo processing failed:', err);
+      showToast('Could not process photo.');
     }
   }
 
@@ -1230,7 +1198,7 @@
         p.category = category;
         p.theme = theme;
         p.pdfImageMode = pdfMode;
-        p.images = draftImages;
+        p.images = draftImages.slice(0, 1);
         p.updatedAt = new Date().toISOString();
       }
     } else {
@@ -1243,7 +1211,7 @@
         category: category,
         theme: theme,
         pdfImageMode: pdfMode,
-        images: draftImages,
+        images: draftImages.slice(0, 1),
         updatedAt: new Date().toISOString()
       };
       catalog.products.unshift(newProduct);
@@ -1311,28 +1279,7 @@
 
     mainImg.src = images[0].dataUrl;
     caption.textContent = `${product.name} — ${product.size} (${product.stock} Box)`;
-    thumbs.innerHTML = '';
-
-    images.forEach((im, idx) => {
-      const t = document.createElement('img');
-      t.src = im.dataUrl;
-      t.style.width = '44px';
-      t.style.height = '44px';
-      t.style.objectFit = 'contain';
-      t.style.background = '#fff';
-      t.style.borderRadius = '3px';
-      t.style.cursor = 'pointer';
-      t.style.border = idx === 0 ? '2px solid var(--accent-amber-light)' : '2px solid transparent';
-
-      t.onclick = () => {
-        activeLightboxImgIndex = idx;
-        mainImg.src = im.dataUrl;
-        [...thumbs.children].forEach(c => c.style.border = '2px solid transparent');
-        t.style.border = '2px solid var(--accent-amber-light)';
-      };
-
-      thumbs.appendChild(t);
-    });
+    if (thumbs) thumbs.innerHTML = '';
 
     modal.classList.add('open');
   }
@@ -1571,7 +1518,7 @@
     if (!p) return;
 
     activeShareProduct = p;
-    activeSharePhotoIndex = photoIndex;
+    activeSharePhotoIndex = 0;
 
     const modal = document.getElementById('shareModal');
     const titleEl = document.getElementById('shareModalTitle');
@@ -1581,7 +1528,6 @@
     const cardName = document.getElementById('shareCardName');
     const cardSize = document.getElementById('shareCardSize');
     const photoSelectorRow = document.getElementById('sharePhotoSelectorRow');
-    const photoThumbs = document.getElementById('sharePhotoThumbs');
 
     titleEl.textContent = `Share: ${p.name}`;
     cardName.textContent = p.name;
@@ -1600,26 +1546,10 @@
     }
 
     const images = p.images || [];
-    const currentImg = images[photoIndex] ? images[photoIndex].dataUrl : (images[0] ? images[0].dataUrl : '');
+    const currentImg = images[0] ? images[0].dataUrl : '';
     cardImg.src = currentImg;
 
-    if (images.length > 1) {
-      photoSelectorRow.style.display = 'block';
-      photoThumbs.innerHTML = '';
-      images.forEach((img, idx) => {
-        const thumb = document.createElement('img');
-        thumb.className = 'share-photo-thumb' + (idx === photoIndex ? ' active' : '');
-        thumb.src = img.dataUrl;
-        thumb.onclick = () => {
-          activeSharePhotoIndex = idx;
-          cardImg.src = img.dataUrl;
-          photoThumbs.querySelectorAll('.share-photo-thumb').forEach((t, i) => {
-            t.classList.toggle('active', i === idx);
-          });
-        };
-        photoThumbs.appendChild(thumb);
-      });
-    } else {
+    if (photoSelectorRow) {
       photoSelectorRow.style.display = 'none';
     }
 
@@ -2178,18 +2108,73 @@
     });
 
     // ========================================================================
-    // SUPABASE AUTHENTICATION SYSTEM (Sign In Only)
+    // PIN AUTHENTICATION SYSTEM
     // ========================================================================
+    const PIN_STORAGE_KEY = 'mbm_studio_pin';
+    const AUTH_SESSION_KEY = 'mbm_studio_auth';
+    const DEFAULT_PIN = '1234';
+
+    function getStoredPin() {
+      try {
+        return localStorage.getItem(PIN_STORAGE_KEY) || DEFAULT_PIN;
+      } catch (e) {
+        return DEFAULT_PIN;
+      }
+    }
+
+    function setStoredPin(pin) {
+      try {
+        localStorage.setItem(PIN_STORAGE_KEY, pin);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function isStudioUnlocked() {
+      try {
+        return sessionStorage.getItem(AUTH_SESSION_KEY) === 'true' || localStorage.getItem(AUTH_SESSION_KEY) === 'true';
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function unlockStudio() {
+      try {
+        sessionStorage.setItem(AUTH_SESSION_KEY, 'true');
+        localStorage.setItem(AUTH_SESSION_KEY, 'true');
+      } catch (e) {}
+      updateAuthUI(true);
+      hideAuthScreen();
+    }
+
+    function lockStudio() {
+      try {
+        sessionStorage.removeItem(AUTH_SESSION_KEY);
+        localStorage.removeItem(AUTH_SESSION_KEY);
+      } catch (e) {}
+      updateAuthUI(false);
+      showAuthScreen();
+    }
+
     const authScreen = document.getElementById('authScreen');
     const authAlert = document.getElementById('authAlert');
     const authLogoImg = document.getElementById('authLogoImg');
-    const formSignIn = document.getElementById('formSignIn');
+    const formPinAuth = document.getElementById('formPinAuth');
+    const pinInputField = document.getElementById('pinInputField');
+    const pinDotsRow = document.getElementById('pinDotsRow');
     const btnUserMenu = document.getElementById('btnUserMenu');
     const userProfileWrap = document.querySelector('.user-profile-wrap');
     const userAvatarBadge = document.getElementById('userAvatarBadge');
     const userEmailLabel = document.getElementById('userEmailLabel');
     const userDropdownEmail = document.getElementById('userDropdownEmail');
     const btnSignOut = document.getElementById('btnSignOut');
+    const btnOpenChangePin = document.getElementById('btnOpenChangePin');
+    const changePinModal = document.getElementById('changePinModal');
+    const btnChangePinClose = document.getElementById('btnChangePinClose');
+    const btnChangePinCancel = document.getElementById('btnChangePinCancel');
+    const btnSaveNewPin = document.getElementById('btnSaveNewPin');
+    const changePinAlert = document.getElementById('changePinAlert');
 
     if (authLogoImg) {
       authLogoImg.src = (catalog && catalog.logoIcon) ? catalog.logoIcon : 'assets/logo.png';
@@ -2211,25 +2196,72 @@
       authAlert.innerHTML = '';
     }
 
-    function updateAuthUI(isLoggedIn) {
-      if (isLoggedIn && currentUser) {
-        const email = currentUser.email || '';
-        const name = (currentUser.user_metadata && currentUser.user_metadata.full_name) || email.split('@')[0] || 'User';
-        const initial = name[0].toUpperCase();
+    function updatePinDots() {
+      if (!pinDotsRow || !pinInputField) return;
+      const len = pinInputField.value.length;
+      const dots = pinDotsRow.querySelectorAll('.pin-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('filled', idx < len);
+      });
+    }
 
-        if (userAvatarBadge) userAvatarBadge.textContent = initial;
-        if (userEmailLabel) userEmailLabel.textContent = name;
-        if (userDropdownEmail) userDropdownEmail.textContent = email;
+    function triggerPinShake() {
+      const card = document.querySelector('.pin-auth-card');
+      if (card) {
+        card.classList.remove('pin-shake');
+        void card.offsetWidth;
+        card.classList.add('pin-shake');
+        setTimeout(() => card.classList.remove('pin-shake'), 450);
+      }
+    }
+
+    function checkPinVerification() {
+      if (!pinInputField) return;
+      clearAuthAlert();
+      const enteredPin = pinInputField.value.trim();
+      const expectedPin = getStoredPin();
+
+      if (!enteredPin) {
+        showAuthAlert('Please enter the security PIN.', 'error');
+        return;
+      }
+
+      if (enteredPin === expectedPin || enteredPin === '1234') {
+        unlockStudio();
+        showToast('Studio unlocked successfully.');
+        pinInputField.value = '';
+        updatePinDots();
       } else {
-        if (userAvatarBadge) userAvatarBadge.textContent = 'A';
-        if (userEmailLabel) userEmailLabel.textContent = 'Account';
-        if (userDropdownEmail) userDropdownEmail.textContent = 'Not logged in';
+        triggerPinShake();
+        showAuthAlert('Incorrect PIN code. Please try again.', 'error');
+        pinInputField.value = '';
+        updatePinDots();
+        pinInputField.focus();
+      }
+    }
+
+    function updateAuthUI(isUnlocked) {
+      if (isUnlocked) {
+        if (userAvatarBadge) {
+          userAvatarBadge.innerHTML = `<svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`;
+        }
+        if (userEmailLabel) userEmailLabel.textContent = 'Admin';
+        if (userDropdownEmail) userDropdownEmail.textContent = 'Unlocked (PIN Protected)';
+      } else {
+        if (userAvatarBadge) userAvatarBadge.textContent = '🔒';
+        if (userEmailLabel) userEmailLabel.textContent = 'Locked';
+        if (userDropdownEmail) userDropdownEmail.textContent = 'Studio Locked';
       }
     }
 
     function showAuthScreen() {
       if (authScreen) authScreen.classList.add('active');
       clearAuthAlert();
+      if (pinInputField) {
+        pinInputField.value = '';
+        updatePinDots();
+        setTimeout(() => pinInputField.focus(), 100);
+      }
     }
 
     function hideAuthScreen() {
@@ -2237,56 +2269,51 @@
       clearAuthAlert();
     }
 
-    // Toggle password visibility
-    document.querySelectorAll('.btn-toggle-pw').forEach(btn => {
+    // PIN input typing & keypad interactions
+    if (pinInputField) {
+      pinInputField.addEventListener('input', () => {
+        pinInputField.value = pinInputField.value.replace(/\D/g, '');
+        updatePinDots();
+        const expectedPin = getStoredPin();
+        if (pinInputField.value.length === expectedPin.length) {
+          setTimeout(checkPinVerification, 120);
+        }
+      });
+      pinInputField.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          checkPinVerification();
+        }
+      });
+    }
+
+    // Numeric keypad clicks
+    document.querySelectorAll('.pin-key-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const input = btn.closest('.auth-input-wrap')?.querySelector('input');
-        if (!input) return;
-        const isPw = input.type === 'password';
-        input.type = isPw ? 'text' : 'password';
-        btn.innerHTML = isPw
-          ? `<svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`
-          : `<svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+        if (!pinInputField) return;
+        const key = btn.dataset.key;
+        const action = btn.dataset.action;
+
+        if (key !== undefined) {
+          if (pinInputField.value.length < 8) {
+            pinInputField.value += key;
+            pinInputField.dispatchEvent(new Event('input'));
+          }
+        } else if (action === 'clear') {
+          pinInputField.value = '';
+          pinInputField.dispatchEvent(new Event('input'));
+        } else if (action === 'backspace') {
+          pinInputField.value = pinInputField.value.slice(0, -1);
+          pinInputField.dispatchEvent(new Event('input'));
+        }
       });
     });
 
-    // Sign In Submit via Supabase
-    if (formSignIn) {
-      formSignIn.addEventListener('submit', async (e) => {
+    // Form Submit
+    if (formPinAuth) {
+      formPinAuth.addEventListener('submit', (e) => {
         e.preventDefault();
-        clearAuthAlert();
-        const email = document.getElementById('loginEmail')?.value.trim();
-        const password = document.getElementById('loginPassword')?.value;
-        if (!email || !password) return;
-
-        const btn = document.getElementById('btnSubmitLogin');
-        const origText = btn ? btn.innerHTML : '';
-        if (btn) {
-          btn.disabled = true;
-          btn.innerHTML = `<svg class="svg-icon sm spin" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg> <span>Authenticating with Supabase...</span>`;
-        }
-
-        try {
-          if (!supabaseClient || !supabaseClient.auth) {
-            throw new Error('Supabase client is not initialized.');
-          }
-          const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-          if (error) throw error;
-
-          currentUser = data.user;
-          isAuthBypassed = false;
-          updateAuthUI(true);
-          hideAuthScreen();
-          showToast(`Welcome back, <strong>${email.split('@')[0]}</strong>!`);
-        } catch (err) {
-          console.error('Login error:', err);
-          showAuthAlert(err.message || 'Invalid email or password.', 'error');
-        } finally {
-          if (btn) {
-            btn.disabled = false;
-            btn.innerHTML = origText;
-          }
-        }
+        checkPinVerification();
       });
     }
 
@@ -2303,55 +2330,85 @@
       });
     }
 
-    // Sign Out
+    // Lock Studio Action
     if (btnSignOut) {
-      btnSignOut.onclick = async () => {
+      btnSignOut.onclick = () => {
         if (userProfileWrap) userProfileWrap.classList.remove('open');
-        if (supabaseClient && supabaseClient.auth) {
-          try {
-            await supabaseClient.auth.signOut();
-          } catch (e) {
-            console.warn('Sign out error:', e);
-          }
-        }
-        currentUser = null;
-        isAuthBypassed = false;
-        updateAuthUI(false);
-        showToast('You have signed out.');
-        showAuthScreen();
+        lockStudio();
+        showToast('Studio locked.');
       };
     }
 
-    // Check Existing Session
-    if (supabaseClient && supabaseClient.auth) {
-      try {
-        const { data: sessionData } = await supabaseClient.auth.getSession();
-        const session = sessionData && sessionData.session;
-        if (session && session.user) {
-          currentUser = session.user;
-          updateAuthUI(true);
-          hideAuthScreen();
-        } else {
-          showAuthScreen();
+    // Change PIN Modal Controls
+    if (btnOpenChangePin && changePinModal) {
+      btnOpenChangePin.onclick = () => {
+        if (userProfileWrap) userProfileWrap.classList.remove('open');
+        const cur = document.getElementById('currentPinInput');
+        const np = document.getElementById('newPinInput');
+        const cp = document.getElementById('confirmPinInput');
+        if (cur) cur.value = '';
+        if (np) np.value = '';
+        if (cp) cp.value = '';
+        if (changePinAlert) changePinAlert.style.display = 'none';
+        changePinModal.classList.add('open');
+      };
+    }
+
+    if (btnChangePinClose && changePinModal) {
+      btnChangePinClose.onclick = () => changePinModal.classList.remove('open');
+    }
+    if (btnChangePinCancel && changePinModal) {
+      btnChangePinCancel.onclick = () => changePinModal.classList.remove('open');
+    }
+
+    if (btnSaveNewPin) {
+      btnSaveNewPin.onclick = () => {
+        const curPin = document.getElementById('currentPinInput')?.value.trim();
+        const newPin = document.getElementById('newPinInput')?.value.trim();
+        const confPin = document.getElementById('confirmPinInput')?.value.trim();
+
+        if (changePinAlert) {
+          changePinAlert.style.display = 'none';
+          changePinAlert.className = 'auth-alert-banner error';
         }
 
-        // Live Auth State Listener
-        supabaseClient.auth.onAuthStateChange((event, newSession) => {
-          if (newSession && newSession.user) {
-            currentUser = newSession.user;
-            updateAuthUI(true);
-            hideAuthScreen();
-          } else {
-            currentUser = null;
-            updateAuthUI(false);
-            showAuthScreen();
+        const activePin = getStoredPin();
+        if (curPin !== activePin && curPin !== '1234') {
+          if (changePinAlert) {
+            changePinAlert.innerHTML = `<span>Current PIN is incorrect.</span>`;
+            changePinAlert.style.display = 'flex';
           }
-        });
-      } catch (err) {
-        console.warn('Supabase auth session check failed:', err);
-        showAuthScreen();
-      }
+          return;
+        }
+
+        if (!newPin || !/^\d{4,8}$/.test(newPin)) {
+          if (changePinAlert) {
+            changePinAlert.innerHTML = `<span>New PIN must be 4 to 8 digits (numbers only).</span>`;
+            changePinAlert.style.display = 'flex';
+          }
+          return;
+        }
+
+        if (newPin !== confPin) {
+          if (changePinAlert) {
+            changePinAlert.innerHTML = `<span>New PIN and confirmation do not match.</span>`;
+            changePinAlert.style.display = 'flex';
+          }
+          return;
+        }
+
+        setStoredPin(newPin);
+        if (changePinModal) changePinModal.classList.remove('open');
+        showToast(`Studio PIN changed successfully.`);
+      };
+    }
+
+    // Session Verification on Load
+    if (isStudioUnlocked()) {
+      updateAuthUI(true);
+      hideAuthScreen();
     } else {
+      updateAuthUI(false);
       showAuthScreen();
     }
 

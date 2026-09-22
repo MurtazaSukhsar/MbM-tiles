@@ -1077,7 +1077,7 @@ body {
 
 .pdf-thead {
   display: grid;
-  grid-template-columns: 36px 1fr 100px 120px 300px;
+  grid-template-columns: 36px 175px 1fr 130px 140px;
   background: #3b4998;
   color: #ffffff;
   font-weight: 700;
@@ -1108,7 +1108,7 @@ body {
 
 .pdf-trow {
   display: grid;
-  grid-template-columns: 36px 1fr 100px 120px 300px;
+  grid-template-columns: 36px 175px 1fr 130px 140px;
   height: 185px;
   min-height: 185px;
   max-height: 185px;
@@ -1153,16 +1153,16 @@ body {
   justify-content: center;
   align-items: center;
   padding: 8px;
-  width: 300px;
-  min-width: 300px;
-  max-width: 300px;
+  width: 175px;
+  min-width: 175px;
+  max-width: 175px;
   height: 185px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .pdf-photo-box {
-  width: 284px;
+  width: 100%;
   height: 168px;
   min-height: 168px;
   max-height: 168px;
@@ -1178,6 +1178,17 @@ body {
   position: relative;
 }
 
+.pdf-photo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
 .pdf-photo-empty {
   font-size: 11px;
   font-weight: 600;
@@ -1189,120 +1200,6 @@ body {
   height: 100%;
   background: #f8fafc;
   border-radius: 3px;
-}
-
-/* Unified Photo Grids with FIXED dimensions */
-.pdf-photo-grid {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-/* 1 Image: Full 100% width x 100% height centered */
-.pdf-photo-grid.count-1 {
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  gap: 0;
-}
-.pdf-photo-grid.count-1 .pdf-photo-tile {
-  height: 160px;
-  border: none;
-}
-.pdf-photo-grid.count-1 .pdf-photo-tile img {
-  object-fit: contain;
-}
-
-/* 2 Images: 2 equal horizontal columns side-by-side */
-.pdf-photo-grid.count-2 {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  gap: 5px;
-}
-.pdf-photo-grid.count-2 .pdf-photo-tile {
-  height: 160px;
-}
-.pdf-photo-grid.count-2 .pdf-photo-tile img {
-  object-fit: cover;
-}
-
-/* 3 Images: 3 equal horizontal columns side-by-side */
-.pdf-photo-grid.count-3 {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  gap: 5px;
-}
-.pdf-photo-grid.count-3 .pdf-photo-tile {
-  height: 160px;
-}
-.pdf-photo-grid.count-3 .pdf-photo-tile img {
-  object-fit: cover;
-}
-
-/* 4 Images: 2x2 equal quadrants */
-.pdf-photo-grid.count-4 {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 4px;
-}
-.pdf-photo-grid.count-4 .pdf-photo-tile {
-  height: 76px;
-}
-.pdf-photo-grid.count-4 .pdf-photo-tile img {
-  object-fit: cover;
-}
-
-/* 5 or 6 Images: 2 rows x 3 columns */
-.pdf-photo-grid.count-5,
-.pdf-photo-grid.count-6 {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 4px;
-}
-.pdf-photo-grid.count-5 .pdf-photo-tile,
-.pdf-photo-grid.count-6 .pdf-photo-tile {
-  height: 76px;
-}
-.pdf-photo-grid.count-5 .pdf-photo-tile img,
-.pdf-photo-grid.count-6 .pdf-photo-tile img {
-  object-fit: cover;
-}
-
-/* Tile container for individual photos */
-.pdf-photo-tile {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 3px;
-  overflow: hidden;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pdf-photo-tile img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-.pdf-photo-more-badge {
-  position: absolute;
-  bottom: 2px;
-  right: 2px;
-  background: rgba(0, 0, 0, 0.78);
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 1px 5px;
-  border-radius: 8px;
-  line-height: 1.2;
 }
 
 .pdf-td.td-name {
@@ -1516,45 +1413,69 @@ body {
 }
 
 .draft-images-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
-  gap: 0.5rem;
+  width: 100%;
   margin-top: 0.5rem;
 }
 
-.draft-thumb-card {
-  position: relative;
-  aspect-ratio: 1;
+/* Single Draft Image Preview */
+.draft-single-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.draft-single-img-wrap {
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
   background: #ffffff;
   border-radius: var(--radius-xs);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.draft-thumb-card.is-cover {
-  border: 2px solid var(--accent-amber-light);
-}
-
-.draft-thumb-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.draft-thumb-actions {
-  position: absolute;
-  inset: 0;
-  background: rgba(9, 12, 20, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
-  opacity: 0;
-  transition: opacity var(--transition-fast);
+  border: 1px solid var(--border-subtle);
 }
 
-.draft-thumb-card:hover .draft-thumb-actions {
-  opacity: 1;
+.draft-single-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.draft-single-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.draft-single-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.draft-single-sub {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-bottom: 0.35rem;
+}
+
+.draft-single-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-thumb-action {
@@ -2163,7 +2084,7 @@ body {
 }
 
 /* ==========================================================================
-   SUPABASE AUTH SCREEN (Login / Sign Up / Reset Password)
+   STUDIO PIN AUTHENTICATION SCREEN & KEYPAD
    ========================================================================== */
 .auth-screen-overlay {
   position: fixed;
@@ -2196,9 +2117,14 @@ body {
   flex-direction: column;
 }
 
+.pin-auth-card {
+  max-width: 380px;
+  text-align: center;
+}
+
 .auth-brand-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .auth-logo-badge {
@@ -2255,75 +2181,141 @@ body {
   color: #4ade80;
 }
 
-.auth-form {
+/* PIN Entry Form */
+.pin-auth-form {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-}
-
-.auth-field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.auth-field-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.auth-input-wrap {
-  position: relative;
-  display: flex;
   align-items: center;
-}
-
-.auth-field-icon {
-  position: absolute;
-  left: 0.85rem;
-  color: var(--text-dim);
-  pointer-events: none;
-}
-
-.auth-input-field {
+  gap: 0.75rem;
   width: 100%;
-  padding: 0.65rem 2.4rem 0.65rem 2.4rem;
-  background: var(--bg-input);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
-  color: var(--text-main);
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  outline: none;
-  transition: all var(--transition-fast);
 }
 
-.auth-input-field:focus {
-  border-color: var(--border-focus);
-  background: var(--bg-surface);
-  box-shadow: 0 0 0 3px var(--brand-indigo-glow);
+.pin-prompt-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.15rem;
 }
 
-.btn-toggle-pw {
-  position: absolute;
-  right: 0.75rem;
-  background: transparent;
-  border: none;
-  color: var(--text-dim);
-  cursor: pointer;
-  padding: 2px;
+.pin-dots-row {
   display: flex;
+  justify-content: center;
   align-items: center;
+  gap: 0.85rem;
+  margin: 0.4rem 0 0.5rem;
+  padding: 0.25rem;
+}
+
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-input);
+  border: 2px solid var(--border-default);
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pin-dot.filled {
+  background: var(--brand-indigo);
+  border-color: var(--brand-indigo-light);
+  box-shadow: 0 0 10px var(--brand-indigo-glow);
+  transform: scale(1.15);
+}
+
+.pin-input-field-wrap {
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
 
-.btn-toggle-pw:hover {
-  color: var(--text-main);
+.pin-display-input {
+  width: 160px;
+  text-align: center;
+  letter-spacing: 0.35em;
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.45rem 0.6rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  outline: none;
+}
+
+.pin-display-input:focus {
+  border-color: var(--brand-indigo-light);
+  box-shadow: 0 0 0 3px var(--brand-indigo-glow);
+}
+
+/* Interactive Numpad Grid */
+.pin-numpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+  max-width: 270px;
+  margin: 0.4rem auto 0;
+}
+
+.pin-key-btn {
+  height: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.pin-key-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--brand-indigo-light);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.pin-key-btn:active {
+  transform: translateY(1px);
+  background: var(--brand-indigo);
+}
+
+.pin-key-btn.pin-key-action {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pin-key-btn.pin-key-action:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pin-hint-sub {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 0.35rem;
+}
+
+/* Shake Animation for incorrect PIN */
+@keyframes pinShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.pin-shake {
+  animation: pinShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 .auth-submit-btn {
-  margin-top: 0.5rem;
   padding: 0.75rem 1rem;
   font-size: 0.88rem;
   font-weight: 700;
