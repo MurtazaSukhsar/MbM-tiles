@@ -864,11 +864,12 @@
         }));
 
         // Yield execution to browser for responsive UI rendering
-        await new Promise(r => setTimeout(r, 20));
+        await new Promise(r => setTimeout(r, 8));
 
-        // High-Quality rasterization (Scale 2.0 provides ~200-300 DPI print quality without memory spikes)
+        // High-Quality rasterization (Scale 2.5 provides ~240 DPI print quality,
+        // ~30% fewer pixels than 3.0 to keep export speed reasonable)
         const canvas = await html2canvas(sheet, {
-          scale: 2.0,
+          scale: 2.5,
           useCORS: true,
           allowTaint: true,
           backgroundColor: '#ffffff',
@@ -877,7 +878,7 @@
         });
 
         // Convert to high-grade JPEG and append with FAST compression
-        const imgData = canvas.toDataURL('image/jpeg', 0.94);
+        const imgData = canvas.toDataURL('image/jpeg', 0.88);
         if (i > 0) pdf.addPage('a4', 'portrait');
         pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
 
@@ -887,7 +888,7 @@
         canvas.height = 1;
 
         // Micro-yield between pages for garbage collection
-        await new Promise(r => setTimeout(r, 15));
+        await new Promise(r => setTimeout(r, 6));
       }
 
       if (progressBar) progressBar.style.width = '100%';
@@ -1146,7 +1147,11 @@
       throw new Error('Cloudinary upload failed: ' + errText);
     }
     const json = await resp.json();
-    return json.secure_url;
+    // Serve an auto-optimized, appropriately-sized delivery URL instead of the
+    // raw upload (tile photos only ever display in a small thumbnail / PDF box) --
+    // c_limit only scales down, never up, so smaller source images are untouched.
+    const rawUrl = json.secure_url;
+    return rawUrl ? rawUrl.replace('/upload/', '/upload/c_limit,w_800,q_auto,f_auto/') : rawUrl;
   }
 
   // Upload single photo per tile
@@ -2049,13 +2054,17 @@
     const searchInput = document.getElementById('searchInput');
     const searchClearBtn = document.getElementById('searchClearBtn');
 
+    let searchRenderTimer = null;
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
         if (searchClearBtn) {
           searchClearBtn.classList.toggle('visible', searchQuery.trim().length > 0);
         }
-        renderCurrentView();
+        // Debounce the heavy grid re-render (100+ image cards) so typing
+        // itself stays smooth; only rebuild the grid once the user pauses.
+        clearTimeout(searchRenderTimer);
+        searchRenderTimer = setTimeout(renderCurrentView, 150);
       });
 
       searchInput.addEventListener('keydown', (e) => {
