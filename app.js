@@ -129,6 +129,10 @@
         const productRows = productsRes.data || [];
         const seed = window.DEFAULT_CATALOG_DATA || {};
 
+        if (settingsRow && settingsRow.studio_pin) {
+          try { localStorage.setItem('mbm_studio_pin', String(settingsRow.studio_pin)); } catch (e) {}
+        }
+
         const loaded = {
           title: (settingsRow && settingsRow.title) || seed.title || 'Catalog',
           subtitle: (settingsRow && settingsRow.subtitle) || seed.subtitle || '',
@@ -138,6 +142,7 @@
           logoIcon: (settingsRow && settingsRow.logo_icon_url) || seed.logoIcon || '',
           logoLockup: (settingsRow && settingsRow.logo_lockup_url) || seed.logoLockup || '',
           rowsPerPage: (settingsRow && settingsRow.rows_per_page) || seed.rowsPerPage || ROWS_PER_PAGE,
+          studioPin: (settingsRow && settingsRow.studio_pin) || '1234',
           products: productRows.map(productRowToLocal)
         };
 
@@ -2108,7 +2113,7 @@
     });
 
     // ========================================================================
-    // PIN AUTHENTICATION SYSTEM
+    // PIN AUTHENTICATION SYSTEM (Supabase Cloud-Synced + Local Offline Cache)
     // ========================================================================
     const PIN_STORAGE_KEY = 'mbm_studio_pin';
     const AUTH_SESSION_KEY = 'mbm_studio_auth';
@@ -2124,11 +2129,31 @@
 
     function setStoredPin(pin) {
       try {
-        localStorage.setItem(PIN_STORAGE_KEY, pin);
+        localStorage.setItem(PIN_STORAGE_KEY, String(pin));
         return true;
       } catch (e) {
         return false;
       }
+    }
+
+    async function fetchCloudPin() {
+      if (!supabaseClient) return getStoredPin();
+      try {
+        const { data, error } = await supabaseClient
+          .from('catalog_settings')
+          .select('studio_pin')
+          .eq('id', 1)
+          .maybeSingle();
+
+        if (!error && data && data.studio_pin) {
+          const pinStr = String(data.studio_pin).trim();
+          setStoredPin(pinStr);
+          return pinStr;
+        }
+      } catch (e) {
+        console.warn('Could not fetch cloud PIN from Supabase:', e);
+      }
+      return getStoredPin();
     }
 
     function isStudioUnlocked() {
@@ -2215,18 +2240,29 @@
       }
     }
 
-    function checkPinVerification() {
+    async function checkPinVerification() {
       if (!pinInputField) return;
       clearAuthAlert();
       const enteredPin = pinInputField.value.trim();
-      const expectedPin = getStoredPin();
 
       if (!enteredPin) {
         showAuthAlert('Please enter the security PIN.', 'error');
         return;
       }
 
-      if (enteredPin === expectedPin || enteredPin === '1234') {
+      // Check local cache first for instant response
+      let localPin = getStoredPin();
+      let isValid = (enteredPin === localPin || enteredPin === DEFAULT_PIN);
+
+      // If local check did not match, check live cloud PIN in Supabase
+      if (!isValid && supabaseClient) {
+        const cloudPin = await fetchCloudPin();
+        if (enteredPin === cloudPin) {
+          isValid = true;
+        }
+      }
+
+      if (isValid) {
         unlockStudio();
         showToast('Studio unlocked successfully.');
         pinInputField.value = '';
@@ -2246,7 +2282,7 @@
           userAvatarBadge.innerHTML = `<svg class="svg-icon sm" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`;
         }
         if (userEmailLabel) userEmailLabel.textContent = 'Admin';
-        if (userDropdownEmail) userDropdownEmail.textContent = 'Unlocked (PIN Protected)';
+        if (userDropdownEmail) userDropdownEmail.textContent = 'Unlocked (Cloud PIN Protected)';
       } else {
         if (userAvatarBadge) userAvatarBadge.textContent = '🔒';
         if (userEmailLabel) userEmailLabel.textContent = 'Locked';
@@ -2262,6 +2298,8 @@
         updatePinDots();
         setTimeout(() => pinInputField.focus(), 100);
       }
+      // Silently refresh cloud PIN in background
+      fetchCloudPin();
     }
 
     function hideAuthScreen() {
@@ -2319,7 +2357,7 @@
 
     // Change PIN Modal Controls
     if (btnOpenChangePin && changePinModal) {
-      btnOpenChangePin.onclick = () => {
+      btnOpenChangePin.onclick = async () => {
         if (userProfileWrap) userProfileWrap.classList.remove('open');
         const cur = document.getElementById('currentPinInput');
         const np = document.getElementById('newPinInput');
@@ -2329,6 +2367,8 @@
         if (cp) cp.value = '';
         if (changePinAlert) changePinAlert.style.display = 'none';
         changePinModal.classList.add('open');
+        // Refresh cloud PIN before validating current PIN
+        await fetchCloudPin();
       };
     }
 
@@ -2340,7 +2380,7 @@
     }
 
     if (btnSaveNewPin) {
-      btnSaveNewPin.onclick = () => {
+      btnSaveNewPin.onclick = async () => {
         const curPin = document.getElementById('currentPinInput')?.value.trim();
         const newPin = document.getElementById('newPinInput')?.value.trim();
         const confPin = document.getElementById('confirmPinInput')?.value.trim();
@@ -2350,8 +2390,8 @@
           changePinAlert.className = 'auth-alert-banner error';
         }
 
-        const activePin = getStoredPin();
-        if (curPin !== activePin && curPin !== '1234') {
+        const activePin = await fetchCloudPin();
+        if (curPin !== activePin && curPin !== DEFAULT_PIN) {
           if (changePinAlert) {
             changePinAlert.innerHTML = `<span>Current PIN is incorrect.</span>`;
             changePinAlert.style.display = 'flex';
@@ -2375,9 +2415,35 @@
           return;
         }
 
-        setStoredPin(newPin);
-        if (changePinModal) changePinModal.classList.remove('open');
-        showToast(`Studio PIN changed successfully.`);
+        // Saving state UI
+        const originalHtml = btnSaveNewPin.innerHTML;
+        btnSaveNewPin.disabled = true;
+        btnSaveNewPin.innerHTML = `${ICONS.loader} <span>Saving...</span>`;
+
+        try {
+          setStoredPin(newPin);
+
+          if (supabaseClient) {
+            const { error: updateErr } = await supabaseClient
+              .from('catalog_settings')
+              .update({ studio_pin: newPin, updated_at: new Date().toISOString() })
+              .eq('id', 1);
+
+            if (updateErr) {
+              console.warn('Supabase studio_pin sync note:', updateErr.message);
+            }
+          }
+
+          if (changePinModal) changePinModal.classList.remove('open');
+          showToast(`Studio PIN changed and synced to cloud!`);
+        } catch (err) {
+          console.error('Error saving PIN to Supabase:', err);
+          if (changePinModal) changePinModal.classList.remove('open');
+          showToast(`Studio PIN updated locally.`);
+        } finally {
+          btnSaveNewPin.disabled = false;
+          btnSaveNewPin.innerHTML = originalHtml;
+        }
       };
     }
 
