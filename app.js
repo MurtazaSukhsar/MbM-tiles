@@ -10,7 +10,7 @@
      Constants & Utilities
      -------------------------------------------------------------------------- */
   const DB_KEY = 'current_catalog'; // localStorage cache key (offline fallback)
-  const ROWS_PER_PAGE = 4; // fewer rows/page so each product photo gets much more room
+  const ROWS_PER_PAGE = 5; // width (not height) does the heavy lifting for photo size now, so 5/page keeps export fast
 
   // Cloud backend: product/catalog text data lives in Supabase, photos live in
   // Cloudinary. localStorage is kept only as an offline fallback cache.
@@ -708,7 +708,7 @@
     if (!imgEl || !imgEl.naturalWidth || !imgEl.naturalHeight) return;
     const box = imgEl.parentElement;
     if (!box || !box.classList || !box.classList.contains('pdf-photo-box')) return;
-    const BOX_HEIGHT = 209; // matches .pdf-photo-box height in styles.css
+    const BOX_HEIGHT = 168; // matches .pdf-photo-box height in styles.css
     const MAX_WIDTH = 324;  // matches .td-photo content width (340 - 2*8 padding)
     const aspect = imgEl.naturalWidth / imgEl.naturalHeight;
     const fitWidth = Math.max(60, Math.min(MAX_WIDTH, Math.round(aspect * BOX_HEIGHT)));
