@@ -2287,28 +2287,6 @@
       });
     }
 
-    // Numeric keypad clicks
-    document.querySelectorAll('.pin-key-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (!pinInputField) return;
-        const key = btn.dataset.key;
-        const action = btn.dataset.action;
-
-        if (key !== undefined) {
-          if (pinInputField.value.length < 8) {
-            pinInputField.value += key;
-            pinInputField.dispatchEvent(new Event('input'));
-          }
-        } else if (action === 'clear') {
-          pinInputField.value = '';
-          pinInputField.dispatchEvent(new Event('input'));
-        } else if (action === 'backspace') {
-          pinInputField.value = pinInputField.value.slice(0, -1);
-          pinInputField.dispatchEvent(new Event('input'));
-        }
-      });
-    });
-
     // Form Submit
     if (formPinAuth) {
       formPinAuth.addEventListener('submit', (e) => {

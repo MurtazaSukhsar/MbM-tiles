@@ -2229,18 +2229,19 @@ body {
 }
 
 .pin-display-input {
-  width: 160px;
+  width: 200px;
   text-align: center;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.4em;
   font-family: var(--font-mono);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  padding: 0.45rem 0.6rem;
+  padding: 0.65rem 0.85rem;
   background: var(--bg-input);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
   color: #ffffff;
   outline: none;
+  transition: all var(--transition-fast);
 }
 
 .pin-display-input:focus {
@@ -2248,58 +2249,8 @@ body {
   box-shadow: 0 0 0 3px var(--brand-indigo-glow);
 }
 
-/* Interactive Numpad Grid */
-.pin-numpad-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.55rem;
-  width: 100%;
-  max-width: 270px;
-  margin: 0.4rem auto 0;
-}
-
-.pin-key-btn {
-  height: 48px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
-  color: #ffffff;
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-fast);
-  user-select: none;
-}
-
-.pin-key-btn:hover {
-  background: var(--bg-surface-hover);
-  border-color: var(--brand-indigo-light);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.pin-key-btn:active {
-  transform: translateY(1px);
-  background: var(--brand-indigo);
-}
-
-.pin-key-btn.pin-key-action {
-  font-size: 0.92rem;
-  color: var(--text-dim);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.pin-key-btn.pin-key-action:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .pin-hint-sub {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: var(--text-dim);
   margin-top: 0.35rem;
 }
