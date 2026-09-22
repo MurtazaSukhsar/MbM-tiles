@@ -1846,35 +1846,41 @@
     }
   }
 
-  /* --------------------------------------------------------------------------
-     Initialization & Event Bindings
-     -------------------------------------------------------------------------- */
-  async function init() {
-    const saved = await loadFromStorage();
-    const seed = window.DEFAULT_CATALOG_DATA;
-    if (saved && saved.products && saved.products.length) {
-      catalog = saved;
-      // Auto-upgrade existing cached catalog to High-Res images if version is upgraded
-      if (seed && (!catalog.version || catalog.version < (seed.version || 2))) {
-        const seedMap = new Map((seed.products || []).map(p => [p.id, p]));
-        let upgraded = false;
-        catalog.products.forEach(p => {
-          const seedProd = seedMap.get(p.id);
-          if (seedProd && seedProd.images && seedProd.images.length) {
-            // Upgrade to high-resolution image from the master catalog
-            p.images = seedProd.images;
-            upgraded = true;
-          }
-        });
-        catalog.version = seed.version || 2;
-        if (upgraded) {
-          await saveToStorage(catalog);
-          console.info('Catalog auto-upgraded to Ultra-HD images from reference PDF.');
+  function loadLocalSync() {
+    try {
+      const raw = localStorage.getItem(DB_KEY);
+      if (raw) {
+        const cached = JSON.parse(raw);
+        if (cached && cached.products && cached.products.length) {
+          return cached;
         }
       }
-    } else if (seed) {
-      catalog = JSON.parse(JSON.stringify(seed));
-      await saveToStorage(catalog);
+    } catch (e) {}
+    if (window.DEFAULT_CATALOG_DATA) {
+      try {
+        return JSON.parse(JSON.stringify(window.DEFAULT_CATALOG_DATA));
+      } catch (e) {}
+    }
+    return { products: [] };
+  }
+
+  /* --------------------------------------------------------------------------
+     Initialization & Event Bindings (Instant Zero-Delay Startup)
+     -------------------------------------------------------------------------- */
+  async function init() {
+    // 1. Instantly load local cache / seed so UI is ready in 0ms
+    const seed = window.DEFAULT_CATALOG_DATA;
+    catalog = loadLocalSync();
+
+    if (seed && (!catalog.version || catalog.version < (seed.version || 2))) {
+      const seedMap = new Map((seed.products || []).map(p => [p.id, p]));
+      catalog.products.forEach(p => {
+        const seedProd = seedMap.get(p.id);
+        if (seedProd && seedProd.images && seedProd.images.length) {
+          p.images = seedProd.images;
+        }
+      });
+      catalog.version = seed.version || 2;
     }
 
     if (catalog.logoIcon) {
@@ -2250,9 +2256,9 @@
         return;
       }
 
-      // Check local cache first for instant response
+      // Check local cache first
       let localPin = getStoredPin();
-      let isValid = (enteredPin === localPin || enteredPin === DEFAULT_PIN);
+      let isValid = (enteredPin === localPin);
 
       // If local check did not match, check live cloud PIN in Supabase
       if (!isValid && supabaseClient) {
@@ -2260,6 +2266,11 @@
         if (enteredPin === cloudPin) {
           isValid = true;
         }
+      }
+
+      // Fallback: if no custom PIN was ever set, allow DEFAULT_PIN
+      if (!isValid && localPin === DEFAULT_PIN && enteredPin === DEFAULT_PIN) {
+        isValid = true;
       }
 
       if (isValid) {
@@ -2290,7 +2301,7 @@
       }
     }
 
-    function showAuthScreen() {
+    async function showAuthScreen() {
       if (authScreen) authScreen.classList.add('active');
       clearAuthAlert();
       if (pinInputField) {
@@ -2298,8 +2309,16 @@
         updatePinDots();
         setTimeout(() => pinInputField.focus(), 100);
       }
-      // Silently refresh cloud PIN in background
-      fetchCloudPin();
+      // Silently refresh cloud PIN in background and update hint
+      const cloudPin = await fetchCloudPin();
+      const pinHintSub = document.getElementById('pinHintSub');
+      if (pinHintSub) {
+        if (cloudPin && cloudPin !== DEFAULT_PIN) {
+          pinHintSub.textContent = 'Enter your Studio Security PIN';
+        } else {
+          pinHintSub.innerHTML = 'Default PIN: <strong>1234</strong>';
+        }
+      }
     }
 
     function hideAuthScreen() {
@@ -2447,7 +2466,7 @@
       };
     }
 
-    // Session Verification on Load
+    // Session Verification on Load (instant UI)
     if (isStudioUnlocked()) {
       updateAuthUI(true);
       hideAuthScreen();
@@ -2456,8 +2475,22 @@
       showAuthScreen();
     }
 
-    // Initial render
+    // Initial render from local cache (0ms lag)
     renderCurrentView();
+
+    // Background asynchronous cloud sync (does NOT block the user or PIN screen)
+    loadFromStorage().then(saved => {
+      if (saved && saved.products && saved.products.length) {
+        catalog = saved;
+        if (catalog.logoIcon) {
+          const logoEl = document.getElementById('headerLogoImg');
+          if (logoEl) logoEl.src = catalog.logoIcon;
+        }
+        renderCurrentView();
+      }
+    }).catch(err => {
+      console.warn('Background cloud sync note:', err);
+    });
   }
 
   if (document.readyState === 'loading') {
