@@ -1277,13 +1277,67 @@
     showToast(`Duplicated <strong>${copy.name}</strong>.`);
   }
 
-  function deleteProduct(id) {
-    const idx = catalog.products.findIndex(x => x.id === id);
-    if (idx === -1) return;
+  /* --------------------------------------------------------------------------
+     Delete Confirmation Modal System
+     -------------------------------------------------------------------------- */
+  let pendingDeleteProductId = null;
+
+  function openDeleteConfirmModal(product) {
+    if (!product) return;
+    pendingDeleteProductId = product.id;
+
+    const nameEl = document.getElementById('deleteConfirmName');
+    const sizeEl = document.getElementById('deleteConfirmSize');
+    const catEl = document.getElementById('deleteConfirmCategory');
+    const stockEl = document.getElementById('deleteConfirmStock');
+    const imgEl = document.getElementById('deleteConfirmImg');
+    const placeholderEl = document.getElementById('deleteConfirmImgPlaceholder');
+
+    if (nameEl) nameEl.textContent = product.name || 'Unnamed Product';
+    if (sizeEl) sizeEl.textContent = product.size || 'Standard Size';
+    if (catEl) catEl.textContent = product.category || inferProductCategory(product.name, product.size);
+    if (stockEl) stockEl.textContent = `${product.stock ?? 0} Boxes in Stock`;
+
+    if (imgEl) {
+      if (product.images && product.images.length > 0 && product.images[0]?.dataUrl) {
+        imgEl.src = product.images[0].dataUrl;
+        imgEl.style.display = 'block';
+        if (placeholderEl) placeholderEl.style.display = 'none';
+      } else {
+        imgEl.src = '';
+        imgEl.style.display = 'none';
+        if (placeholderEl) placeholderEl.style.display = 'flex';
+      }
+    }
+
+    const modal = document.getElementById('deleteConfirmModal');
+    if (modal) {
+      modal.classList.add('open');
+      const cancelBtn = document.getElementById('btnDeleteConfirmCancel');
+      if (cancelBtn) cancelBtn.focus();
+    }
+  }
+
+  function closeDeleteConfirmModal() {
+    const modal = document.getElementById('deleteConfirmModal');
+    if (modal) modal.classList.remove('open');
+    pendingDeleteProductId = null;
+  }
+
+  function executeDeleteProduct(id) {
+    const targetId = id || pendingDeleteProductId;
+    if (!targetId) return;
+
+    const idx = catalog.products.findIndex(x => x.id === targetId);
+    if (idx === -1) {
+      closeDeleteConfirmModal();
+      return;
+    }
 
     const removed = catalog.products.splice(idx, 1)[0];
     scheduleSave();
-    if (editingProductId === id) closeProductEditor();
+    if (editingProductId === targetId) closeProductEditor();
+    closeDeleteConfirmModal();
     renderCurrentView();
 
     showToast(
@@ -1295,6 +1349,12 @@
         showToast(`Restored <strong>${removed.name}</strong>.`);
       }
     );
+  }
+
+  function deleteProduct(id) {
+    const p = catalog.products.find(x => x.id === id);
+    if (!p) return;
+    openDeleteConfirmModal(p);
   }
 
   /* --------------------------------------------------------------------------
@@ -2130,9 +2190,25 @@
       });
     });
 
+    // Delete Confirmation Modal Connections
+    const deleteModal = document.getElementById('deleteConfirmModal');
+    const btnDeleteClose = document.getElementById('btnDeleteConfirmClose');
+    const btnDeleteCancel = document.getElementById('btnDeleteConfirmCancel');
+    const btnDeleteProceed = document.getElementById('btnDeleteConfirmProceed');
+
+    if (btnDeleteClose) btnDeleteClose.onclick = closeDeleteConfirmModal;
+    if (btnDeleteCancel) btnDeleteCancel.onclick = closeDeleteConfirmModal;
+    if (btnDeleteProceed) btnDeleteProceed.onclick = () => executeDeleteProduct(pendingDeleteProductId);
+    if (deleteModal) {
+      deleteModal.onclick = (e) => {
+        if (e.target.id === 'deleteConfirmModal') closeDeleteConfirmModal();
+      };
+    }
+
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
+        closeDeleteConfirmModal();
         closeProductEditor();
         closeLightbox();
         closeShareModal();
